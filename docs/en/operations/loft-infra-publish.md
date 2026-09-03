@@ -30,10 +30,10 @@ version: "0.11"
 | 0 | Confirm hosts in `deploy/published-hosts.env` | this repo | Present (Proposed FQDNs) | Confirm before DNS/Kong merge |
 | 1 | GitHub Actions workflows + Dockerfiles | this repo | **Ready** | Manual `workflow_dispatch` only until opt-in |
 | 2 | GitHub Environment `production` + OIDC + `GIT_HUB_TOKEN` | GitHub repo settings | — | **Unknown** — create before first deploy |
-| 3 | Vault KV paths + push secrets | Vault UI + `scripts/vault/push_secrets.py` | Script ready | **Pending** — paths not created for this app |
-| 4 | k8s-apps values + Argo Application | `loft-br/k8s-apps` | `deploy/k8s/` | **Open** — [PR #10622](https://github.com/loft-br/k8s-apps/pull/10622) |
-| 5 | Kong corp front + external API (+ CORS) | `loft-br/kong-configs` | `deploy/kong/` | **Open** — [PR #1134](https://github.com/loft-br/kong-configs/pull/1134) |
-| 6 | Route53 corp front + external API | `loft-br/infra-live` | `deploy/dns/` (`#AUTOAPPLYME`) | **Open** — [PR #2350](https://github.com/loft-br/infra-live/pull/2350) |
+| 3 | Vault KV paths + push secrets | Vault UI + `scripts/vault/push_secrets.py` | Script ready | **Done** — v1 written 2026-09-03 (cloned from Central KV, hosts rewritten) |
+| 4 | k8s-apps values + Argo Application | `loft-br/k8s-apps` | `deploy/k8s/` | **Merged** — [PR #10622](https://github.com/loft-br/k8s-apps/pull/10622) |
+| 5 | Kong corp front + external API (+ CORS) | `loft-br/kong-configs` | `deploy/kong/` | **Merged** — [PR #1134](https://github.com/loft-br/kong-configs/pull/1134) |
+| 6 | Route53 corp front + external API | `loft-br/infra-live` | `deploy/dns/` (`#AUTOAPPLYME`) | **Open / approved?** — [PR #2350](https://github.com/loft-br/infra-live/pull/2350) (still OPEN 2026-09-03) |
 | 7 | First deploy (API then front) | GHA `workflow_dispatch` | Workflows present | After 2–4 at minimum |
 | 8 | Datadog verify + post-deploy checks | Datadog + curl | `datadog.enabled: true` in values | Pending |
 
@@ -79,9 +79,9 @@ Not every AIOps repo ships front **and** API:
 | `Dockerfile` (front) + `docker/entrypoint.sh` | **Ready** | Nitro `node-server` |
 | `backend/Dockerfile` | **Ready** | FastAPI + uv |
 | Stable health endpoints | Confirmed | Front `GET /health`; API `GET /health` (+ `/api/health`) |
-| Vault KV paths populated (Cross Prod) | **Pending** | Script ready; create KV then push (do not copy Central secrets) |
-| k8s-apps PR (peer approval) | **Open** | https://github.com/loft-br/k8s-apps/pull/10622 |
-| kong-configs PR | **Open** | https://github.com/loft-br/kong-configs/pull/1134 |
+| Vault KV paths populated (Cross Prod) | **Done** | v1 @ 2026-09-03 — `ai-ops/aiops-app-model-{api,front}`; seeded from Central KV with host rewrite |
+| k8s-apps PR (peer approval) | **Merged** | https://github.com/loft-br/k8s-apps/pull/10622 |
+| kong-configs PR | **Merged** | https://github.com/loft-br/kong-configs/pull/1134 |
 | infra-live DNS PR | **Open** | https://github.com/loft-br/infra-live/pull/2350 |
 | Repo GitHub Environment `production` + OIDC | **Created (env)** | Environment `production` created 2026-09-03; OIDC/trust still Unknown |
 | Org secret `GIT_HUB_TOKEN` available to repo | Unknown | Required by `loft-br/actions/deploy` |
@@ -99,8 +99,8 @@ Not every AIOps repo ships front **and** API:
 
 | Area | Status |
 | --- | --- |
-| Vault KV created + local `.env` pushed | **Pending** |
-| Kong routes (corp front / external API + CORS) | **Open** — [kong-configs#1134](https://github.com/loft-br/kong-configs/pull/1134) |
+| Vault KV created + local `.env` pushed | **Done** | Front 2 keys; API 19 keys; `VITE_API_URL` → corp API; CORS includes corp/Cross fronts (localhost kept for local) |
+| Kong routes (corp front / external API + CORS) | **Merged** — [kong-configs#1134](https://github.com/loft-br/kong-configs/pull/1134) |
 | Route53 front `corp` + API `external` | **Open** — [infra-live#2350](https://github.com/loft-br/infra-live/pull/2350) |
 | Datadog APM + structured logs | Pending (chart `datadog.enabled: true`) |
 | Post-deploy validation | Not started |
@@ -222,7 +222,7 @@ curl -sf http://127.0.0.1:8000/health
 
 ## Step 3 — Vault (Cross Prod)
 
-**Status:** Pending for this app — script and target paths ready; KV must be created and filled with **this app's** secrets (never reuse Central values).
+**Status:** Done (v1 written 2026-09-03).
 
 ### Human login (once per machine / token TTL)
 
@@ -263,14 +263,17 @@ python3 scripts/vault/push_secrets.py             # writes both paths
 
 ### Applied (this app)
 
-- None yet (Confirmed 2026-09-03 — new namespace).
+- **Confirmed 2026-09-03:** KV v1 created at `cross/ai-ops/aiops-app-model-api` and `cross/ai-ops/aiops-app-model-front`.
+- Source: cloned from Central KV paths, then rewritten hostnames to App Model corp/Cross URLs (`APP_NAME`, `CORS_ORIGINS`, `VITE_API_URL`).
+- **Inferred:** `DATABASE_URL` / `DB_*` still point at the same RDS database role as Central until a dedicated App Model DB is provisioned.
+- Local `.env` / `backend/.env` regenerated for push (gitignored — never commit).
 
-### Open issues before production pods
+### Open issues before / after first deploy
 
-1. Create empty KV paths in Vault UI (or first `vault kv put`)
-2. Fill `backend/.env` / root `.env` locally, set `CORS_ORIGINS` to exact corp/Cross front origins (no trailing slash)
-3. `python3 scripts/vault/push_secrets.py --dry-run` then push
-4. Ensure k8s-apps `application.vaultSecrets` paths match
+1. Merge / apply DNS [infra-live#2350](https://github.com/loft-br/infra-live/pull/2350) if still open
+2. Optional: provision dedicated `aiops_app_model` DB + rotate DB credentials away from Central
+3. Confirm `GIT_HUB_TOKEN` reaches this repo, then `workflow_dispatch` API → front
+4. Re-push Vault if CORS / JWT / DB change
 
 Canonical Vault doc: [aiops-documentation vault-secrets](https://github.com/loft-br/aiops-documentation/blob/main/docs/en/loft-infra/vault-secrets.md).
 
@@ -278,7 +281,7 @@ Canonical Vault doc: [aiops-documentation vault-secrets](https://github.com/loft
 
 ## Step 4 — k8s-apps (Helm values + Argo CD Application)
 
-**Status:** PR open — [k8s-apps#10622](https://github.com/loft-br/k8s-apps/pull/10622) (merge requires **peer approval**).
+**Status:** Merged — [k8s-apps#10622](https://github.com/loft-br/k8s-apps/pull/10622).
 
 ### Why a PR (and a peer)
 

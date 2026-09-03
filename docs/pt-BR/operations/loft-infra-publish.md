@@ -30,10 +30,10 @@ version: "0.11"
 | 0 | Confirmar hosts em `deploy/published-hosts.env` | este repo | Presente (FQDNs Proposed) | Confirmar antes do merge DNS/Kong |
 | 1 | Workflows GHA + Dockerfiles | este repo | **Pronto** | Só `workflow_dispatch` até optar por auto-deploy |
 | 2 | GitHub Environment `production` + OIDC + `GIT_HUB_TOKEN` | settings do repo | — | **Unknown** — criar antes do 1º deploy |
-| 3 | Paths Vault KV + push de secrets | Vault UI + `scripts/vault/push_secrets.py` | Script pronto | **Pendente** — paths ainda não existem para este app |
-| 4 | values k8s-apps + Application Argo | `loft-br/k8s-apps` | `deploy/k8s/` | **Aberto** — [PR #10622](https://github.com/loft-br/k8s-apps/pull/10622) |
-| 5 | Kong corp front + API external (+ CORS) | `loft-br/kong-configs` | `deploy/kong/` | **Aberto** — [PR #1134](https://github.com/loft-br/kong-configs/pull/1134) |
-| 6 | Route53 corp front + API external | `loft-br/infra-live` | `deploy/dns/` (`#AUTOAPPLYME`) | **Aberto** — [PR #2350](https://github.com/loft-br/infra-live/pull/2350) |
+| 3 | Paths Vault KV + push de secrets | Vault UI + `scripts/vault/push_secrets.py` | Script pronto | **Feito** — v1 gravado 2026-09-03 (clonado do KV Central, hosts reescritos) |
+| 4 | values k8s-apps + Application Argo | `loft-br/k8s-apps` | `deploy/k8s/` | **Merged** — [PR #10622](https://github.com/loft-br/k8s-apps/pull/10622) |
+| 5 | Kong corp front + API external (+ CORS) | `loft-br/kong-configs` | `deploy/kong/` | **Merged** — [PR #1134](https://github.com/loft-br/kong-configs/pull/1134) |
+| 6 | Route53 corp front + API external | `loft-br/infra-live` | `deploy/dns/` (`#AUTOAPPLYME`) | **Aberto** — [PR #2350](https://github.com/loft-br/infra-live/pull/2350) (ainda OPEN em 2026-09-03) |
 | 7 | Primeiro deploy (API depois front) | GHA `workflow_dispatch` | Workflows presentes | Depois de 2–4 no mínimo |
 | 8 | Verificar Datadog + checks pós-deploy | Datadog + curl | `datadog.enabled: true` nos values | Pendente |
 
@@ -79,9 +79,9 @@ Nem todo repo AIOps tem front **e** API:
 | `Dockerfile` (front) + `docker/entrypoint.sh` | **Pronto** | Nitro `node-server` |
 | `backend/Dockerfile` | **Pronto** | FastAPI + uv |
 | Endpoints de health estáveis | Confirmed | Front `GET /health`; API `GET /health` (+ `/api/health`) |
-| Paths Vault populados (Cross Prod) | **Pendente** | Script pronto; criar KV e enviar (não copiar secrets do Central) |
-| PR k8s-apps (aprovação de par) | **Aberto** | https://github.com/loft-br/k8s-apps/pull/10622 |
-| PR kong-configs | **Aberto** | https://github.com/loft-br/kong-configs/pull/1134 |
+| Paths Vault populados (Cross Prod) | **Feito** | v1 @ 2026-09-03 — `ai-ops/aiops-app-model-{api,front}`; seed do KV Central com rewrite de hosts |
+| PR k8s-apps (aprovação de par) | **Merged** | https://github.com/loft-br/k8s-apps/pull/10622 |
+| PR kong-configs | **Merged** | https://github.com/loft-br/kong-configs/pull/1134 |
 | PR infra-live (DNS) | **Aberto** | https://github.com/loft-br/infra-live/pull/2350 |
 | GitHub Environment `production` + OIDC | **Criado (env)** | Environment `production` criado em 2026-09-03; OIDC/trust ainda Unknown |
 | Secret org `GIT_HUB_TOKEN` no repo | Unknown | Obrigatório para `loft-br/actions/deploy` |
@@ -99,8 +99,8 @@ Nem todo repo AIOps tem front **e** API:
 
 | Área | Status |
 | --- | --- |
-| KV Vault criado + `.env` local enviado | **Pendente** |
-| Rotas Kong (corp front / API external + CORS) | **Aberto** — [kong-configs#1134](https://github.com/loft-br/kong-configs/pull/1134) |
+| KV Vault criado + `.env` local enviado | **Feito** | Front 2 keys; API 19 keys; `VITE_API_URL` → API corp; CORS inclui fronts corp/Cross (localhost mantido p/ local) |
+| Rotas Kong (corp front / API external + CORS) | **Merged** — [kong-configs#1134](https://github.com/loft-br/kong-configs/pull/1134) |
 | Route53 front `corp` + API `external` | **Aberto** — [infra-live#2350](https://github.com/loft-br/infra-live/pull/2350) |
 | Datadog APM + logs estruturados | Pendente (`datadog.enabled: true` nos values) |
 | Validação pós-deploy | Não iniciada |
@@ -222,7 +222,7 @@ curl -sf http://127.0.0.1:8000/health
 
 ## Passo 3 — Vault (Cross Prod)
 
-**Status:** Pendente para este app — script e paths prontos; criar KV e preencher com secrets **deste app** (nunca reutilizar valores do Central).
+**Status:** Feito (v1 gravado em 2026-09-03).
 
 ### Login humano (uma vez por máquina / TTL do token)
 
