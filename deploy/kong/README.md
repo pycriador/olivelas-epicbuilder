@@ -17,19 +17,19 @@ Working copies of manifests that must land in:
 
 **Why API is external (not corp):** Kong-corp ALB Cognito redirects unauthenticated `OPTIONS` with `302`. Browsers do not send cookies on CORS preflight, so SPA `fetch` from the corp front fails with “Redirect is not allowed for a preflight request”. External gateway has no Cognito on the request path; app auth + Netskope remain.
 
-DNS: front `kong_accessibility = corp`, API `kong_accessibility = external` (synced via project GHA / `#AUTOAPPLYME` — do not open a manual `infra-live` PR unless that pipeline is missing).
+DNS: front `kong_accessibility = corp`, API `kong_accessibility = external` (drafts include `#AUTOAPPLYME`).
 
-## Status
+## Status (2026-09-03)
 
 | Piece | Status |
 | --- | --- |
-| Kong front (corp) | ✅ On `kong-configs` `main` |
-| Kong API (external) | ✅ On `kong-configs` `main` ([#1114](https://github.com/loft-br/kong-configs/pull/1114)); CORS plugin ⏳ [#1115](https://github.com/loft-br/kong-configs/pull/1115) |
-| DNS front (`corp`) | ✅ On `infra-live` `main` |
-| DNS API (`external`) | ⏳ Mirror updated; apply via automatic DNS pipeline |
+| Kong front (corp) | **Open** — [kong-configs#1134](https://github.com/loft-br/kong-configs/pull/1134) |
+| Kong API (external + CORS + ip-restriction) | **Open** — same PR |
+| DNS front (`corp`) | **Open** — [infra-live#2350](https://github.com/loft-br/infra-live/pull/2350) |
+| DNS API (`external`) | **Open** — same PR |
 
 Reference: [aiops-documentation Kong gateway](https://github.com/loft-br/aiops-documentation/blob/main/docs/pt-BR/loft-infra/kong-gateway.md).
 
-**CORS:** configure the Kong `cors` plugin on the API route in `kong-configs` (not in `k8s-apps`). Exact front origin + `credentials: true` when the SPA sends cookies / Cognito credentials.
+**CORS:** Kong `cors` plugin on the API route (not in `k8s-apps`). Exact front origin + `credentials: true` when the SPA sends cookies.
 
-Full instructions: [docs/pt-BR/operations/loft-infra-publish.md](../../docs/pt-BR/operations/loft-infra-publish.md) (Passo 5).
+Full instructions: [docs/pt-BR/operations/loft-infra-publish.md](../../docs/pt-BR/operations/loft-infra-publish.md).
