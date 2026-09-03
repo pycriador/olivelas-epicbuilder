@@ -1,0 +1,48 @@
+# Example — Argo CD Application for an AIOps app on cross-prod
+# Target path in loft-br/k8s-apps:
+#   clusters/cross-prod/applications/<namespace>.yaml
+#
+# Reference: clusters/cross-prod/applications/aiops-dataforge.yaml
+# Working copy: deploy/k8s/aiops-app-model.application.yaml
+#
+# Chart pin: AIOps apps currently use web-server 2.15.3 (same as DataForge / Qualidade).
+# Confirm helm-charts-versions.yaml before bumping.
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: <namespace>                # e.g. aiops-app-model
+  namespace: argo-cd
+  annotations:
+    argocd.argoproj.io/manifest-generate-paths: .
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  sources:
+    - repoURL: https://chartmuseum.loft-corp.com.br
+      targetRevision: 2.15.3
+      chart: web-server
+      helm:
+        valueFiles:
+          - $values/clusters/cross-prod/base/web-server-base-values.yaml
+          - $values/clusters/cross-prod/deployments/<namespace>/<api-name>/values.yaml
+    - repoURL: https://chartmuseum.loft-corp.com.br
+      targetRevision: 2.15.3
+      chart: web-server
+      helm:
+        valueFiles:
+          - $values/clusters/cross-prod/base/web-server-base-values.yaml
+          - $values/clusters/cross-prod/deployments/<namespace>/<front-name>/values.yaml
+    - repoURL: https://github.com/loft-br/k8s-apps.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: <namespace>
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
+    syncOptions:
+      - CreateNamespace=true

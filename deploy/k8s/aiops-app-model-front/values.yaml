@@ -1,0 +1,74 @@
+application:
+  name: aiops-app-model-front
+  environment: production
+  product: cross
+  cpuArchitecture: arm64
+  image:
+    # Patched by loft-br/actions/deploy on each release.
+    # ECR naming: <namespace>-<name>
+    repository: 886819405138.dkr.ecr.us-east-1.amazonaws.com/aiops-app-model-aiops-app-model-front
+    pullPolicy: IfNotPresent
+    tag: "bootstrap" # replaced on first deploy from loft-br/aiops-app-model
+  network:
+    port: 8080
+    protocol: TCP
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 768Mi
+  startupProbe:
+    httpGet:
+      port: 8080
+      path: /health
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    timeoutSeconds: 5
+    failureThreshold: 12
+  livenessProbe:
+    httpGet:
+      port: 8080
+      path: /health
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  readinessProbe:
+    httpGet:
+      port: 8080
+      path: /health
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  environmentVariables:
+    - name: TZ
+      value: America/Sao_Paulo
+    - name: HOST
+      value: "0.0.0.0"
+    - name: PORT
+      value: "8080"
+  vaultSecrets:
+    - mount: cross
+      path: ai-ops/aiops-app-model-front
+  team: squad-ai-ops
+replicaCount: 2
+rollingUpdate:
+  maxSurge: 30%
+  maxUnavailable: 0
+ingress:
+  enabled: true
+  className: kong
+autoscaling:
+  enabled: true
+  kedaEnabled: false
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 80
+datadog:
+  enabled: true
+  ttl: 7d
+podAnnotations:
+  loft.com.br/source-repository: aiops-app-model

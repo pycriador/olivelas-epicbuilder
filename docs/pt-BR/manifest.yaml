@@ -1,0 +1,55 @@
+# Manifesto de documentação (caminhos relativos a docs/pt-BR/)
+# Documentation Standard v1.0 (adopter) — pacote Day 0
+standard: "Documentation Standard v1.0"
+project: "aiops-app-model"
+root: "."
+updated: "2026-08-19"
+documents:
+  - id: CTX-AI-001
+    path: ai-context.md
+    title: Contexto para IA
+    type: Context
+    status: DRAFT
+    owner: aiops-app-model
+    updated: 2026-08-19
+    tags: [ai-ready, entry]
+  - id: PRJ-OVERVIEW-001
+    path: project-overview.md
+    title: Visão geral do projeto
+    type: Overview
+    status: DRAFT
+    owner: aiops-app-model
+    updated: 2026-08-19
+    tags: [day-0]
+  - id: ARCH-CTX-001
+    path: architecture/system-context.md
+    title: Contexto do sistema
+    type: Architecture
+    status: DRAFT
+    owner: aiops-app-model
+    updated: 2026-08-19
+    tags: [day-0, architecture]
+  - id: ARCH-OVERVIEW-001
+    path: architecture/overview.md
+    title: Visão geral da arquitetura
+    type: Architecture
+    status: DRAFT
+    owner: aiops-app-model
+    updated: 2026-08-19
+    tags: [day-0, architecture]
+  - id: APP-ROUTES-001
+    path: application/routes.md
+    title: Rotas
+    type: Application
+    status: DRAFT
+    owner: aiops-app-model
+    updated: 2026-08-19
+    tags: [day-0, routes]
+  - id: OPS-DEV-001
+    path: operations/local-development.md
+    title: Desenvolvimento local
+    type: Operations
+    status: DRAFT
+    owner: aiops-app-model
+    updated: 2026-08-19
+    tags: [day-0, operations]

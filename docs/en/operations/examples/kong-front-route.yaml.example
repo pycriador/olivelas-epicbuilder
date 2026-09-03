@@ -1,0 +1,27 @@
+# Example — Kong corp front route (infra-prod)
+# Target: gateways/infra-prod/corp/cross/routes/<front>-route.yaml
+# Reference: aiops-dataforge-front-route.yaml
+
+routes:
+- name: <front-name>-route
+  protocols:
+  - https
+  hosts:
+  - <app>.loft-corp.com.br
+  methods:
+  - GET
+  - HEAD
+  - OPTIONS
+  - POST
+  - PUT
+  - PATCH
+  - DELETE
+  paths:
+  - /
+  regex_priority: 0
+  preserve_host: false
+  strip_path: false
+  service: <front-name>-service
+  tags:
+  - impact_level:5
+  - squad:squad-ai

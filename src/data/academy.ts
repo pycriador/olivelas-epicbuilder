@@ -1,0 +1,325 @@
+import type { Aula, Trilha } from "./types";
+
+export const trilhas: Trilha[] = [
+  {
+    id: "fundamentos",
+    nome: "Fundamentos de IA",
+    descricao:
+      "O básico bem feito: como modelos de linguagem funcionam, o que eles fazem bem e onde erram.",
+    nivel: "Iniciante",
+    duracao: "1h 40min",
+    progresso: 60,
+    cor: "#115644",
+    tags: ["fundamentos", "conceitos", "llm", "básico"],
+  },
+  {
+    id: "produtividade",
+    nome: "IA para produtividade",
+    descricao: "Como usar IA no dia a dia sem virar dependente dela: escrita, análise e rotina.",
+    nivel: "Iniciante",
+    duracao: "1h 15min",
+    progresso: 33,
+    cor: "#ff774a",
+    tags: ["produtividade", "rotina", "escrita", "dia a dia"],
+  },
+  {
+    id: "automacao",
+    nome: "Automação com IA",
+    descricao: "Do primeiro fluxo em n8n até automações com tratamento de erro e monitoramento.",
+    nivel: "Intermediário",
+    duracao: "2h 05min",
+    progresso: 25,
+    cor: "#d94616",
+    tags: ["automação", "n8n", "fluxos", "integração"],
+  },
+  {
+    id: "agentes",
+    nome: "Construindo agentes",
+    descricao:
+      "Agentes que consultam dados, decidem e sabem quando parar. Inclui limites e segurança.",
+    nivel: "Avançado",
+    duracao: "1h 50min",
+    progresso: 0,
+    cor: "#25302c",
+    tags: ["agentes", "rag", "embeddings", "guardrails"],
+  },
+  {
+    id: "ia-na-loft",
+    nome: "IA na Loft",
+    descricao:
+      "Como propor, aprovar e colocar uma solução de IA em produção dentro do nosso contexto.",
+    nivel: "Intermediário",
+    duracao: "1h 10min",
+    progresso: 12,
+    cor: "#cee79e",
+    tags: ["processo", "governança", "negócio", "aprovação"],
+  },
+];
+
+export const aulas: Aula[] = [
+  {
+    id: "aula-como-funciona-llm",
+    trilhaId: "fundamentos",
+    titulo: "Como um modelo de linguagem realmente funciona",
+    duracao: "14 min",
+    descricao:
+      "Uma explicação sem matemática de por que o modelo acerta muito e erra com convicção.",
+    resumo:
+      "Modelos de linguagem preveem o próximo trecho de texto a partir de padrões aprendidos. Isso explica a fluência e também as invenções: o modelo não consulta uma verdade, ele completa um padrão. Saber disso muda a forma de escrever pedidos e de revisar respostas.",
+    aprendizados: [
+      "Fluência não é sinal de correção",
+      "Contexto fornecido pesa mais do que memória do modelo",
+      "Pedidos vagos produzem respostas médias",
+    ],
+    materiais: [
+      { titulo: "Resumo em uma página", tipo: "PDF" },
+      { titulo: "Glossário de termos", tipo: "Documento" },
+    ],
+    concluida: true,
+    tags: ["llm", "conceito", "alucinação"],
+  },
+  {
+    id: "aula-prompt-estruturado",
+    trilhaId: "fundamentos",
+    titulo: "Prompts estruturados e saída previsível",
+    duracao: "18 min",
+    descricao: "Como escrever pedidos que retornam sempre no mesmo formato.",
+    resumo:
+      "Um prompt confiável tem papel, tarefa, restrições e formato de saída. Pedir JSON, limitar opções a uma lista fechada e proibir invenção de dados resolve a maior parte dos problemas de integração.",
+    aprendizados: [
+      "Estrutura: papel, tarefa, restrições, formato",
+      "Listas fechadas evitam categorias inventadas",
+      "Regras negativas são mais eficazes que adjetivos",
+    ],
+    materiais: [
+      { titulo: "Template de prompt", tipo: "Documento" },
+      { titulo: "Exemplos comentados", tipo: "PDF" },
+    ],
+    concluida: true,
+    tags: ["prompt", "json", "formato", "estrutura"],
+  },
+  {
+    id: "aula-limites-riscos",
+    trilhaId: "fundamentos",
+    titulo: "Limites, riscos e uso responsável",
+    duracao: "16 min",
+    descricao: "O que não colar em uma ferramenta de IA e como tratar dados sensíveis.",
+    resumo:
+      "Antes de usar IA em um processo, classifique o dado envolvido. Dados pessoais e informações contratuais exigem ferramenta aprovada e registro de uso. A regra prática: se você não colocaria em um e-mail externo, não cole em um chat público.",
+    aprendizados: [
+      "Classifique o dado antes de escolher a ferramenta",
+      "Toda decisão sensível mantém revisão humana",
+      "Registre onde a IA está sendo usada",
+    ],
+    materiais: [{ titulo: "Checklist de uso responsável", tipo: "PDF" }],
+    concluida: true,
+    tags: ["risco", "privacidade", "governança"],
+  },
+  {
+    id: "aula-produtividade-rotina",
+    trilhaId: "produtividade",
+    titulo: "IA na rotina: onde ela realmente economiza tempo",
+    duracao: "15 min",
+    descricao: "Um método simples para escolher quais tarefas vale automatizar primeiro.",
+    resumo:
+      "Priorize tarefas frequentes, com entrada em texto e critério de qualidade claro. Tarefas raras e ambíguas raramente compensam o esforço de automatizar.",
+    aprendizados: [
+      "Frequência x esforço x clareza do critério",
+      "Comece pela tarefa chata e repetitiva",
+      "Meça o antes para saber se ganhou",
+    ],
+    materiais: [{ titulo: "Matriz de priorização", tipo: "Planilha" }],
+    concluida: false,
+    tags: ["produtividade", "priorização", "rotina"],
+  },
+  {
+    id: "aula-ia-escrita",
+    trilhaId: "produtividade",
+    titulo: "Quais as boas práticas de um agente de IA ?",
+    duracao: "17 min",
+    descricao: "Como usar IA para estruturar e revisar sem que o texto fique genérico.",
+    resumo:
+      "Use a IA para esqueleto, revisão e alternativas de trecho. Mantenha a primeira pessoa e as decisões de tom com você. Um guia de estilo em forma de regras evita o texto genérico.",
+    aprendizados: [
+      "Peça estrutura, escreva o miolo",
+      "Guia de estilo como lista de regras",
+      "Revisão final sempre humana",
+    ],
+    materiais: [{ titulo: "Guia de estilo exemplo", tipo: "Documento" }],
+    concluida: false,
+    tags: ["escrita", "revisão", "tom de voz"],
+  },
+  {
+    id: "aula-analise-planilha",
+    trilhaId: "produtividade",
+    titulo: "Análise de planilhas com IA",
+    duracao: "13 min",
+    descricao: "Perguntas úteis para fazer sobre uma base antes de tirar conclusões.",
+    resumo:
+      "IA ajuda a explorar hipóteses rapidamente, mas números precisam ser conferidos na fonte. Use para gerar perguntas e roteiros de análise, não para produzir o número final.",
+    aprendizados: [
+      "IA para explorar, planilha para confirmar",
+      "Sempre peça o raciocínio da análise",
+      "Cuidado com agregações inventadas",
+    ],
+    materiais: [{ titulo: "Roteiro de análise", tipo: "Documento" }],
+    concluida: false,
+    tags: ["dados", "planilha", "análise"],
+  },
+  {
+    id: "aula-n8n-primeiro-fluxo",
+    trilhaId: "automacao",
+    titulo: "Seu primeiro fluxo em n8n",
+    duracao: "22 min",
+    descricao: "Do gatilho ao resultado: construindo uma automação simples de ponta a ponta.",
+    resumo:
+      "Um fluxo tem gatilho, transformação e destino. Construir o caminho feliz primeiro e só depois tratar exceções deixa o aprendizado muito mais rápido.",
+    aprendizados: [
+      "Gatilho, transformação, destino",
+      "Teste com dados reais desde o início",
+      "Registre execuções para depurar",
+    ],
+    materiais: [
+      { titulo: "Fluxo de exemplo", tipo: "JSON" },
+      { titulo: "Passo a passo", tipo: "PDF" },
+    ],
+    concluida: false,
+    tags: ["n8n", "automação", "fluxo", "integração"],
+  },
+  {
+    id: "aula-n8n-avancado",
+    trilhaId: "automacao",
+    titulo: "Automação resiliente: erros, retentativas e limites",
+    duracao: "24 min",
+    descricao: "Como evitar que uma automação falhe em silêncio.",
+    resumo:
+      "Toda automação precisa de tratamento de erro, retentativa com espera e alerta para uma pessoa. Falha silenciosa é o pior resultado possível.",
+    aprendizados: [
+      "Retentativa com espera progressiva",
+      "Alerta obrigatório em falha",
+      "Limite de custo por execução",
+    ],
+    materiais: [{ titulo: "Checklist de resiliência", tipo: "PDF" }],
+    concluida: false,
+    tags: ["n8n", "erro", "monitoramento", "resiliência"],
+  },
+  {
+    id: "aula-integracao-api",
+    trilhaId: "automacao",
+    titulo: "Chamando APIs de IA dentro de um fluxo",
+    duracao: "19 min",
+    descricao: "Autenticação, lotes e controle de custo em chamadas de modelo.",
+    resumo:
+      "Processar em lote reduz custo e tempo. Guardar a resposta bruta ajuda a depurar sem repetir a chamada e a auditar decisões depois.",
+    aprendizados: [
+      "Processe em lotes",
+      "Armazene a resposta bruta",
+      "Controle custo por execução",
+    ],
+    materiais: [{ titulo: "Exemplos de chamada", tipo: "Documento" }],
+    concluida: false,
+    tags: ["api", "custo", "lote", "integração"],
+  },
+  {
+    id: "aula-agentes-conceito",
+    trilhaId: "agentes",
+    titulo: "O que é um agente, na prática",
+    duracao: "20 min",
+    descricao: "A diferença entre um prompt, um fluxo e um agente de verdade.",
+    resumo:
+      "Um agente decide qual ferramenta usar para chegar a um objetivo. Isso traz flexibilidade e também imprevisibilidade — por isso escopo estreito é regra.",
+    aprendizados: [
+      "Agente decide, fluxo executa",
+      "Escopo estreito é mais confiável",
+      "Sempre defina condição de parada",
+    ],
+    materiais: [{ titulo: "Anatomia de um agente", tipo: "PDF" }],
+    concluida: false,
+    tags: ["agente", "ferramentas", "decisão"],
+  },
+  {
+    id: "aula-embeddings",
+    trilhaId: "agentes",
+    titulo: "Busca semântica e embeddings",
+    duracao: "23 min",
+    descricao: "Como fazer o agente responder com base nos seus documentos.",
+    resumo:
+      "Embeddings permitem recuperar trechos por significado. A qualidade da resposta depende muito mais da curadoria do corpus e do tamanho dos trechos do que do modelo.",
+    aprendizados: [
+      "Trechos de 500 a 800 caracteres funcionam bem",
+      "Cite a fonte em toda resposta",
+      "Documento desatualizado gera resposta errada",
+    ],
+    materiais: [{ titulo: "Guia de indexação", tipo: "Documento" }],
+    concluida: false,
+    tags: ["embeddings", "rag", "busca", "documentos"],
+  },
+  {
+    id: "aula-guardrails",
+    trilhaId: "agentes",
+    titulo: "Guardrails: limites que fazem o agente confiável",
+    duracao: "21 min",
+    descricao: "Validação de saída, caminho de escape e o que nunca automatizar.",
+    resumo:
+      "Guardrails são validações antes e depois da chamada: escopo do que pode ser respondido, formato obrigatório e escape para humano em baixa confiança.",
+    aprendizados: [
+      "Valide a saída antes de usar",
+      "Baixa confiança vai para humano",
+      "Decisão sensível nunca é totalmente automática",
+    ],
+    materiais: [{ titulo: "Checklist de guardrails", tipo: "PDF" }],
+    concluida: false,
+    tags: ["guardrails", "segurança", "validação", "escape"],
+  },
+  {
+    id: "aula-ia-engenharia",
+    trilhaId: "agentes",
+    titulo: "IA no ciclo de desenvolvimento",
+    duracao: "18 min",
+    descricao: "Onde IA ajuda em código, revisão e testes — e onde atrapalha.",
+    resumo:
+      "IA acelera esqueleto de código, revisão inicial e geração de testes. Decisões de arquitetura seguem humanas, com revisão obrigatória em qualquer código gerado.",
+    aprendizados: [
+      "Primeira rodada de revisão automatizável",
+      "Arquitetura continua humana",
+      "Todo código gerado precisa de teste",
+    ],
+    materiais: [{ titulo: "Boas práticas de código assistido", tipo: "Documento" }],
+    concluida: false,
+    tags: ["código", "engenharia", "revisão", "testes"],
+  },
+  {
+    id: "aula-ia-negocio",
+    trilhaId: "ia-na-loft",
+    titulo: "Como avaliar uma oportunidade de IA",
+    duracao: "16 min",
+    descricao: "Do problema repetitivo ao caso com impacto estimado.",
+    resumo:
+      "Uma boa oportunidade tem volume, critério claro de qualidade e dono do processo. Estime impacto em horas e risco antes de escrever qualquer prompt.",
+    aprendizados: [
+      "Volume x clareza x dono do processo",
+      "Estime impacto em horas",
+      "Sem dono, não vai para produção",
+    ],
+    materiais: [{ titulo: "AI Opportunity Canvas", tipo: "Documento" }],
+    concluida: false,
+    tags: ["negócio", "oportunidade", "impacto", "avaliação"],
+  },
+  {
+    id: "aula-dados-ia",
+    trilhaId: "ia-na-loft",
+    titulo: "Dados prontos para IA",
+    duracao: "17 min",
+    descricao: "O que precisa estar organizado antes de qualquer projeto de IA.",
+    resumo:
+      "Base confiável, campos padronizados e histórico acessível são pré-requisito. A maior parte do esforço de um projeto de IA continua sendo preparação de dados.",
+    aprendizados: [
+      "Padronize campos antes de modelar",
+      "Histórico acessível vale mais que volume",
+      "Documente a origem de cada campo",
+    ],
+    materiais: [{ titulo: "Checklist de dados", tipo: "Planilha" }],
+    concluida: false,
+    tags: ["dados", "qualidade", "preparação"],
+  },
+];

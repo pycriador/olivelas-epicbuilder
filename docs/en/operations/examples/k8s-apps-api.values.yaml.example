@@ -1,0 +1,70 @@
+# Example — API Helm values for loft-br/k8s-apps (Cross Prod)
+# Target path:
+#   clusters/cross-prod/deployments/<namespace>/<api-name>/values.yaml
+#
+# Reference: aiops-dataforge-api values in loft-br/k8s-apps
+# Working copy: deploy/k8s/aiops-app-model-api/values.yaml
+
+application:
+  name: <api-name>                 # e.g. aiops-app-model-api
+  environment: production
+  product: cross
+  cpuArchitecture: arm64
+  image:
+    # ECR: <account>.dkr.ecr.<region>.amazonaws.com/<namespace>-<name>
+    repository: 886819405138.dkr.ecr.us-east-1.amazonaws.com/<namespace>-<api-name>
+    pullPolicy: IfNotPresent
+    tag: "bootstrap"               # patched by loft-br/actions/deploy
+  network:
+    port: 8000                     # FastAPI / uvicorn
+    protocol: TCP
+  resources:
+    requests:
+      cpu: 200m
+      memory: 512Mi
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+  livenessProbe:
+    httpGet:
+      port: 8000
+      path: /health
+    initialDelaySeconds: 20
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  readinessProbe:
+    httpGet:
+      port: 8000
+      path: /health
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  environmentVariables:
+    - name: TZ
+      value: America/Sao_Paulo
+    - name: PORT
+      value: "8000"
+  vaultSecrets:
+    - mount: cross
+      path: ai-ops/<api-name>      # must match Vault KV path
+  team: squad-ai-ops
+replicaCount: 2
+rollingUpdate:
+  maxSurge: 30%
+  maxUnavailable: 0
+ingress:
+  enabled: true
+  className: kong
+autoscaling:
+  enabled: true
+  kedaEnabled: false
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 80
+datadog:
+  enabled: true
+  ttl: 7d
+podAnnotations:
+  loft.com.br/source-repository: <github-repo-name>

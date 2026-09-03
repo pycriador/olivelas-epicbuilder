@@ -1,0 +1,44 @@
+# Deploy API (aiops-app-model-api) to PROD
+# Reference: loft-br/aiops-dataforge/.github/workflows/prod-k8s-deployment-api.yml
+
+name: Deployment workflow - PROD (API)
+
+on:
+  # Template default: manual only. Adopters: uncomment push to auto-deploy.
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - "backend/**"
+  #     - "deploy/k8s/aiops-app-model-api/**"
+  #     - ".github/workflows/prod-k8s-deployment-api.yml"
+
+concurrency:
+  group: deploy-aiops-app-model-api-prod
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy API to PROD
+    runs-on: ubuntu-arm
+    environment: production
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build image and deploy API to eks
+        uses: loft-br/actions/deploy@deploy/v1.8.0
+        with:
+          name: aiops-app-model-api
+          namespace: aiops-app-model
+          aws-account: cross
+          product: ai-ops
+          environment: production
+          github-token: ${{ secrets.GIT_HUB_TOKEN }}
+          context: backend
+          dockerfile: backend/Dockerfile
+          platforms: linux/arm64
+          ecr-max-images: 10

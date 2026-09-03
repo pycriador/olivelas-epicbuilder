@@ -1,0 +1,13 @@
+services:
+- name: aiops-app-model-api-service
+  protocol: https
+  host: aiops-app-model-api.cross.loft-prod.io
+  port: 443
+  path: /
+  retries: 0
+  connect_timeout: 5000
+  read_timeout: 60000
+  write_timeout: 60000
+  tags:
+  - impact_level:5
+  - squad:squad-ai

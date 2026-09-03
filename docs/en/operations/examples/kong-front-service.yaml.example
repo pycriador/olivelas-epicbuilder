@@ -1,0 +1,17 @@
+# Example — Kong corp front service (infra-prod)
+# Target: gateways/infra-prod/corp/cross/services/<front>-service.yaml
+# Reference: aiops-dataforge-front-service.yaml
+
+services:
+- name: <front-name>-service
+  protocol: https
+  host: <front-name>.cross.loft-prod.io
+  port: 443
+  path: /
+  retries: 0
+  connect_timeout: 5000
+  read_timeout: 60000
+  write_timeout: 60000
+  tags:
+  - impact_level:5
+  - squad:squad-ai

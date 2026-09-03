@@ -1,0 +1,37 @@
+"""Example FastAPI entrypoint — AIOps Family B."""
+
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from app.config import get_settings
+from app.db.session import create_engine, dispose_engine
+from app.routers import health, portal
+
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI):
+    settings = get_settings()
+    create_engine(settings.resolved_database_url, schema=settings.db_schema)
+    yield
+    await dispose_engine()
+
+
+def create_app() -> FastAPI:
+    settings = get_settings()
+    app = FastAPI(title=settings.app_name, lifespan=lifespan)
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=settings.cors_origin_list,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+    app.include_router(health.router)
+    app.include_router(health.api_router)
+    app.include_router(portal.router)
+    return app
+
+
+app = create_app()

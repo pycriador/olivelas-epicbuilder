@@ -1,0 +1,558 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system — Phase 1 aligned with loft-design-harmony tokens.
+ * Semantic colors live in :root / .dark; extended brand aliases in @theme.
+ * Token source of truth for TS: src/theme/tokens.ts
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light) and .dark
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@theme {
+  /* Design Harmony — Inter + Loft brand tokens */
+  --font-sans: "Inter", Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+  --color-brand: #ff774a;
+  --color-brand-deep: #e5613a;
+  --color-premium: #bd7b00;
+  --color-success: #2ecc71;
+  --color-warning: #f1c40f;
+  --color-info: #3498db;
+  --color-forest: #191f23;
+  --color-lime: #f2f4f8;
+  --color-ink: #191f23;
+  --shadow-card: 0 1px 2px rgb(25 31 35 / 0.06), 0 8px 24px -12px rgb(25 31 35 / 0.12);
+  --shadow-lift: 0 2px 6px rgb(25 31 35 / 0.08), 0 16px 40px -16px rgb(25 31 35 / 0.18);
+}
+
+:root {
+  /* Design Harmony radius: 8px */
+  --radius: 0.5rem;
+  --background: #f2f4f8;
+  --foreground: #191f23;
+  --card: #ffffff;
+  --card-foreground: #191f23;
+  --popover: #ffffff;
+  --popover-foreground: #191f23;
+  --primary: #ff774a;
+  --primary-foreground: #ffffff;
+  --secondary: #dde1e6;
+  --secondary-foreground: #191f23;
+  --muted: #f2f4f8;
+  --muted-foreground: #4d5358;
+  --accent: #191f23;
+  --accent-foreground: #ffffff;
+  --destructive: #e74c3c;
+  --destructive-foreground: #ffffff;
+  --border: #dde1e6;
+  --input: #dde1e6;
+  --ring: #ff774a;
+  --chart-1: #ff774a;
+  --chart-2: #2ecc71;
+  --chart-3: #bd7b00;
+  --chart-4: #e74c3c;
+  --chart-5: #191f23;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #191f23;
+  --sidebar-primary: #ff774a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f2f4f8;
+  --sidebar-accent-foreground: #191f23;
+  --sidebar-border: #dde1e6;
+  --sidebar-ring: #ff774a;
+}
+
+
+.dark {
+  --background: #191f23;
+  --foreground: #ffffff;
+  --card: #2a3238;
+  --card-foreground: #ffffff;
+  --popover: #2a3238;
+  --popover-foreground: #ffffff;
+  --primary: #ff774a;
+  --primary-foreground: #ffffff;
+  --secondary: #4d5358;
+  --secondary-foreground: #ffffff;
+  --muted: #2a3238;
+  --muted-foreground: #dde1e6;
+  --accent: #ff774a;
+  --accent-foreground: #ffffff;
+  --destructive: #e74c3c;
+  --destructive-foreground: #ffffff;
+  --border: rgb(255 255 255 / 12%);
+  --input: rgb(255 255 255 / 14%);
+  --ring: #ff774a;
+  --sidebar: #12161a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ff774a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2a3238;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgb(255 255 255 / 10%);
+  --sidebar-ring: #ff774a;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility card-hover {
+  transition:
+    transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 200ms ease;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lift);
+    border-color: color-mix(in oklab, var(--primary) 35%, transparent);
+  }
+}
+
+/* Soft page surface used by AppShell / PageShell / portal */
+@utility page-surface {
+  background: color-mix(in oklab, var(--muted) 60%, var(--background));
+}
+
+/* Legacy alias — kept for older call sites */
+@utility hero-aurora {
+  position: relative;
+  overflow: hidden;
+  background: color-mix(in oklab, var(--muted) 60%, var(--background));
+}
+
+
+@utility soft-card {
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border);
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+}
+
+@utility rise-in {
+  animation: rise-in 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility card-sheen {
+  position: relative;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+  &:hover {
+    box-shadow: var(--shadow-lift);
+    border-color: color-mix(in oklab, var(--primary) 35%, transparent);
+  }
+}
+
+@utility section-rule {
+  &::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 2rem;
+    margin-top: 0.5rem;
+    border-radius: 1px;
+    background: var(--primary);
+  }
+}
+
+
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Content panel overlapping the hero */
+@utility canvas-panel {
+  position: relative;
+  z-index: 10;
+  border-radius: 1.5rem 1.5rem 0 0;
+  background: var(--background);
+  box-shadow:
+    0 -1px 0 0 rgb(255 255 255 / 0.7),
+    0 -16px 40px -18px rgb(25 31 35 / 0.18);
+}
+
+/* Soft edge between hero and page content */
+@utility hero-edge {
+  position: relative;
+}
+
+
+/* Sidebar right edge */
+@utility sidebar-edge {
+  position: relative;
+  z-index: 30;
+  box-shadow:
+    1px 0 0 rgb(255 255 255 / 0.1),
+    12px 0 32px -16px rgb(25 31 35 / 0.35);
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 3rem;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgb(0 0 0 / 0.12) 100%
+    );
+  }
+}
+
+/* Cards that straddle the hero boundary */
+@utility straddle-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--card) 96%, transparent);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+@utility filters-sticky {
+  border-radius: var(--radius-lg);
+  background: var(--card);
+}
+
+@utility case-card-lift {
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+  &:hover {
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+@utility form-head {
+  background: color-mix(in oklab, var(--primary) 8%, var(--card));
+}
+
+/* Sidebar — light surface (design-system AppShell) */
+@utility sidebar-aurora {
+  background: #ffffff;
+}
+
+@utility nav-pill {
+  border-radius: 8px;
+  transition: background 0.15s ease;
+  &:hover {
+    background: color-mix(in oklab, var(--muted) 80%, transparent);
+  }
+}
+
+@keyframes jira-magnifier-scan {
+  0% {
+    transform: translate(-22px, -18px) rotate(-12deg);
+  }
+  25% {
+    transform: translate(18px, -14px) rotate(8deg);
+  }
+  50% {
+    transform: translate(16px, 20px) rotate(-6deg);
+  }
+  75% {
+    transform: translate(-20px, 14px) rotate(10deg);
+  }
+  100% {
+    transform: translate(-22px, -18px) rotate(-12deg);
+  }
+}
+
+@keyframes jira-scan-line {
+  0% {
+    top: 8%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    top: 78%;
+    opacity: 0;
+  }
+}
+
+@keyframes jira-pulse-ring {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.12;
+  }
+}
+
+@keyframes jira-progress-sheen {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.jira-magnifier {
+  animation: jira-magnifier-scan 2.8s ease-in-out infinite;
+}
+
+.jira-scan-line {
+  animation: jira-scan-line 2.2s ease-in-out infinite;
+}
+
+.jira-pulse-ring {
+  animation: jira-pulse-ring 2.4s ease-in-out infinite;
+}
+
+.jira-pulse-ring-delay {
+  animation: jira-pulse-ring 2.4s ease-in-out 0.7s infinite;
+}
+
+.jira-progress-fill {
+  background-size: 200% 100%;
+  animation: jira-progress-sheen 1.4s linear infinite;
+}
+
+/* Stylish vertical scrollbar (global + explicit containers) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--primary) 55%, transparent) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ff774a 0%, #191f23 100%);
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #e5613a 0%, #12161a 100%);
+  background-clip: padding-box;
+}
+
+.stylish-scroll {
+  scrollbar-gutter: stable;
+}
+
+.stylish-scroll::-webkit-scrollbar-track {
+  margin: 6px 0;
+  background: color-mix(in oklab, var(--muted) 70%, transparent);
+  border-radius: 999px;
+}
+
+/*
+ * Lovable classic chrome — scoped via OldAppShell (`.lovable-classic`).
+ * Activated by layout mode preference (classic), not by route path.
+ */
+.lovable-classic {
+  --font-display: "Space Grotesk", "Geist", sans-serif;
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --radius: 1rem;
+  --background: oklch(0.941 0.001 106);
+  --foreground: oklch(0.294 0.014 165.7);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.294 0.014 165.7);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.294 0.014 165.7);
+  --primary: oklch(0.72 0.161 40.3);
+  --primary-foreground: oklch(0.995 0.003 60);
+  --secondary: oklch(0.965 0.001 106);
+  --secondary-foreground: oklch(0.294 0.014 165.7);
+  --muted: oklch(0.965 0.001 106);
+  --muted-foreground: oklch(0.53 0.012 165);
+  --accent: oklch(0.373 0.069 168.5);
+  --accent-foreground: oklch(0.995 0.003 60);
+  --destructive: oklch(0.577 0.183 37.6);
+  --destructive-foreground: oklch(0.995 0.003 60);
+  --border: oklch(0.922 0.001 106);
+  --input: oklch(0.922 0.001 106);
+  --ring: oklch(0.72 0.161 40.3);
+  --sidebar: oklch(0.268 0.024 165);
+  --sidebar-foreground: oklch(0.94 0.01 120);
+  --sidebar-primary: oklch(0.72 0.161 40.3);
+  --sidebar-primary-foreground: oklch(0.995 0.003 60);
+  --sidebar-accent: oklch(0.373 0.069 168.5);
+  --sidebar-accent-foreground: oklch(0.98 0.01 120);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.72 0.161 40.3);
+  --shadow-card: 0 2px 6px oklch(0.294 0.014 165.7 / 0.08), 0 14px 36px -12px oklch(0.294 0.014 165.7 / 0.2);
+  --shadow-lift: 0 4px 10px oklch(0.294 0.014 165.7 / 0.1), 0 24px 52px -16px oklch(0.294 0.014 165.7 / 0.28);
+  color: var(--foreground);
+  background: var(--background);
+}
+
+.lovable-classic .font-display,
+.lovable-classic h1,
+.lovable-classic h2,
+.lovable-classic h3,
+.lovable-classic h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.022em;
+}
+
+.lovable-classic .hero-aurora {
+  background:
+    radial-gradient(90% 110% at 0% 0%, oklch(0.33 0.062 168) 0%, transparent 58%),
+    radial-gradient(95% 120% at 100% 20%, oklch(0.68 0.184 42) 0%, transparent 62%),
+    radial-gradient(70% 90% at 50% 100%, oklch(0.62 0.15 55 / 0.75) 0%, transparent 65%),
+    linear-gradient(
+      115deg,
+      oklch(0.28 0.055 168) 0%,
+      oklch(0.36 0.07 165) 32%,
+      oklch(0.62 0.145 60) 62%,
+      oklch(0.7 0.175 40) 100%
+    );
+}
+
+.lovable-classic .sidebar-aurora {
+  background-color: oklch(0.268 0.024 165);
+  background-image:
+    radial-gradient(120% 60% at 20% 0%, oklch(0.36 0.04 165 / 0.9) 0%, transparent 60%),
+    radial-gradient(100% 70% at 100% 100%, oklch(0.22 0.02 165 / 0.9) 0%, transparent 65%),
+    linear-gradient(180deg, oklch(0.3 0.028 165) 0%, oklch(0.24 0.022 165) 100%);
+  color: oklch(0.94 0.01 120);
+}
+
+.lovable-classic .nav-pill {
+  border: 1px solid oklch(1 0 0 / 0.1);
+  background: oklch(1 0 0 / 0.04);
+  backdrop-filter: blur(2px);
+  border-radius: 9999px;
+  color: oklch(0.94 0.01 120);
+}
+
+.lovable-classic .nav-pill:hover {
+  background: oklch(1 0 0 / 0.09);
+  border-color: oklch(1 0 0 / 0.2);
+  transform: translateX(2px);
+}
+
+.lovable-classic .canvas-panel {
+  border-radius: 2.5rem 2.5rem 0 0;
+  background: oklch(0.941 0.001 106);
+  box-shadow:
+    0 -2px 0 0 oklch(1 0 0 / 0.6),
+    0 -26px 60px -18px oklch(0.294 0.014 165.7 / 0.55),
+    0 -46px 90px -40px oklch(0.294 0.014 165.7 / 0.5);
+}
+
+.lovable-classic .straddle-card {
+  border-radius: 1.25rem;
+  border: 1px solid color-mix(in oklab, var(--card) 70%, var(--border));
+  background: color-mix(in oklab, var(--card) 96%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.lovable-classic .section-rule::after {
+  height: 3px;
+  width: 2.5rem;
+  margin-top: 0.65rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.lovable-classic .case-card-lift {
+  border-radius: 1.25rem;
+}
+
+.lovable-classic .case-card-lift:hover {
+  transform: translateY(-12px);
+  box-shadow:
+    0 12px 24px oklch(0.294 0.014 165.7 / 0.12),
+    0 32px 64px -20px oklch(0.294 0.014 165.7 / 0.42);
+}

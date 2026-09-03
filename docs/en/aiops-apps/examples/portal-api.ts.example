@@ -1,0 +1,30 @@
+// Example — frontend API client (src/lib/portal-api.ts)
+
+import { apiBaseUrl } from "@/lib/jira-import";
+
+export type PortalContentSnapshot = {
+  cases: unknown[];
+  caseMeta: Record<string, unknown>;
+  integracoes: unknown[];
+  areas: string[];
+  // extend to match your Pydantic schema
+};
+
+export async function fetchPortalSnapshot(): Promise<PortalContentSnapshot> {
+  const response = await fetch(`${apiBaseUrl()}/api/v1/portal/snapshot`);
+  if (!response.ok) {
+    throw new Error(`Failed to load content (${response.status})`);
+  }
+  return (await response.json()) as PortalContentSnapshot;
+}
+
+export async function savePortalSnapshot(snapshot: PortalContentSnapshot): Promise<void> {
+  const response = await fetch(`${apiBaseUrl()}/api/v1/portal/snapshot`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(snapshot),
+  });
+  if (!response.ok) {
+    throw new Error(`Failed to save content (${response.status})`);
+  }
+}

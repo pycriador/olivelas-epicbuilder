@@ -1,0 +1,79 @@
+# Example — Front Helm values for loft-br/k8s-apps (Cross Prod)
+# Target path:
+#   clusters/cross-prod/deployments/<namespace>/<front-name>/values.yaml
+#
+# Reference: aiops-dataforge-front values in loft-br/k8s-apps
+# Working copy: deploy/k8s/aiops-app-model-front/values.yaml
+
+application:
+  name: <front-name>               # e.g. aiops-app-model-front
+  environment: production
+  product: cross
+  cpuArchitecture: arm64
+  image:
+    repository: 886819405138.dkr.ecr.us-east-1.amazonaws.com/<namespace>-<front-name>
+    pullPolicy: IfNotPresent
+    tag: "bootstrap"
+  network:
+    port: 8080
+    protocol: TCP
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 768Mi
+  startupProbe:
+    httpGet:
+      port: 8080
+      path: /health
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    timeoutSeconds: 5
+    failureThreshold: 12
+  livenessProbe:
+    httpGet:
+      port: 8080
+      path: /health
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  readinessProbe:
+    httpGet:
+      port: 8080
+      path: /health
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  environmentVariables:
+    - name: TZ
+      value: America/Sao_Paulo
+    - name: HOST
+      value: "0.0.0.0"
+    - name: PORT
+      value: "8080"
+  vaultSecrets:
+    - mount: cross
+      path: ai-ops/<front-name>
+  team: squad-ai-ops
+replicaCount: 2
+rollingUpdate:
+  maxSurge: 30%
+  maxUnavailable: 0
+ingress:
+  enabled: true
+  className: kong
+autoscaling:
+  enabled: true
+  kedaEnabled: false
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 80
+datadog:
+  enabled: true
+  ttl: 7d
+podAnnotations:
+  loft.com.br/source-repository: <github-repo-name>

@@ -1,0 +1,67 @@
+# Minimal front deploy workflow (GitHub Actions → loft-br/actions/deploy)
+# Copy to: .github/workflows/prod-k8s-deployment-front.yml
+# Skip this file if the repo has no frontend.
+
+name: Deployment workflow - PROD (Front)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "docker/**"
+      - "Dockerfile"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/prod-k8s-deployment-front.yml"
+
+concurrency:
+  group: deploy-<front-name>-prod
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy front to PROD
+    runs-on: ubuntu-arm
+    environment: production
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+
+      # Prefer FRONT_BAKE_API_URL from deploy/published-hosts.env (reachable API for the browser).
+      - name: Load published hosts
+        run: |
+          set -a
+          . deploy/published-hosts.env
+          set +a
+          {
+            echo "CORP_FRONT_URL=${CORP_FRONT_URL}"
+            echo "CORP_API_URL=${CORP_API_URL}"
+            echo "CROSS_FRONT_URL=${CROSS_FRONT_URL}"
+            echo "CROSS_API_URL=${CROSS_API_URL}"
+            echo "FRONT_BAKE_API_URL=${FRONT_BAKE_API_URL:-$CORP_API_URL}"
+          } >> "$GITHUB_ENV"
+
+      - name: Build image and deploy front to eks
+        uses: loft-br/actions/deploy@deploy/v1.8.0
+        with:
+          name: <front-name>
+          namespace: <namespace>
+          aws-account: cross
+          product: ai-ops
+          environment: production
+          github-token: ${{ secrets.GIT_HUB_TOKEN }}
+          dockerfile: Dockerfile
+          platforms: linux/arm64
+          ecr-max-images: 10
+          # Origin map + SSR fallback (see src/lib/api-base-url.ts)
+          build-args: |
+            VITE_API_URL=${{ env.FRONT_BAKE_API_URL }}
+            VITE_CORP_API_URL=${{ env.CORP_API_URL }}
+            VITE_CROSS_API_URL=${{ env.CROSS_API_URL }}
+            VITE_CORP_FRONT_URL=${{ env.CORP_FRONT_URL }}
+            VITE_CROSS_FRONT_URL=${{ env.CROSS_FRONT_URL }}

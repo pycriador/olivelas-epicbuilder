@@ -1,0 +1,49 @@
+routes:
+- name: aiops-app-model-api-route
+  protocols:
+  - https
+  hosts:
+  - aiops-app-model-api.loft-corp.com.br
+  methods:
+  - GET
+  - HEAD
+  - OPTIONS
+  - POST
+  - PUT
+  - PATCH
+  - DELETE
+  paths:
+  - /
+  regex_priority: 0
+  preserve_host: false
+  strip_path: false
+  service: aiops-app-model-api-service
+  plugins:
+    - name: ip-restriction
+      config:
+        allow:
+          - 163.116.128.0/17 # Netskope
+          - 162.10.0.0/17 # Netskope
+        message: Not Found
+        status: 404
+    - name: cors
+      config:
+        origins:
+          - https://aiops-app-model.loft-corp.com.br
+        headers:
+          - authorization
+          - content-type
+        methods:
+          - GET
+          - HEAD
+          - OPTIONS
+          - POST
+          - PUT
+          - PATCH
+          - DELETE
+        max_age: 3600
+        # Cookie / Cognito credentialed browser calls from the corp front
+        credentials: true
+  tags:
+  - impact_level:5
+  - squad:squad-ai

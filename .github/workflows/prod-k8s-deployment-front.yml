@@ -1,0 +1,81 @@
+# Deploy FRONT (aiops-app-model-front) to PROD
+# Reference: loft-br/aiops-dataforge/.github/workflows/prod-k8s-deployment-front.yml
+
+name: Deployment workflow - PROD (Front)
+
+on:
+  # Template default: manual only. Adopters: uncomment push to auto-deploy.
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+  #   paths:
+  #     - "src/**"
+  #     - "docker/**"
+  #     - "Dockerfile"
+  #     - "package.json"
+  #     - "package-lock.json"
+  #     - "vite.config.ts"
+  #     - ".env.production"
+  #     - ".env.example"
+  #     - "tsconfig.json"
+  #     - "components.json"
+  #     - "deploy/k8s/aiops-app-model-front/**"
+  #     - "deploy/published-hosts.env"
+  #     - ".github/workflows/prod-k8s-deployment-front.yml"
+
+concurrency:
+  group: deploy-aiops-app-model-front-prod
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy front to PROD
+    runs-on: ubuntu-arm
+    environment: production
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Load published hosts
+        run: |
+          set -a
+          # shellcheck disable=SC1091
+          . deploy/published-hosts.env
+          set +a
+          {
+            echo "CORP_FRONT_URL=${CORP_FRONT_URL}"
+            echo "CORP_API_URL=${CORP_API_URL}"
+            echo "CROSS_FRONT_URL=${CROSS_FRONT_URL}"
+            echo "CROSS_API_URL=${CROSS_API_URL}"
+            echo "FRONT_BAKE_API_URL=${FRONT_BAKE_API_URL:-$CORP_API_URL}"
+          } >> "$GITHUB_ENV"
+          test -n "${FRONT_BAKE_API_URL:-$CORP_API_URL}" || {
+            echo "ERROR: FRONT_BAKE_API_URL / CORP_API_URL missing from deploy/published-hosts.env" >&2
+            exit 1
+          }
+          test -n "${CORP_API_URL}" && test -n "${CROSS_API_URL}" || {
+            echo "ERROR: CORP_API_URL and CROSS_API_URL required for origin-based API map" >&2
+            exit 1
+          }
+
+      - name: Build image and deploy front to eks
+        uses: loft-br/actions/deploy@deploy/v1.8.0
+        with:
+          name: aiops-app-model-front
+          namespace: aiops-app-model
+          aws-account: cross
+          product: ai-ops
+          environment: production
+          github-token: ${{ secrets.GIT_HUB_TOKEN }}
+          dockerfile: Dockerfile
+          platforms: linux/arm64
+          ecr-max-images: 10
+          build-args: |
+            VITE_API_URL=${{ env.FRONT_BAKE_API_URL }}
+            VITE_CORP_API_URL=${{ env.CORP_API_URL }}
+            VITE_CROSS_API_URL=${{ env.CROSS_API_URL }}
+            VITE_CORP_FRONT_URL=${{ env.CORP_FRONT_URL }}
+            VITE_CROSS_FRONT_URL=${{ env.CROSS_FRONT_URL }}

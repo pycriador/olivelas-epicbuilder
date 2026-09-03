@@ -1,0 +1,57 @@
+# AIOPS App Model API — FastAPI + uvicorn (ARM-friendly)
+#
+# Minimal production image for Loft EKS (linux/arm64).
+# Secrets (DATABASE_URL, JWT_SECRET, …) come from env / Vault at runtime — never bake them in.
+#
+# Build (from repo root):
+#   docker build -t aiops-app-model-api:local -f backend/Dockerfile backend
+#
+# Or with workflow-style context (context=backend, dockerfile=backend/Dockerfile from root):
+#   docker build -t aiops-app-model-api:local -f backend/Dockerfile ./backend
+#
+# Run (example — use real secrets locally only):
+#   docker run --rm -p 8000:8000 --env-file backend/.env aiops-app-model-api:local
+
+ARG PYTHON_VERSION=3.12
+FROM python:${PYTHON_VERSION}-slim-bookworm AS build
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    UV_COMPILE_BYTECODE=1 \
+    UV_LINK_MODE=copy
+
+RUN pip install --no-cache-dir uv
+
+COPY pyproject.toml uv.lock ./
+RUN uv sync --frozen --no-install-project --no-dev
+
+COPY app ./app
+
+FROM python:${PYTHON_VERSION}-slim-bookworm AS runtime
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PATH="/app/.venv/bin:${PATH}" \
+    PORT=8000
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends wget \
+    && rm -rf /var/lib/apt/lists/* \
+    && groupadd --system app \
+    && useradd --system --gid app --home-dir /app --no-create-home app
+
+COPY --from=build --chown=app:app /app /app
+
+USER app
+
+EXPOSE 8000
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+  CMD wget -qO- http://127.0.0.1:8000/health || exit 1
+
+CMD ["ddtrace-run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

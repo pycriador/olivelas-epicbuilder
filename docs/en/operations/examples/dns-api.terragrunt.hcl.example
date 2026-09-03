@@ -1,0 +1,30 @@
+#AUTOAPPLYME
+# Example — Route53 Kong record (external API)
+# Same tree as dns-corp; only record_name + kong_accessibility change.
+# Reference: aiops-dataforge-api.loft-corp.com.br/terragrunt.hcl
+
+include "root" {
+  path   = find_in_parent_folders("root.hcl")
+  expose = true
+}
+
+locals {
+  component_name    = "route53/kong-record"
+  component_version = "4.2.1"
+}
+
+terraform {
+  source = "tfr://${include.root.locals.registry_host}/${local.component_name}/${include.root.locals.registry_provider}?version=${local.component_version}"
+}
+
+dependency "zone" {
+  config_path = "../../../../../_global/infrastructure/route53/zones/loft-corp.com.br"
+}
+
+inputs = {
+  zone_name          = dependency.zone.outputs.zone_name
+  record_name        = "<api-name>"     # e.g. aiops-app-model-api
+  kong_accessibility = "external"       # API + Netskope on Kong side
+  aws_account        = "infrastructure"
+  environment        = "production"
+}

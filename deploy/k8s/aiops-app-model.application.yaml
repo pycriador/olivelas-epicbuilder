@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: aiops-app-model
+  namespace: argo-cd
+  annotations:
+    argocd.argoproj.io/manifest-generate-paths: .
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  sources:
+    - repoURL: https://chartmuseum.loft-corp.com.br
+      targetRevision: 2.15.3
+      chart: web-server
+      helm:
+        valueFiles:
+          - $values/clusters/cross-prod/base/web-server-base-values.yaml
+          - $values/clusters/cross-prod/deployments/aiops-app-model/aiops-app-model-api/values.yaml
+    - repoURL: https://chartmuseum.loft-corp.com.br
+      targetRevision: 2.15.3
+      chart: web-server
+      helm:
+        valueFiles:
+          - $values/clusters/cross-prod/base/web-server-base-values.yaml
+          - $values/clusters/cross-prod/deployments/aiops-app-model/aiops-app-model-front/values.yaml
+    - repoURL: https://github.com/loft-br/k8s-apps.git
+      targetRevision: HEAD
+      ref: values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: aiops-app-model
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
+    syncOptions:
+      - CreateNamespace=true

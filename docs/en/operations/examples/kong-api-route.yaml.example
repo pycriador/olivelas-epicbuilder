@@ -1,0 +1,54 @@
+# Example — Kong external API route (infra-prod) with Netskope + CORS
+# Target: gateways/infra-prod/external/cross/routes/<api>-route.yaml
+# Reference: aiops-app-model-api-route.yaml / loft-business-profile-api-route.yaml
+#
+# CORS lives on kong-configs (GitOps). Do not put CORS in k8s-apps ingress.
+
+routes:
+- name: <api-name>-route
+  protocols:
+  - https
+  hosts:
+  - <api-name>.loft-corp.com.br
+  methods:
+  - GET
+  - HEAD
+  - OPTIONS
+  - POST
+  - PUT
+  - PATCH
+  - DELETE
+  paths:
+  - /
+  regex_priority: 0
+  preserve_host: false
+  strip_path: false
+  service: <api-name>-service
+  plugins:
+    - name: ip-restriction
+      config:
+        allow:
+          - 163.116.128.0/17 # Netskope
+          - 162.10.0.0/17 # Netskope
+        message: Not Found
+        status: 404
+    - name: cors
+      config:
+        origins:
+          - https://<front-name>.loft-corp.com.br
+        headers:
+          - authorization
+          - content-type
+        methods:
+          - GET
+          - HEAD
+          - OPTIONS
+          - POST
+          - PUT
+          - PATCH
+          - DELETE
+        max_age: 3600
+        credentials: true
+  tags:
+  - impact_level:5
+  - squad:squad-ai

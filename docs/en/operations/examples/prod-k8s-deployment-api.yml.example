@@ -1,0 +1,46 @@
+# Minimal API deploy workflow (GitHub Actions → loft-br/actions/deploy)
+# Copy to: .github/workflows/prod-k8s-deployment-api.yml
+# Skip this file if the repo has no backend API.
+#
+# Layout A — API under backend/ (monorepo front+api): use context + dockerfile below.
+# Layout B — API-only repo: set context to "." and dockerfile to "Dockerfile".
+
+name: Deployment workflow - PROD (API)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "backend/**"
+      - ".github/workflows/prod-k8s-deployment-api.yml"
+
+concurrency:
+  group: deploy-<api-name>-prod
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy API to PROD
+    runs-on: ubuntu-arm
+    environment: production
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build image and deploy API to eks
+        uses: loft-br/actions/deploy@deploy/v1.8.0
+        with:
+          name: <api-name>
+          namespace: <namespace>
+          aws-account: cross
+          product: ai-ops
+          environment: production
+          github-token: ${{ secrets.GIT_HUB_TOKEN }}
+          context: backend
+          dockerfile: backend/Dockerfile
+          platforms: linux/arm64
+          ecr-max-images: 10

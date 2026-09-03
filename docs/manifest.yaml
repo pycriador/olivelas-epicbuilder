@@ -1,0 +1,12 @@
+# Documentation manifest — language chooser
+# Documentation Standard v1.0 (adopter)
+standard: "Documentation Standard v1.0"
+project: "aiops-app-model"
+updated: "2026-08-19"
+languages:
+  - code: en
+    path: en/
+    title: English
+  - code: pt-BR
+    path: pt-BR/
+    title: Português (Brasil)

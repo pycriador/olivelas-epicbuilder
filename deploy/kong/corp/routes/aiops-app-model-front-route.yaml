@@ -1,0 +1,23 @@
+routes:
+- name: aiops-app-model-front-route
+  protocols:
+  - https
+  hosts:
+  - aiops-app-model.loft-corp.com.br
+  methods:
+  - GET
+  - HEAD
+  - OPTIONS
+  - POST
+  - PUT
+  - PATCH
+  - DELETE
+  paths:
+  - /
+  regex_priority: 0
+  preserve_host: false
+  strip_path: false
+  service: aiops-app-model-front-service
+  tags:
+  - impact_level:5
+  - squad:squad-ai

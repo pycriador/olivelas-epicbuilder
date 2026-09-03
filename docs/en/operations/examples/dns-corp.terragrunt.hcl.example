@@ -1,0 +1,33 @@
+#AUTOAPPLYME
+# Example — Route53 Kong record (corp front)
+# Target in loft-br/infra-live:
+#   live/aws/infrastructure/production/_global/route53/records/loft-corp.com.br/<app>.loft-corp.com.br/terragrunt.hcl
+# Reference: aiops-dataforge.loft-corp.com.br/terragrunt.hcl
+#
+# Never plan/apply locally — open a PR and let Atlantis/Terrateam apply.
+
+include "root" {
+  path   = find_in_parent_folders("root.hcl")
+  expose = true
+}
+
+locals {
+  component_name    = "route53/kong-record"
+  component_version = "4.2.1"
+}
+
+terraform {
+  source = "tfr://${include.root.locals.registry_host}/${local.component_name}/${include.root.locals.registry_provider}?version=${local.component_version}"
+}
+
+dependency "zone" {
+  config_path = "../../../../../_global/infrastructure/route53/zones/loft-corp.com.br"
+}
+
+inputs = {
+  zone_name          = dependency.zone.outputs.zone_name
+  record_name        = "<app>"          # e.g. aiops-app-model
+  kong_accessibility = "corp"           # front UI
+  aws_account        = "infrastructure"
+  environment        = "production"
+}

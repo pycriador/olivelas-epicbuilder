@@ -1,0 +1,66 @@
+application:
+  name: aiops-app-model-api
+  environment: production
+  product: cross
+  cpuArchitecture: arm64
+  image:
+    # Patched by loft-br/actions/deploy on each release.
+    # ECR naming: <namespace>-<name>
+    repository: 886819405138.dkr.ecr.us-east-1.amazonaws.com/aiops-app-model-aiops-app-model-api
+    pullPolicy: IfNotPresent
+    tag: "bootstrap" # replaced on first deploy from loft-br/aiops-app-model
+  network:
+    port: 8000
+    protocol: TCP
+  resources:
+    requests:
+      cpu: 200m
+      memory: 512Mi
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+  livenessProbe:
+    httpGet:
+      port: 8000
+      path: /health
+    initialDelaySeconds: 20
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  readinessProbe:
+    httpGet:
+      port: 8000
+      path: /health
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+  environmentVariables:
+    - name: TZ
+      value: America/Sao_Paulo
+    - name: PORT
+      value: "8000"
+    - name: APP_NAME
+      value: AIOPS App Model API
+  vaultSecrets:
+    - mount: cross
+      path: ai-ops/aiops-app-model-api
+  team: squad-ai-ops
+replicaCount: 2
+rollingUpdate:
+  maxSurge: 30%
+  maxUnavailable: 0
+ingress:
+  enabled: true
+  className: kong
+autoscaling:
+  enabled: true
+  kedaEnabled: false
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 80
+datadog:
+  enabled: true
+  ttl: 7d
+podAnnotations:
+  loft.com.br/source-repository: aiops-app-model
