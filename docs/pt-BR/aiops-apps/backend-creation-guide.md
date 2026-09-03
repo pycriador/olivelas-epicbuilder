@@ -57,7 +57,7 @@ related:
 
 ---
 
-## Stack de exemplo (AIOPS App Model)
+## Stack de exemplo (AIOps App Model)
 
 **Um exemplo validado**, não a única stack permitida.
 
@@ -169,7 +169,7 @@ CORS errado → browser mostra `Failed to fetch` → banner de offline mesmo com
 
 **Princípio:** credenciais admin provisionam infra; a API roda com role de app least-privilege.
 
-| Artefato | Exemplo AIOPS App Model | Seu app |
+| Artefato | Exemplo AIOps App Model | Seu app |
 | --- | --- | --- |
 | Database | `aiops_app_model` | `my_app_db` |
 | Role app | `aiops_app_model_app` | `my_app_user` |
@@ -219,7 +219,7 @@ Doc RDS (adotador): [aiops-app-model — rds-provisioning](https://github.com/lo
 
 Prefixo: `/api/v1/`
 
-AIOPS App Model expõe:
+AIOps App Model expõe:
 
 - `GET/PUT /api/v1/portal/snapshot` — sync em bulk com store do frontend
 - CRUD em `/api/v1/cases`, `/areas`, `/integrations`, `/hub`
@@ -265,7 +265,7 @@ cd backend
 uv run pytest
 ```
 
-Padrões (AIOPS App Model):
+Padrões (AIOps App Model):
 
 - **Health:** rota real; mock opcional do DB
 - **Portal snapshot:** mock do service; `httpx.AsyncClient` + `ASGITransport`
@@ -324,7 +324,7 @@ Até lá, o rascunho vivo fica em [aiops-app-model `docs/pt-BR/aiops-apps/`](../
 | Documento | Local |
 | --- | --- |
 | Arquivos de exemplo | [examples/README.md](examples/README.md) |
-| README backend AIOPS App Model | [github.com/loft-br/aiops-app-model/backend/README.md](https://github.com/loft-br/aiops-app-model/blob/main/backend/README.md) |
+| README backend AIOps App Model | [github.com/loft-br/aiops-app-model/backend/README.md](https://github.com/loft-br/aiops-app-model/blob/main/backend/README.md) |
 | Setup local (adotador) | [aiops-app-model — local-setup](https://github.com/loft-br/aiops-app-model/blob/main/docs/pt-BR/backend/local-setup.md) |
 | Provisionamento RDS (adotador) | [aiops-app-model — rds-provisioning](https://github.com/loft-br/aiops-app-model/blob/main/docs/pt-BR/backend/rds-provisioning.md) |
 | Schema e API (adotador) | [aiops-app-model — schema-and-api](https://github.com/loft-br/aiops-app-model/blob/main/docs/pt-BR/backend/schema-and-api.md) |

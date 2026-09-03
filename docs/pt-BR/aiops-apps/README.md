@@ -22,7 +22,7 @@ Esta pasta espelha o caminho alvo em `aiops-documentation`: `docs/*/aiops-apps/`
 
 ## Docs específicos do adotador
 
-Runbooks detalhados do AIOPS App Model (scripts RDS, schema) ficam em [../backend/README.md](../backend/README.md) até promoção como subpack `aiops-apps/aiops-app-model/`.
+Runbooks detalhados do AIOps App Model (scripts RDS, schema) ficam em [../backend/README.md](../backend/README.md) até promoção como subpack `aiops-apps/aiops-app-model/`.
 
 ## Checklist do PR de promoção
 

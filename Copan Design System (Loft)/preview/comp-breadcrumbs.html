@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Breadcrumbs</title><link rel="stylesheet" href="_card.css">
+<style>
+  .crumbs { font-family: Inter, sans-serif; display: flex; align-items: center; gap: 8px; font-size: 13px; line-height: 20px; flex-wrap: wrap; }
+  .crumbs a { color: #697077; text-decoration: none; }
+  .crumbs a:hover { color: #121619; text-decoration: underline; text-decoration-style: dashed; text-underline-offset: 3px; }
+  .crumbs .sep { color: #C1C7CD; }
+  .crumbs .current { color: #121619; font-weight: 600; }
+  .crumbs .back { color: #121619; display: inline-flex; align-items: center; gap: 6px; font-weight: 500; text-decoration: none; }
+  .crumbs .back:hover { color: #F56738; }
+  .state-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 8px; }
+  .tile { background: #F2F4F8; border-radius: 8px; padding: 14px 16px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Breadcrumbs · marketing</div>
+
+  <div class="tile">
+    <div class="state-label">Marketing · 4 níveis</div>
+    <div class="crumbs">
+      <a href="#">Início</a><span class="sep">/</span>
+      <a href="#">Alugar</a><span class="sep">/</span>
+      <a href="#">São Paulo</a><span class="sep">/</span>
+      <a href="#">Pinheiros</a><span class="sep">/</span>
+      <span class="current">R$ 4.900 · 62m² · 2 quartos</span>
+    </div>
+  </div>
+
+  <div class="tile" style="margin-top: 10px;">
+    <div class="state-label">Dashboard · com back-action</div>
+    <div class="crumbs">
+      <a href="#" class="back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Voltar
+      </a>
+      <span class="sep">·</span>
+      <a href="#">Minhas propostas</a><span class="sep">/</span>
+      <span class="current">Proposta #2841</span>
+    </div>
+  </div>
+
+  <div class="tile" style="margin-top: 10px;">
+    <div class="state-label">Com truncate (mobile / caminho longo)</div>
+    <div class="crumbs">
+      <a href="#">Início</a><span class="sep">/</span>
+      <a href="#">…</a><span class="sep">/</span>
+      <a href="#">Pinheiros</a><span class="sep">/</span>
+      <span class="current">Rua Cardeal Arcoverde, 1200</span>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top: 8px;">
+    Breadcrumbs · 13/20 text-secondary, separador "/" em cinza. Último nível sempre em bold + text-primary. Variantes: back-action para fluxos dashboard; elipse no meio para truncar caminhos longos.
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,58 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Header navigation</title><link rel="stylesheet" href="_card.css">
+<style>
+  .chrome { background: #FFF; border: 1px solid #E1E9EF; border-radius: 12px; overflow: hidden; font-family: Inter, sans-serif; }
+  .header { height: 72px; padding: 0 24px; display: flex; align-items: center; gap: 32px; border-bottom: 1px solid #E1E9EF; }
+  .brand { color: #121619; display: flex; align-items: center; }
+  .nav { display: flex; gap: 28px; flex: 1; }
+  .nav a { font-size: 14px; line-height: 20px; font-weight: 500; color: #121619; text-decoration: none; padding: 4px 0; position: relative; }
+  .nav a.active { color: #121619; font-weight: 600; }
+  .nav a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -26px; height: 3px; background: #F56738; border-radius: 2px 2px 0 0; }
+  .nav a:hover { color: #F56738; }
+  .right { display: flex; align-items: center; gap: 12px; }
+  .link { font-size: 14px; font-weight: 500; color: #121619; background: none; border: none; cursor: pointer; padding: 10px 4px; }
+  .btn { font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; height: 40px; padding: 0 18px; border-radius: 8px; cursor: pointer; }
+  .btn-primary { background: #F56738; color: #FFF; border: none; }
+  .btn-secondary { background: #FFF; color: #121619; border: 1px solid #121619; }
+  .sub { padding: 14px 24px; display: flex; gap: 8px; align-items: center; font-size: 13px; color: #697077; }
+  .sub a { color: #697077; text-decoration: none; }
+  .sub .current { color: #121619; font-weight: 600; }
+  .sub .sep { color: #C1C7CD; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Header · Marketing</div>
+  <div class="chrome">
+    <div class="header">
+      <div class="brand">
+        <svg width="28" height="24" viewBox="0 0 72 61" fill="currentColor"><path d="M 40.159 61.411 L 46.651 61.411 L 46.651 29.139 L 55.847 29.139 L 57.688 22.676 L 46.651 22.676 L 46.651 13.787 C 46.651 9.749 49.951 6.463 54.007 6.463 L 54.007 0 C 46.371 0 40.159 6.185 40.159 13.787 L 40.159 22.676 L 36.885 22.676 C 35.432 16.927 30.196 12.658 23.976 12.658 C 16.638 12.658 10.667 18.601 10.667 25.908 C 10.667 33.214 16.638 39.157 23.976 39.157 C 30.196 39.157 35.432 34.888 36.885 29.139 L 40.159 29.139 L 40.159 61.411 Z M 67.456 22.676 L 72 22.676 L 72 29.139 L 67.456 29.139 L 67.456 50.419 L 60.963 50.419 L 60.963 14.225 L 67.456 14.225 L 67.456 22.676 Z M 23.976 18.475 C 19.86 18.475 16.51 21.809 16.51 25.908 C 16.51 30.006 19.86 33.34 23.976 33.34 C 28.093 33.34 31.442 30.006 31.442 25.908 C 31.442 21.809 28.093 18.475 23.976 18.475 Z M 0 32.097 C 0 41.961 8.061 49.986 17.968 49.986 L 17.968 43.523 C 11.64 43.523 6.492 38.397 6.492 32.097 L 6.492 14.224 L 0 14.224 L 0 32.097 Z" fill-rule="evenodd"/></svg>
+      </div>
+      <nav class="nav">
+        <a href="#">Comprar</a>
+        <a href="#" class="active">Alugar</a>
+        <a href="#">Vender</a>
+        <a href="#">Financiar</a>
+        <a href="#">Sobre a Loft</a>
+      </nav>
+      <div class="right">
+        <button class="link">Entrar</button>
+        <button class="btn btn-secondary">Anunciar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:4px;">Breadcrumbs · Sub-bar</div>
+  <div class="chrome">
+    <div class="sub">
+      <a href="#">Início</a><span class="sep">/</span>
+      <a href="#">Alugar</a><span class="sep">/</span>
+      <a href="#">São Paulo</a><span class="sep">/</span>
+      <span class="current">Pinheiros</span>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top:8px;">
+    Header · 72h, solid white, 1px border-bottom #E1E9EF. Ativa: underline orange 3px. CTAs: "Entrar" como link, "Anunciar" como secondary outline preto. Breadcrumbs 13/18 text-tertiary · atual em bold.
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,67 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Tags</title><link rel="stylesheet" href="_card.css">
+<style>
+  .tag { font-family: Inter, sans-serif; font-weight: 500; font-size: 12px; line-height: 16px; padding: 4px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+  .tag-neutral   { background: #E1E9EF; color: #121619; }
+  .tag-info      { background: #EAF3F9; color: #1F4E73; }
+  .tag-positive  { background: #D9F3E9; color: #115644; }
+  .tag-warning   { background: #FFF4DF; color: #7A5200; }
+  .tag-negative  { background: #FDECEC; color: #8F2828; }
+  .tag-premium   { background: #FAF0D9; color: #7A5200; border: 1px solid #E4B266; }
+  .tag-muted     { background: transparent; color: #879DAC; border: 1px solid #E1E9EF; }
+  .tag-inverted  { background: rgba(255,255,255,0.12); color: #FFFFFF; }
+  .state-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 6px; }
+  .state-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .state { display: flex; flex-direction: column; }
+  .dark { background: #121619; padding: 12px; border-radius: 8px; display: flex; gap: 8px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Tags · Semantic variants</div>
+
+  <div class="state-row">
+    <div class="state"><span class="state-label">Neutra</span><span class="tag tag-neutral">Visita Imediata</span></div>
+    <div class="state"><span class="state-label">Informativa</span><span class="tag tag-info">Publicado</span></div>
+    <div class="state"><span class="state-label">Positiva</span><span class="tag tag-positive">Novo</span></div>
+    <div class="state"><span class="state-label">Atenção</span><span class="tag tag-warning">Pendente</span></div>
+    <div class="state"><span class="state-label">Negativa</span><span class="tag tag-negative">Erro</span></div>
+  </div>
+
+  <div class="state-label" style="margin-top:4px;">Com ícone</div>
+  <div class="state-row">
+    <span class="tag tag-positive">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      Aprovado
+    </span>
+    <span class="tag tag-warning">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Processando
+    </span>
+    <span class="tag tag-negative">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M15 9 9 15"/><path d="m9 9 6 6"/></svg>
+      Falha
+    </span>
+  </div>
+
+  <div class="state-label" style="margin-top:4px;">Modifier · Premium (Loft) e Muted</div>
+  <div class="state-row">
+    <span class="tag tag-premium">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 9 8l-6 .75L8 14l-1.5 6L12 17l5.5 3L16 14l5-5.25L15 8z"/></svg>
+      Propriedade Loft
+    </span>
+    <span class="tag tag-muted">Rascunho</span>
+    <span class="tag tag-muted">Oculto</span>
+  </div>
+
+  <div class="state-label" style="margin-top:4px;">Modifier · Inverted (sobre fundo escuro)</div>
+  <div class="dark">
+    <span class="tag tag-inverted">Novo</span>
+    <span class="tag tag-inverted">Destaque</span>
+    <span class="tag tag-inverted">62m²</span>
+  </div>
+
+  <div class="caption" style="margin-top:8px;">
+    Tags · pill, 12px label, fundo semântico. Para rótulos de status sobre cards, listagens e detalhes. Não clicáveis.
+  </div>
+</div>
+</body></html>

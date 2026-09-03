@@ -17,13 +17,13 @@ export const Route = createFileRoute("/cases/")({
       : {},
   head: () => ({
     meta: [
-      { title: "Projetos — AIOPS App Model" },
+      { title: "Projetos — AIOps App Model" },
       {
         name: "description",
         content:
           "Projetos, automações, agentes e experimentos de IA construídos pelos times da Loft, com responsáveis, impacto e integrações.",
       },
-      { property: "og:title", content: "Projetos de IA — AIOPS App Model" },
+      { property: "og:title", content: "Projetos de IA — AIOps App Model" },
       {
         property: "og:description",
         content: "Explore projetos de IA por área, integração e responsável.",

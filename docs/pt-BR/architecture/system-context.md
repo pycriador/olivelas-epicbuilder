@@ -17,13 +17,13 @@ version: "1.0"
 
 ## Propósito
 
-Este documento situa o AIOPS App Model no ecossistema: quem usa, quais sistemas externos são chamados e o que permanece dentro do boundary da aplicação.
+Este documento situa o AIOps App Model no ecossistema: quem usa, quais sistemas externos são chamados e o que permanece dentro do boundary da aplicação.
 
 ## Sistema
 
 | Campo | Valor |
 | --- | --- |
-| Nome | AIOPS App Model |
+| Nome | AIOps App Model |
 | Propósito | Portal interno Loft para descoberta de projetos de IA, visibilidade de impacto e administração de cases |
 | Owner | Unknown — preencher na Fase 2 (`operations/service-profile.md`) |
 | Resumo do boundary | App web TanStack Start: UI React + server functions/rotas API; catálogo local no browser; chamadas outbound para Atlassian e Gemini |
@@ -84,17 +84,17 @@ Este documento situa o AIOPS App Model no ecossistema: quem usa, quais sistemas 
 
 | De | Para | Relação | Notas |
 | --- | --- | --- | --- |
-| AIOPS App Model | Jira | chama | Busca, coleta de escopo, proxy de mídia |
-| AIOPS App Model | Confluence | chama | Escrita limitada à pasta de status |
-| AIOPS App Model | Gemini | chama | Pós-processamento do escopo Jira |
-| AIOPS App Model | localStorage | lê/escreve | Catálogo por browser |
-| Usuário admin | AIOPS App Model | usa | Sem gate de auth observado |
+| AIOps App Model | Jira | chama | Busca, coleta de escopo, proxy de mídia |
+| AIOps App Model | Confluence | chama | Escrita limitada à pasta de status |
+| AIOps App Model | Gemini | chama | Pós-processamento do escopo Jira |
+| AIOps App Model | localStorage | lê/escreve | Catálogo por browser |
+| Usuário admin | AIOps App Model | usa | Sem gate de auth observado |
 
 ## Diagrama de contexto
 
 ```mermaid
 flowchart LR
-  Colaborador[Colaborador Loft] --> Portal[AIOPS App Model\nTanStack Start]
+  Colaborador[Colaborador Loft] --> Portal[AIOps App Model\nTanStack Start]
   Mantenedor[Mantenedor AIOps] --> Portal
   Portal --> LS[(localStorage do browser)]
   Portal --> Jira[Atlassian Jira]

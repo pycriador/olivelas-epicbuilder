@@ -147,7 +147,7 @@ export function OldAppSidebar() {
           {!collapsed && (
             <span className="min-w-0">
               <span className="block truncate font-display text-sm font-semibold leading-tight text-sidebar-foreground">
-                AIOPS App Model
+                AIOps App Model
               </span>
               <span className="block truncate font-mono text-[10px] uppercase tracking-[0.14em] text-sidebar-foreground/60">
                 Loft

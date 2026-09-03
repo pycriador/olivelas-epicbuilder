@@ -1,0 +1,60 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Accordion</title><link rel="stylesheet" href="_card.css">
+<style>
+  .acc { font-family: Inter, sans-serif; border-top: 1px solid #E1E9EF; }
+  .item { border-bottom: 1px solid #E1E9EF; }
+  .head { width: 100%; padding: 18px 4px; background: none; border: none; display: flex; align-items: center; gap: 12px; cursor: pointer; text-align: left; }
+  .head .title { flex: 1; font-size: 16px; line-height: 24px; font-weight: 500; color: #121619; }
+  .head .caret { color: #697077; transition: transform 180ms ease, color 180ms ease; }
+  .head .caret * { stroke: currentColor; }
+  .item.open .head .caret { transform: rotate(180deg); }
+  .item.open .head .title { font-weight: 600; }
+  .body { padding: 0 4px 20px; font-size: 14px; line-height: 22px; color: #697077; max-width: 680px; }
+  .item .icon-lead { width: 24px; height: 24px; color: #697077; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Accordion · FAQ</div>
+
+  <div class="acc">
+    <div class="item">
+      <button class="head">
+        <svg class="icon-lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        <span class="title">Como funciona o processo de compra pela Loft?</span>
+        <svg class="caret" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+    </div>
+
+    <div class="item open">
+      <button class="head">
+        <svg class="icon-lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M3 12h18"/><path d="M3 18h18"/></svg>
+        <span class="title">Quais documentos preciso para dar entrada na proposta?</span>
+        <svg class="caret" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="body">
+        Para iniciar, você precisa de: RG e CPF do titular e cônjuge (se houver), comprovante de renda dos últimos 3 meses, comprovante de residência atual e extrato bancário. A Loft analisa os documentos em até 2 dias úteis e te avisa por e-mail quando a proposta estiver pronta para assinatura digital.
+      </div>
+    </div>
+
+    <div class="item">
+      <button class="head">
+        <svg class="icon-lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        <span class="title">Posso simular financiamento sem compromisso?</span>
+        <svg class="caret" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+    </div>
+
+    <div class="item">
+      <button class="head">
+        <svg class="icon-lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.91 11.12a9 9 0 1 1-8.09-8.09"/><path d="M22 4 12 14.01l-3-3"/></svg>
+        <span class="title">Como a Loft garante a segurança da transação?</span>
+        <svg class="caret" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top: 8px;">
+    Accordion · divisores 1px, head 56-64h. Ícone leading opcional · caret rotaciona em open mantendo a cor neutra #697077. Body 14/22 text-secondary, largura máx. 680px para legibilidade.
+  </div>
+</div>
+</body></html>

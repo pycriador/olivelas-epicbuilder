@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Tabs</title><link rel="stylesheet" href="_card.css">
+<style>
+  .tabs { font-family: Inter, sans-serif; display: flex; border-bottom: 1px solid #E1E9EF; gap: 0; }
+  .tab { padding: 14px 20px; font-size: 15px; line-height: 20px; font-weight: 500; color: #697077; background: none; border: none; cursor: pointer; position: relative; display: inline-flex; align-items: center; gap: 8px; }
+  .tab:hover { color: #121619; }
+  .tab.active { color: #121619; font-weight: 600; }
+  .tab.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; background: #F56738; border-radius: 2px 2px 0 0; }
+  .tab.disabled { color: #C1C7CD; cursor: not-allowed; }
+  .tab .badge { background: #E1E9EF; color: #121619; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+  .tab.active .badge { background: #FFD9C7; color: #8B2D0B; }
+
+  .pill-tabs { display: inline-flex; background: #F2F4F8; padding: 4px; border-radius: 10px; gap: 2px; }
+  .pill { padding: 8px 16px; font-size: 14px; line-height: 20px; font-weight: 500; color: #121619; background: transparent; border: none; border-radius: 8px; cursor: pointer; }
+  .pill.active { background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.08); font-weight: 600; }
+
+  .content { padding: 16px 0; color: #697077; font-size: 14px; font-family: Inter, sans-serif; }
+  .state-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Tabs · underline (primário)</div>
+
+  <div class="tabs">
+    <button class="tab active">Sobre o imóvel</button>
+    <button class="tab">Condomínio <span class="badge">12</span></button>
+    <button class="tab">Localização</button>
+    <button class="tab">Documentos <span class="badge">3</span></button>
+    <button class="tab disabled">Histórico</button>
+  </div>
+  <div class="content">Conteúdo ativo da aba · "Sobre o imóvel"</div>
+
+  <div class="state-label" style="margin-top: 8px;">Tabs · pill (secundário)</div>
+  <div class="pill-tabs">
+    <button class="pill active">Todos</button>
+    <button class="pill">Venda</button>
+    <button class="pill">Aluguel</button>
+    <button class="pill">Temporada</button>
+  </div>
+
+  <div class="caption" style="margin-top: 8px;">
+    Tabs · underline 3px orange na aba ativa. Badge opcional à direita do label (orange quando ativa, neutra quando não). Variante pill em segmented control para trocas contextuais rápidas.
+  </div>
+</div>
+</body></html>

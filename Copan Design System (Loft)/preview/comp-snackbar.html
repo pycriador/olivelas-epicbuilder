@@ -1,0 +1,63 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Snackbar</title><link rel="stylesheet" href="_card.css">
+<style>
+  .stack { font-family: Inter, sans-serif; display: flex; flex-direction: column; gap: 12px; }
+  .sn { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 8px; box-shadow: 0 12px 32px rgba(25,31,35,0.16); min-width: 320px; max-width: 520px; }
+  .sn .ico { width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .sn .body { flex: 1; font-size: 14px; line-height: 20px; }
+  .sn .body b { display: block; font-weight: 600; }
+  .sn .action { font-family: Inter; font-size: 14px; font-weight: 600; background: none; border: none; cursor: pointer; padding: 4px 8px; border-radius: 4px; }
+  .sn .close { background: none; border: none; padding: 4px; cursor: pointer; opacity: 0.7; }
+
+  .sn-default  { background: #121619; color: #FFF; }
+  .sn-default .action { color: #FFA782; }
+
+  .sn-positive { background: #115644; color: #FFF; }
+  .sn-positive .action { color: #B6E8C8; }
+
+  .sn-attention { background: #7A5200; color: #FFF; }
+  .sn-attention .action { color: #FFD992; }
+
+  .sn-negative { background: #8F2828; color: #FFF; }
+  .sn-negative .action { color: #FFC7C7; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Snackbar · feedback transitório (4-6s)</div>
+
+  <div class="stack">
+    <div class="sn sn-default">
+      <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+      <div class="body">Imóvel salvo nos seus favoritos.</div>
+      <button class="action">Desfazer</button>
+      <button class="close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+
+    <div class="sn sn-positive">
+      <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></div>
+      <div class="body">
+        <b>Proposta enviada</b>
+        Você receberá um e-mail com os próximos passos em até 24h.
+      </div>
+      <button class="action">Ver proposta</button>
+    </div>
+
+    <div class="sn sn-attention">
+      <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div>
+      <div class="body">Sua sessão expira em 5 minutos.</div>
+      <button class="action">Estender</button>
+    </div>
+
+    <div class="sn sn-negative">
+      <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/></svg></div>
+      <div class="body">Falha ao enviar documento. Verifique sua conexão.</div>
+      <button class="action">Tentar de novo</button>
+      <button class="close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top: 8px;">
+    Snackbar · 8px radius, fundo escuro saturado por intent. Aparece bottom-center 4-6s. Action opcional em peer-color. Stack vertical até 3 simultâneos. Para tarefas longas use Banner em vez de Snackbar.
+  </div>
+</div>
+</body></html>

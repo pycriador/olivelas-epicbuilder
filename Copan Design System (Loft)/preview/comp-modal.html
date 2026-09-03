@@ -1,0 +1,59 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Modal</title><link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 0; }
+  .scene { position: relative; min-height: 480px; background: #1A1F23; padding: 32px; font-family: Inter, sans-serif; overflow: hidden; }
+  .scene::before { content:""; position: absolute; inset:0; background: rgba(25,31,35,0.55); }
+
+  .modal { position: relative; width: 480px; max-width: 100%; background: #FFF; border-radius: 12px; box-shadow: 0 24px 48px rgba(0,0,0,0.32); margin: 0 auto; overflow: hidden; }
+  .head { padding: 24px 24px 8px; display: flex; align-items: flex-start; gap: 12px; }
+  .head .ico { width: 40px; height: 40px; border-radius: 999px; background: #FFD9C7; color: #D94616; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .head .title { flex: 1; font-size: 20px; line-height: 28px; font-weight: 700; color: #121619; }
+  .head .close { background: none; border: none; padding: 4px; cursor: pointer; color: #697077; }
+  .body { padding: 8px 24px 16px; font-size: 14px; line-height: 22px; color: #697077; }
+  .body strong { color: #121619; }
+  .foot { padding: 16px 24px 24px; display: flex; justify-content: flex-end; gap: 10px; }
+  .btn { font-family: Inter; font-size: 16px; line-height: 24px; height: 48px; padding: 0 24px; border-radius: 8px; cursor: pointer; border: none; }
+  .btn-prim { background: #F56738; color: #FFF; }
+  .btn-sec  { background: #FFF; color: #121619; border: 1px solid #121619; }
+  .btn-danger { background: #B62D2D; color: #FFF; }
+
+  .recap { background: #F2F4F8; border-radius: 8px; padding: 12px 14px; margin: 0 24px 16px; font-size: 13px; }
+  .recap div { display: flex; justify-content: space-between; padding: 4px 0; color: #697077; }
+  .recap div strong { color: #121619; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="card" style="padding: 0; gap: 0;">
+  <div style="padding: 14px 24px 0;"><div class="eyebrow">Modal · confirmação destrutiva sobre overlay</div></div>
+
+  <div class="scene">
+    <div class="modal">
+      <div class="head">
+        <div class="ico" style="background: #FCD2D2; color: #B62D2D;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        </div>
+        <div class="title">Cancelar proposta?</div>
+        <button class="close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div class="body">
+        Ao cancelar, o vendedor será notificado e a reserva do imóvel será liberada para outras propostas. Esta ação <strong>não pode ser desfeita</strong>.
+      </div>
+      <div class="recap">
+        <div><span>Imóvel</span><strong>Pinheiros · 62m²</strong></div>
+        <div><span>Valor da proposta</span><strong>R$ 1.245.000</strong></div>
+        <div><span>Reservado em</span><strong>14 abr 2026</strong></div>
+      </div>
+      <div class="foot">
+        <button class="btn btn-sec">Manter proposta</button>
+        <button class="btn btn-danger">Cancelar proposta</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 14px 24px 18px;" class="caption">
+    Modal · 480w padrão (até 640w). Backdrop rgba(25,31,35,0.55), sem blur. Header com ícone semântico circular + título 20/28 bold. Footer com 1-2 botões à direita; ação destrutiva em vermelho. Z-index acima de tudo.
+  </div>
+</div>
+</body></html>

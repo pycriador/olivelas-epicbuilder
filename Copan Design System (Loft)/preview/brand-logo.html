@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Brand — Logo</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 32px; }
+  .card-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--copan-neutral-500); margin-bottom: 6px; }
+  .card-h1 { font-size: 28px; font-weight: 700; line-height: 32px; color: var(--copan-neutral-900); letter-spacing: -0.01em; margin-bottom: 6px; }
+  .card-sub { font-size: 14px; color: var(--copan-neutral-500); line-height: 20px; max-width: 60ch; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 28px;
+  }
+  .swatch {
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .swatch .stage {
+    flex: 1;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+  .swatch.light .stage { background: var(--copan-neutral-0); }
+  .swatch.dark  .stage { background: var(--copan-neutral-900); }
+  .swatch .meta {
+    border-top: 1px solid var(--color-border-subtle);
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: var(--copan-slate-50);
+  }
+  .swatch.dark .meta { background: #FAFBFC; }
+  .meta-name { font-size: 13px; font-weight: 600; color: var(--copan-neutral-900); }
+  .meta-sub  { font-size: 11px; color: var(--copan-neutral-500); margin-top: 2px; }
+  .meta-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: var(--copan-orange-50);
+    color: var(--copan-orange-600);
+  }
+  .meta-tag.alt { background: var(--copan-slate-100); color: var(--copan-neutral-700); }
+
+  .symbol .stage img { height: 48px; }
+  .wordmark .stage img { height: 64px; }
+
+  .rules {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border-subtle);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .rule h4 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--copan-neutral-500);
+    margin: 0 0 10px;
+  }
+  .rule ul { margin: 0; padding-left: 18px; }
+  .rule li { font-size: 13px; line-height: 22px; color: var(--copan-neutral-700); }
+  .rule.do li::marker { color: var(--copan-positive-500); }
+  .rule.dont li::marker { color: var(--copan-negative-500); }
+</style>
+</head>
+<body>
+
+<div class="card-title">Brand</div>
+<div class="card-h1">Logotipo Loft</div>
+<div class="card-sub">A Loft é representada por dois ativos: o <strong>logotipo</strong> (assinatura completa) e o <strong>símbolo</strong> (a chave isolada). Em fundos claros, use a versão laranja primária. Em fundos escuros ou imagens de alto contraste, use a versão negativa em branco.</div>
+
+<div class="grid">
+  <!-- Logotipo laranja em fundo claro -->
+  <div class="swatch wordmark light">
+    <div class="stage"><img src="../assets/loft-logo-orange.svg" alt="Logotipo Loft laranja"></div>
+    <div class="meta">
+      <div>
+        <div class="meta-name">Logotipo · Laranja</div>
+        <div class="meta-sub">loft-logo-orange.svg · #FF774A</div>
+      </div>
+      <span class="meta-tag">Primário</span>
+    </div>
+  </div>
+
+  <!-- Logotipo branco em fundo escuro -->
+  <div class="swatch wordmark dark">
+    <div class="stage"><img src="../assets/loft-logo-white.svg" alt="Logotipo Loft branco"></div>
+    <div class="meta">
+      <div>
+        <div class="meta-name">Logotipo · Negativo</div>
+        <div class="meta-sub">loft-logo-white.svg · #FFFFFF</div>
+      </div>
+      <span class="meta-tag alt">Sobre escuro</span>
+    </div>
+  </div>
+
+  <!-- Símbolo (chave) laranja -->
+  <div class="swatch symbol light">
+    <div class="stage"><img src="../assets/loft-key-orange.svg" alt="Símbolo Loft (chave) laranja"></div>
+    <div class="meta">
+      <div>
+        <div class="meta-name">Símbolo · Laranja</div>
+        <div class="meta-sub">loft-key-orange.svg · #FF774A</div>
+      </div>
+      <span class="meta-tag">Primário</span>
+    </div>
+  </div>
+
+  <!-- Símbolo (chave) branco -->
+  <div class="swatch symbol dark">
+    <div class="stage"><img src="../assets/loft-key-white.svg" alt="Símbolo Loft (chave) branco"></div>
+    <div class="meta">
+      <div>
+        <div class="meta-name">Símbolo · Negativo</div>
+        <div class="meta-sub">loft-key-white.svg · #FFFFFF</div>
+      </div>
+      <span class="meta-tag alt">Sobre escuro</span>
+    </div>
+  </div>
+</div>
+
+<div class="rules">
+  <div class="rule do">
+    <h4>Faça</h4>
+    <ul>
+      <li>Use a versão laranja em fundos brancos ou claros (≥ AA contraste).</li>
+      <li>Use a versão branca em fundos escuros, fotografias ou cores sólidas saturadas.</li>
+      <li>Mantenha um espaço de respiro mínimo equivalente à altura da chave em volta da marca.</li>
+      <li>Use o símbolo (chave) em espaços muito reduzidos: favicon, app icon, avatar.</li>
+    </ul>
+  </div>
+  <div class="rule dont">
+    <h4>Evite</h4>
+    <ul>
+      <li>Não recolora o logotipo fora das duas versões oficiais.</li>
+      <li>Não aplique sombra, contorno, gradiente ou efeitos sobre a marca.</li>
+      <li>Não distorça as proporções nem rotacione a marca.</li>
+      <li>Não use a versão laranja sobre fundos com baixo contraste (laranjas, vermelhos, amarelos).</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>

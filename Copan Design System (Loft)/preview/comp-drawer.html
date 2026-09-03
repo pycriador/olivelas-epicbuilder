@@ -1,0 +1,96 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Drawer</title><link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 0; }
+  .scene { position: relative; min-height: 540px; background: #1A1F23; font-family: Inter, sans-serif; overflow: hidden; display: flex; justify-content: flex-end; }
+  .scene::before { content:""; position: absolute; inset:0; background: rgba(25,31,35,0.55); }
+
+  .drawer { position: relative; width: 420px; height: 540px; background: #FFF; box-shadow: -16px 0 40px rgba(0,0,0,0.24); display: flex; flex-direction: column; }
+  .head { padding: 20px 24px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #E1E9EF; }
+  .head .title { flex: 1; font-size: 18px; line-height: 26px; font-weight: 700; color: #121619; }
+  .head .close { background: none; border: none; padding: 4px; cursor: pointer; color: #697077; }
+  .body { padding: 20px 24px; flex: 1; overflow: auto; display: flex; flex-direction: column; gap: 18px; }
+  .section { display: flex; flex-direction: column; gap: 10px; }
+  .section .lbl { font-size: 13px; font-weight: 600; color: #121619; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { padding: 8px 14px; border: 1px solid #C1C7CD; border-radius: 999px; font-size: 13px; cursor: pointer; background: #FFF; color: #121619; }
+  .chip.sel { background: #121619; color: #FFF; border-color: #121619; }
+
+  .range { display: flex; gap: 10px; }
+  .range input { flex: 1; height: 40px; padding: 0 12px; border: 1px solid #C1C7CD; border-radius: 8px; font-family: Inter; font-size: 14px; color: #121619; outline: none; background: #FFF; }
+  .range input:focus { border: 2px solid #F56738; padding: 0 11px; }
+
+  .switch-row { display: flex; justify-content: space-between; align-items: center; }
+  .switch-row .info { font-size: 14px; color: #121619; }
+  .sw { width: 36px; height: 20px; border-radius: 999px; background: #C1C7CD; position: relative; cursor: pointer; }
+  .sw.on { background: #F56738; }
+  .sw::after { content:""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 999px; background: #FFF; transition: 180ms; box-shadow: 0 1px 2px rgba(0,0,0,0.16); }
+  .sw.on::after { left: 18px; }
+
+  .foot { padding: 16px 24px; border-top: 1px solid #E1E9EF; display: flex; gap: 10px; }
+  .btn { font-family: Inter; font-size: 16px; line-height: 24px; height: 48px; padding: 0 20px; border-radius: 8px; cursor: pointer; border: none; flex: 1; font-weight: 500; }
+  .btn-prim { background: #F56738; color: #FFF; }
+  .btn-sec  { background: #FFF; color: #121619; border: 1px solid #121619; flex: 0 0 auto; padding: 0 16px; }
+</style>
+</head>
+<body>
+<div class="card" style="padding: 0; gap: 0;">
+  <div style="padding: 14px 24px 0;"><div class="eyebrow">Drawer · filtros (right side)</div></div>
+
+  <div class="scene">
+    <div class="drawer">
+      <div class="head">
+        <div class="title">Refinar busca</div>
+        <button class="close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+      </div>
+
+      <div class="body">
+        <div class="section">
+          <div class="lbl">Tipo de imóvel</div>
+          <div class="chips">
+            <span class="chip sel">Apartamento</span>
+            <span class="chip">Casa</span>
+            <span class="chip">Studio</span>
+            <span class="chip sel">Cobertura</span>
+            <span class="chip">Kitnet</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="lbl">Quartos</div>
+          <div class="chips">
+            <span class="chip">1</span>
+            <span class="chip sel">2</span>
+            <span class="chip sel">3</span>
+            <span class="chip">4+</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="lbl">Faixa de preço</div>
+          <div class="range">
+            <input value="R$ 600.000" />
+            <input value="R$ 1.500.000" />
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="lbl">Características</div>
+          <div class="switch-row"><div class="info">Mobiliado</div><div class="sw on"></div></div>
+          <div class="switch-row"><div class="info">Aceita pet</div><div class="sw"></div></div>
+          <div class="switch-row"><div class="info">Reformado pela Loft</div><div class="sw on"></div></div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <button class="btn btn-sec">Limpar</button>
+        <button class="btn btn-prim">Aplicar (218 imóveis)</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 14px 24px 18px;" class="caption">
+    Drawer · entrada lateral 420w para filtros e ações longas. Header sticky com close, footer sticky com primary action contextual ("Aplicar X imóveis"). Side: <strong>right</strong> para filtros, <strong>left</strong> para nav mobile.
+  </div>
+</div>
+</body></html>

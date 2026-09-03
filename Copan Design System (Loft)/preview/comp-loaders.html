@@ -1,0 +1,84 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Loaders & Progress</title><link rel="stylesheet" href="_card.css">
+<style>
+  .grid { font-family: Inter, sans-serif; display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .tile { background: #FFF; border: 1px solid #E1E9EF; border-radius: 10px; padding: 18px; }
+  .tile .lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 12px; }
+
+  /* Circular */
+  .spin { animation: spin 800ms linear infinite; transform-origin: center; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .ring { width: 48px; height: 48px; border-radius: 50%; border: 4px solid #E1E9EF; border-top-color: #F56738; animation: spin 900ms linear infinite; }
+  .ring.lg { width: 64px; height: 64px; border-width: 5px; }
+  .ring.sm { width: 24px; height: 24px; border-width: 3px; }
+
+  /* Linear */
+  .bar { height: 6px; background: #E1E9EF; border-radius: 999px; overflow: hidden; position: relative; }
+  .bar .fill { height: 100%; background: #F56738; border-radius: 999px; transition: width 240ms; }
+  .bar.indet .fill { width: 35%; animation: indet 1.4s cubic-bezier(.4,0,.2,1) infinite; }
+  @keyframes indet { 0% { transform: translateX(-100%); } 60% { transform: translateX(180%); } 100% { transform: translateX(180%); } }
+
+  .bar.lg { height: 10px; }
+
+  .step-row { display: flex; align-items: center; gap: 10px; }
+  .step-row .stat { font-size: 13px; font-weight: 600; color: #121619; }
+  .step-row .pct  { font-size: 13px; color: #697077; font-variant-numeric: tabular-nums; margin-left: auto; }
+
+  /* Skeleton */
+  .skel { background: linear-gradient(90deg, #E1E9EF 0%, #F2F4F8 50%, #E1E9EF 100%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; border-radius: 6px; }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+  .sk-card { padding: 14px; border-radius: 10px; background: #FFF; border: 1px solid #E1E9EF; display: flex; flex-direction: column; gap: 10px; }
+  .sk-img { height: 100px; border-radius: 6px; }
+  .sk-line { height: 12px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Loaders · circular · linear · skeleton</div>
+
+  <div class="grid">
+    <div class="tile">
+      <div class="lbl">Circular · sm/md/lg</div>
+      <div style="display:flex; gap: 24px; align-items: center;">
+        <div class="ring sm"></div>
+        <div class="ring"></div>
+        <div class="ring lg"></div>
+      </div>
+    </div>
+
+    <div class="tile">
+      <div class="lbl">Linear · determinate</div>
+      <div class="step-row">
+        <span class="stat">Enviando documento</span>
+        <span class="pct">62%</span>
+      </div>
+      <div class="bar" style="margin-top: 8px;"><div class="fill" style="width: 62%;"></div></div>
+
+      <div class="step-row" style="margin-top: 16px;">
+        <span class="stat">Análise concluída</span>
+        <span class="pct">100%</span>
+      </div>
+      <div class="bar" style="margin-top: 8px;"><div class="fill" style="width: 100%; background: #20A483;"></div></div>
+    </div>
+
+    <div class="tile">
+      <div class="lbl">Linear · indeterminate</div>
+      <div class="bar lg indet"><div class="fill"></div></div>
+      <div style="font-size: 13px; color: #697077; margin-top: 10px;">Sincronizando dados…</div>
+    </div>
+
+    <div class="tile">
+      <div class="lbl">Skeleton · property card</div>
+      <div class="sk-card">
+        <div class="skel sk-img"></div>
+        <div class="skel sk-line" style="width: 50%;"></div>
+        <div class="skel sk-line" style="width: 80%;"></div>
+        <div class="skel sk-line" style="width: 35%;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top: 8px;">
+    Loaders · ring 4px stroke orange para spinners contextuais. Linear bar 6-10h, fill orange (ou green em sucesso). Indeterminate animation com slide. Skeleton com shimmer para layouts iniciais — usar em listas e cards, nunca para spinners de botão.
+  </div>
+</div>
+</body></html>

@@ -30,7 +30,7 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    app_name: str = "AIOPS App Model API"
+    app_name: str = "AIOps App Model API"
     # Include 8080 — Lovable/Vite dev server default in this repo
     cors_origins: str = (
         "http://localhost:5173,"

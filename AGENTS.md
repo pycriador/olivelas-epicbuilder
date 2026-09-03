@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Engineering agent entry — **AIOPS App Model** (standard Loft AIOps application template). Start at `docs/en/ai-context.md` (pt-BR: `docs/pt-BR/ai-context.md`).
+Engineering agent entry — **AIOps App Model** (standard Loft AIOps application template). Start at `docs/en/ai-context.md` (pt-BR: `docs/pt-BR/ai-context.md`).
 
 ## What this repo is
 

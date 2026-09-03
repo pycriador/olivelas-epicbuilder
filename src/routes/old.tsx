@@ -9,7 +9,7 @@ import { useLayoutMode } from "@/layout/LayoutModeProvider";
  */
 export const Route = createFileRoute("/old")({
   head: () => ({
-    meta: [{ title: "AIOPS App Model — Loft | Layout clássico" }],
+    meta: [{ title: "AIOps App Model — Loft | Layout clássico" }],
   }),
   component: OldRedirect,
 });

@@ -6,7 +6,7 @@ import { forgotPassword } from "@/lib/auth-api";
 
 export const Route = createFileRoute("/esqueci-senha")({
   head: () => ({
-    meta: [{ title: "Esqueci a senha — AIOPS App Model" }],
+    meta: [{ title: "Esqueci a senha — AIOps App Model" }],
   }),
   component: ForgotPasswordPage,
 });

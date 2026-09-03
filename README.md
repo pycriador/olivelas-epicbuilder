@@ -1,4 +1,4 @@
-# AIOPS App Model
+# AIOps App Model
 
 **Standard application template** for Loft AIOps teams. Clone or copy this repository when starting a new AIOps app that follows the shared stack (TanStack Start frontend + FastAPI backend + RDS PostgreSQL) and Loft publish conventions (GitHub Actions → ECR → k8s-apps / ArgoCD → Kong).
 

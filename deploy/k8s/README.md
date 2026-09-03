@@ -1,4 +1,4 @@
-# Kubernetes deploy manifests (Helm values) — AIOPS App Model
+# Kubernetes deploy manifests (Helm values) — AIOps App Model
 
 These files mirror what must land in **`loft-br/k8s-apps`** for Cross Prod. They are **not** applied from this repository directly — Argo CD reads `k8s-apps`.
 

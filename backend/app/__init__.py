@@ -1,1 +1,1 @@
-"""AIOPS App Model FastAPI application."""
+"""AIOps App Model FastAPI application."""

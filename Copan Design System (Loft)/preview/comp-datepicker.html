@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Date picker</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 32px; font-family: Inter, -apple-system, sans-serif; color: #121619; background: #FFFFFF; }
+
+  /* Header strip */
+  .doc-head {
+    background: #121619;
+    color: #FFFFFF;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .doc-head h1 { font-size: 36px; line-height: 40px; font-weight: 700; letter-spacing: -0.01em; margin: 0; }
+  .doc-head .ver { font-size: 13px; color: #C1C7CD; margin-top: 4px; }
+  .doc-head .pills { display: flex; gap: 8px; margin: 12px 0 14px; }
+  .doc-head .pill { font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 6px; display: inline-flex; align-items: center; gap: 6px; }
+  .doc-head .pill.dev { background: rgba(255,255,255,0.12); color: #FFFFFF; }
+  .doc-head .pill.warn { background: #5B2425; color: #FFB7B7; }
+  .doc-head .lede { font-size: 14px; line-height: 22px; color: #DDE1E6; max-width: 80ch; }
+  .doc-head .mark { position: absolute; top: 24px; right: 32px; }
+
+  .stage { background: #F8F9FB; border: 1px solid #E1E9EF; border-radius: 12px; padding: 36px; margin-bottom: 28px; display: flex; justify-content: center; }
+
+  /* === Single-month calendar (compact) === */
+  .single {
+    background: #FFFFFF;
+    border-radius: 8px;
+    width: 280px;
+    padding: 8px 12px 16px;
+  }
+  .nav-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 0 14px; }
+  .nav-btn {
+    width: 28px; height: 28px;
+    border: 1px solid #C1C7CD;
+    border-radius: 6px;
+    background: #FFFFFF;
+    cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #121619;
+  }
+  .nav-btn:hover { background: #F2F4F8; }
+  .month-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #121619;
+    text-align: center;
+    flex: 1;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px 0;
+    font-size: 13px;
+  }
+  .dow {
+    text-align: center;
+    padding: 6px 0 12px;
+    color: #697077;
+    font-size: 11px;
+    font-weight: 400;
+  }
+  .d {
+    height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 999px;
+    cursor: pointer;
+    color: #121619;
+    font-size: 13px;
+    position: relative;
+    z-index: 1;
+  }
+  .d:hover { background: #F2F4F8; }
+  .d.off { color: #C1C7CD; cursor: default; }
+  .d.off:hover { background: transparent; }
+  .d.today { font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+  .d.sel { background: #F56738; color: #FFFFFF; font-weight: 600; }
+
+  /* === Range picker with sidebar === */
+  .range {
+    background: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid #E1E9EF;
+    width: 880px;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    box-shadow: 0 6px 16px rgba(18, 22, 25, 0.06);
+  }
+  .range .side h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 16px;
+  }
+  .preset {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 14px;
+    color: #121619;
+  }
+  .radio {
+    width: 16px; height: 16px;
+    border: 1.5px solid #C1C7CD;
+    border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .preset.selected .radio { border-color: #F56738; }
+  .preset.selected .radio::after {
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 999px;
+    background: #F56738;
+  }
+
+  .months { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  /* range cells */
+  .grid.range-grid .d {
+    border-radius: 0;
+    height: 36px;
+    margin: 0;
+  }
+  .grid.range-grid .row7 { display: contents; }
+
+  /* range stripe — set on a row wrapper that holds 7 cells */
+  .grid.range-grid .d.in-range {
+    background: #FFE0CC;
+    color: #121619;
+  }
+  .grid.range-grid .d.start {
+    background: #F56738;
+    color: #FFFFFF;
+    font-weight: 600;
+    border-top-left-radius: 999px;
+    border-bottom-left-radius: 999px;
+  }
+  .grid.range-grid .d.end {
+    background: #F56738;
+    color: #FFFFFF;
+    font-weight: 600;
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+  }
+  .grid.range-grid .d.in-range.row-start { border-top-left-radius: 999px; border-bottom-left-radius: 999px; }
+  .grid.range-grid .d.in-range.row-end { border-top-right-radius: 999px; border-bottom-right-radius: 999px; }
+
+  .actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #E1E9EF;
+    margin-top: 8px;
+  }
+  .btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-family: inherit;
+  }
+  .btn-secondary { background: #FFFFFF; border-color: #C1C7CD; color: #121619; }
+  .btn-primary { background: #F56738; color: #FFFFFF; }
+
+  /* === A11y annotations === */
+  h2.section { font-size: 24px; font-weight: 700; margin: 32px 0 16px; }
+  .a11y-stage { position: relative; }
+  .anno {
+    position: absolute;
+    width: 24px; height: 24px;
+    border-radius: 999px;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+    transform: translate(50%, -50%);
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  }
+  .anno.text { background: #E0524F; }
+  .anno.btn  { background: #2BA37F; }
+
+  .legend { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; }
+  .legend h3 { font-size: 18px; font-weight: 700; margin: 0 0 16px; }
+  .legend-row { display: flex; gap: 12px; align-items: flex-start; padding: 8px 0; }
+  .legend-row .num {
+    width: 28px; height: 28px;
+    border-radius: 999px;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .legend-row .num.text { background: #E0524F; }
+  .legend-row .num.btn  { background: #2BA37F; }
+  .legend-row .desc { font-size: 13px; line-height: 18px; color: #121619; }
+  .legend-row .desc strong { font-weight: 700; }
+
+  .caption-foot { font-size: 12px; color: #697077; line-height: 18px; margin-top: 24px; padding-top: 16px; border-top: 1px solid #E1E9EF; }
+</style>
+</head>
+<body>
+
+<!-- Doc header -->
+<div class="doc-head">
+  <h1>Date picker</h1>
+  <div class="ver">Versão 1.0.0</div>
+  <div class="pills">
+    <span class="pill dev">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+      Desktop
+    </span>
+    <span class="pill warn">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/></svg>
+      Não desenvolvido
+    </span>
+  </div>
+  <p class="lede">Use o <strong>Date Picker</strong> para selecionar períodos de tempo em formato de calendário, permitindo filtragem de dados por dia, intervalo ou presets pré-definidos.</p>
+  <svg class="mark" width="36" height="36" viewBox="0 0 64 36" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.1149 0C26.5801 0 33.7075 5.78793 35.6848 13.5831L64 13.5832L61.4948 22.3466L35.6848 22.3467C33.7075 30.1419 26.5801 35.9298 18.1149 35.9298C8.12606 35.9298 0 27.871 0 17.9649C0 8.0588 8.12606 0 18.1149 0ZM18.1149 7.88704C12.5116 7.88704 7.95287 12.4081 7.95287 17.9649C7.95287 23.5218 12.5116 28.0428 18.1149 28.0428C23.7181 28.0428 28.2769 23.5218 28.2769 17.9649C28.2769 12.4081 23.7181 7.88704 18.1149 7.88704Z" fill="#FFFFFF"/></svg>
+</div>
+
+<!-- Single calendar (compact, single-day select) -->
+<div class="stage">
+  <div class="single">
+    <div class="nav-row">
+      <button class="nav-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+      <span class="month-label">Julho 2025</span>
+      <button class="nav-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+    <div class="grid">
+      <div class="dow">Dom</div><div class="dow">Seg</div><div class="dow">Ter</div><div class="dow">Qua</div><div class="dow">Qui</div><div class="dow">Sex</div><div class="dow">Sab</div>
+      <!-- July 2025 starts Tue -->
+      <div class="d off">29</div><div class="d off">30</div><div class="d off">1</div><div class="d off">2</div><div class="d off">3</div><div class="d off">4</div><div class="d off">5</div>
+      <div class="d off">6</div><div class="d off">7</div><div class="d off">8</div><div class="d off">9</div><div class="d off">10</div><div class="d off">11</div><div class="d off">12</div>
+      <div class="d off">13</div><div class="d off">14</div><div class="d off">15</div><div class="d off">16</div><div class="d off">17</div><div class="d off">18</div><div class="d off">19</div>
+      <div class="d off">20</div><div class="d off">21</div><div class="d off">22</div><div class="d off">23</div><div class="d off">24</div><div class="d off">25</div><div class="d off">26</div>
+      <div class="d off">27</div><div class="d off">28</div><div class="d off">29</div><div class="d off">30</div><div class="d off">31</div><div class="d">1</div><div class="d">2</div>
+      <div class="d">3</div><div class="d today">4</div><div class="d">5</div><div class="d">6</div><div class="d">7</div><div class="d">8</div><div class="d">9</div>
+      <div class="d">10</div><div class="d">11</div><div class="d">12</div><div class="d">13</div><div class="d">14</div><div class="d sel">15</div><div class="d">16</div>
+      <div class="d">17</div><div class="d">18</div><div class="d">19</div><div class="d">20</div><div class="d">21</div><div class="d">22</div><div class="d">23</div>
+    </div>
+  </div>
+</div>
+
+<!-- Range picker -->
+<div class="stage">
+  <div class="range" id="range-clean">
+    <div class="side">
+      <h4>Período</h4>
+      <div class="preset"><span class="radio"></span>Hoje</div>
+      <div class="preset"><span class="radio"></span>Últimos 7 dias</div>
+      <div class="preset"><span class="radio"></span>Últimos 15 dias</div>
+      <div class="preset"><span class="radio"></span>Último mês</div>
+      <div class="preset"><span class="radio"></span>Último ano</div>
+      <div class="preset selected"><span class="radio"></span>Personalizado</div>
+    </div>
+    <div class="months">
+      <div>
+        <div class="nav-row">
+          <button class="nav-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+          <span class="month-label">Agosto 2025</span>
+          <span></span>
+        </div>
+        <div class="grid range-grid">
+          <div class="dow">Dom</div><div class="dow">Seg</div><div class="dow">Ter</div><div class="dow">Qua</div><div class="dow">Qui</div><div class="dow">Sex</div><div class="dow">Sab</div>
+          <!-- Aug 2025 starts Friday -->
+          <div class="d off">27</div><div class="d off">28</div><div class="d off">29</div><div class="d off">30</div><div class="d off">31</div><div class="d">1</div><div class="d">2</div>
+          <div class="d">3</div><div class="d today">4</div><div class="d">5</div><div class="d">6</div><div class="d">7</div><div class="d">8</div><div class="d">9</div>
+          <div class="d">10</div><div class="d">11</div><div class="d">12</div><div class="d">13</div><div class="d">14</div><div class="d sel start">15</div><div class="d in-range row-end">16</div>
+          <div class="d in-range row-start">17</div><div class="d in-range">18</div><div class="d in-range">19</div><div class="d in-range">20</div><div class="d in-range">21</div><div class="d in-range">22</div><div class="d in-range row-end">23</div>
+          <div class="d in-range row-start">24</div><div class="d in-range">25</div><div class="d in-range row-end">26</div><div class="d">27</div><div class="d">28</div><div class="d">29</div><div class="d">30</div>
+          <div class="d">31</div><div class="d off">1</div><div class="d off">2</div><div class="d off">3</div><div class="d off">4</div><div class="d off">5</div><div class="d off">6</div>
+        </div>
+      </div>
+      <div>
+        <div class="nav-row">
+          <span></span>
+          <span class="month-label">Setembro 2025</span>
+          <button class="nav-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+        <div class="grid range-grid">
+          <div class="dow">Dom</div><div class="dow">Seg</div><div class="dow">Ter</div><div class="dow">Qua</div><div class="dow">Qui</div><div class="dow">Sex</div><div class="dow">Sab</div>
+          <!-- Sep 2025 starts Monday -->
+          <div class="d off">31</div><div class="d in-range row-start">1</div><div class="d in-range">2</div><div class="d in-range row-end">3</div><div class="d off">.</div><div class="d off">.</div><div class="d off">.</div>
+          <div class="d in-range row-start">4</div><div class="d in-range">5</div><div class="d in-range">6</div><div class="d in-range">7</div><div class="d in-range">8</div><div class="d in-range">9</div><div class="d in-range row-end">10</div>
+          <div class="d in-range row-start">11</div><div class="d in-range">12</div><div class="d in-range">13</div><div class="d in-range">14</div><div class="d in-range">15</div><div class="d in-range">16</div><div class="d sel end">17</div>
+          <div class="d">18</div><div class="d">19</div><div class="d">20</div><div class="d">21</div><div class="d">22</div><div class="d">23</div><div class="d">24</div>
+          <div class="d">25</div><div class="d">26</div><div class="d">27</div><div class="d">28</div><div class="d">29</div><div class="d">30</div><div class="d off">1</div>
+          <div class="d off">2</div><div class="d off">3</div><div class="d off">4</div><div class="d off">5</div><div class="d off">6</div><div class="d off">7</div><div class="d off">8</div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-secondary">Cancelar</button>
+      <button class="btn btn-primary">Aplicar datas</button>
+    </div>
+  </div>
+</div>
+
+<!-- A11y annotated -->
+<h2 class="section">A11y · Acessibilidade</h2>
+<div class="stage a11y-stage" id="a11y-stage">
+  <!-- Same range picker, with overlaid number badges -->
+  <div class="range" style="position: relative;">
+    <div class="side" style="position: relative;">
+      <h4 style="position: relative; display: inline-block;">Período<span class="anno text" style="top: 8px; left: calc(100% + 18px); transform: translate(0, -50%);">H1</span></h4>
+      <div class="preset" style="position: relative;"><span class="radio"></span>Hoje<span class="anno btn" style="top: 50%; left: calc(100% + 8px); transform: translate(0, -50%);">02</span></div>
+      <div class="preset" style="position: relative;"><span class="radio"></span>Últimos 7 dias<span class="anno btn" style="top: 50%; left: calc(100% + 8px); transform: translate(0, -50%);">03</span></div>
+      <div class="preset" style="position: relative;"><span class="radio"></span>Últimos 15 dias<span class="anno btn" style="top: 50%; left: calc(100% + 8px); transform: translate(0, -50%);">04</span></div>
+      <div class="preset" style="position: relative;"><span class="radio"></span>Último mês<span class="anno btn" style="top: 50%; left: calc(100% + 8px); transform: translate(0, -50%);">05</span></div>
+      <div class="preset" style="position: relative;"><span class="radio"></span>Último ano<span class="anno btn" style="top: 50%; left: calc(100% + 8px); transform: translate(0, -50%);">06</span></div>
+      <div class="preset selected" style="position: relative;"><span class="radio"></span>Personalizado<span class="anno btn" style="top: 50%; left: calc(100% + 8px); transform: translate(0, -50%);">07</span></div>
+    </div>
+    <div class="months">
+      <div style="position: relative;">
+        <div class="nav-row">
+          <button class="nav-btn" style="position: relative;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg><span class="anno btn" style="top: -2px; left: 100%;">10</span></button>
+          <span class="month-label" style="position: relative;">Agosto 2025<span class="anno text" style="top: 0; left: calc(100% + 6px); transform: translate(0, -50%);">08</span></span>
+          <span></span>
+        </div>
+        <div class="grid range-grid">
+          <div class="dow">Dom</div><div class="dow">Seg</div><div class="dow">Ter</div><div class="dow">Qua</div><div class="dow">Qui</div><div class="dow">Sex</div><div class="dow">Sab</div>
+          <div class="d off">27</div><div class="d off">28</div><div class="d off">29</div><div class="d off">30</div><div class="d off">31</div><div class="d">1</div><div class="d">2</div>
+          <div class="d">3</div><div class="d today" style="position: relative;">4<span class="anno btn" style="top: 0; left: 100%;">12</span></div><div class="d">5</div><div class="d">6</div><div class="d">7</div><div class="d">8</div><div class="d">9</div>
+          <div class="d">10</div><div class="d">11</div><div class="d">12</div><div class="d">13</div><div class="d">14</div><div class="d sel start" style="position: relative;">15<span class="anno btn" style="top: 0; left: 100%;">13</span></div><div class="d in-range row-end">16</div>
+          <div class="d in-range row-start">17</div><div class="d in-range">18</div><div class="d in-range">19</div><div class="d in-range">20</div><div class="d in-range">21</div><div class="d in-range">22</div><div class="d in-range row-end">23</div>
+          <div class="d in-range row-start">24</div><div class="d in-range">25</div><div class="d in-range row-end">26</div><div class="d">27</div><div class="d">28</div><div class="d">29</div><div class="d">30</div>
+          <div class="d">31</div><div class="d off">1</div><div class="d off">2</div><div class="d off">3</div><div class="d off">4</div><div class="d off">5</div><div class="d off">6</div>
+        </div>
+      </div>
+      <div style="position: relative;">
+        <div class="nav-row">
+          <span></span>
+          <span class="month-label" style="position: relative;">Setembro 2025<span class="anno text" style="top: 0; left: calc(100% + 6px); transform: translate(0, -50%);">09</span></span>
+          <button class="nav-btn" style="position: relative;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><span class="anno btn" style="top: -2px; left: 100%;">11</span></button>
+        </div>
+        <div class="grid range-grid">
+          <div class="dow">Dom</div><div class="dow">Seg</div><div class="dow">Ter</div><div class="dow">Qua</div><div class="dow">Qui</div><div class="dow">Sex</div><div class="dow">Sab</div>
+          <div class="d off">31</div><div class="d in-range row-start">1</div><div class="d in-range">2</div><div class="d in-range row-end">3</div><div class="d off">.</div><div class="d off">.</div><div class="d off">.</div>
+          <div class="d in-range row-start">4</div><div class="d in-range">5</div><div class="d in-range">6</div><div class="d in-range">7</div><div class="d in-range">8</div><div class="d in-range">9</div><div class="d in-range row-end">10</div>
+          <div class="d in-range row-start">11</div><div class="d in-range">12</div><div class="d in-range">13</div><div class="d in-range">14</div><div class="d in-range">15</div><div class="d in-range">16</div><div class="d sel end" style="position: relative;">17<span class="anno btn" style="top: 0; left: 100%;">14</span></div>
+          <div class="d">18</div><div class="d">19</div><div class="d">20</div><div class="d">21</div><div class="d">22</div><div class="d">23</div><div class="d">24</div>
+          <div class="d">25</div><div class="d">26</div><div class="d">27</div><div class="d">28</div><div class="d">29</div><div class="d">30</div><div class="d off">1</div>
+          <div class="d off">2</div><div class="d off">3</div><div class="d off">4</div><div class="d off">5</div><div class="d off">6</div><div class="d off">7</div><div class="d off">8</div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-secondary" style="position: relative;">Cancelar<span class="anno btn" style="top: 0; left: 100%;">15</span></button>
+      <button class="btn btn-primary" style="position: relative;">Aplicar datas<span class="anno btn" style="top: 0; left: 100%;">16</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- Legend -->
+<div class="legend">
+  <div>
+    <h3>Itens não clicáveis:</h3>
+    <div class="legend-row"><span class="num text">H1</span><div class="desc">Deve ser identificado como texto na sua literal</div></div>
+    <div class="legend-row"><span class="num text">08</span><div class="desc">Deve ser identificado como texto na sua literal</div></div>
+    <div class="legend-row"><span class="num text">09</span><div class="desc">Deve ser identificado como texto na sua literal</div></div>
+
+    <h3 style="margin-top: 28px;">Itens clicáveis:</h3>
+    <div class="legend-row"><span class="num btn">02</span><div class="desc">O botão deve ser lido na sua literal</div></div>
+    <div class="legend-row"><span class="num btn">03</span><div class="desc">O botão deve ser lido na sua literal</div></div>
+    <div class="legend-row"><span class="num btn">04</span><div class="desc">O botão deve ser lido na sua literal</div></div>
+    <div class="legend-row"><span class="num btn">05</span><div class="desc">O botão deve ser lido na sua literal</div></div>
+    <div class="legend-row"><span class="num btn">06</span><div class="desc">O botão deve ser lido na sua literal</div></div>
+  </div>
+  <div>
+    <h3>Itens clicáveis:</h3>
+    <div class="legend-row"><span class="num btn">07</span><div class="desc">Deve ser identificado como botão e sua literal deve ser <strong>"Personalizado"</strong></div></div>
+    <div class="legend-row"><span class="num btn">10</span><div class="desc">Deve ser identificado como botão e sua literal deve ser o <strong>mês anterior ao mês da label 08</strong></div></div>
+    <div class="legend-row"><span class="num btn">11</span><div class="desc">Deve ser identificado como botão e sua literal deve ser <strong>o próximo o mês da label 09</strong></div></div>
+    <div class="legend-row"><span class="num btn">12</span><div class="desc">Deve ser identificado como botão e sua literal deve ser " 'Dia X' + Dia atual"</div></div>
+    <div class="legend-row"><span class="num btn">13</span><div class="desc">Deve ser identificado como botão e sua literal deve ser "Início do período + 'Dia X' "</div></div>
+    <div class="legend-row"><span class="num btn">14</span><div class="desc">Deve ser identificado como botão e sua literal deve ser "Final do período + 'Dia X' "</div></div>
+    <div class="legend-row"><span class="num btn">15</span><div class="desc">Deve ser identificado como botão e sua literal deve ser "Limpar o período"</div></div>
+    <div class="legend-row"><span class="num btn">16</span><div class="desc">Deve ser identificado como botão e sua literal deve ser "Aplicar as datas"</div></div>
+  </div>
+</div>
+
+<p class="caption-foot">Date picker · 1) calendário simples para seleção de um dia (Dom–Sab, mês maiúsculo, dia atual sublinhado, dia selecionado em pill laranja). 2) range picker com sidebar de presets (Hoje · 7d · 15d · mês · ano · Personalizado), 2 meses lado a lado, range em laranja claro com extremos em pill laranja, ações Cancelar/Aplicar datas. A11y: cada item recebe label literal — vermelho para texto, verde para botão.</p>
+
+</body>
+</html>

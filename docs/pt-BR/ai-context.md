@@ -13,11 +13,11 @@ updated: "2026-08-19"
 >
 > Documentation Standard v1.0 (adopter)
 
-**Ponto de entrada principal para agentes de IA** no repositório AIOPS App Model. Carregue os documentos linkados de forma progressiva — não assuma comportamento não documentado.
+**Ponto de entrada principal para agentes de IA** no repositório AIOps App Model. Carregue os documentos linkados de forma progressiva — não assuma comportamento não documentado.
 
 ## O que é este sistema
 
-O AIOPS App Model é o portal interno de IA da Loft: descoberta de projetos (cases), integrações, métricas de impacto e fluxos administrativos com Jira e Confluence. Evidência: `src/components/layout/AppSidebar.tsx`, `.lovable/plan/ai-portal-loft-2026-08-08.md`.
+O AIOps App Model é o portal interno de IA da Loft: descoberta de projetos (cases), integrações, métricas de impacto e fluxos administrativos com Jira e Confluence. Evidência: `src/components/layout/AppSidebar.tsx`, `.lovable/plan/ai-portal-loft-2026-08-08.md`.
 
 ## Stack (Confirmed)
 

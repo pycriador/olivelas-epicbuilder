@@ -15,7 +15,7 @@ version: "1.0"
 >
 > Documentation Standard v1.0 (adopter)
 
-Schema de banco e endpoints REST para persistir conteúdo do portal AIOPS App Model (substituindo `localStorage` do browser ao longo do tempo).
+Schema de banco e endpoints REST para persistir conteúdo do portal AIOps App Model (substituindo `localStorage` do browser ao longo do tempo).
 
 ## Schema `portal`
 

@@ -1,0 +1,69 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Empty states</title><link rel="stylesheet" href="_card.css">
+<style>
+  .grid { font-family: Inter, sans-serif; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .es { background: #FFF; border: 1px solid #E1E9EF; border-radius: 12px; padding: 32px 24px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .es .art { width: 80px; height: 80px; border-radius: 999px; background: #F2F4F8; display: flex; align-items: center; justify-content: center; color: #697077; margin-bottom: 4px; }
+  .es .art.warm { background: #FFE5D6; color: #D94616; }
+  .es .art.info { background: #DDEEF8; color: #387BA8; }
+  .es .art.green { background: #DEF5E5; color: #115644; }
+  .es .title { font-size: 18px; line-height: 26px; font-weight: 700; color: #121619; }
+  .es .desc { font-size: 14px; line-height: 22px; color: #697077; max-width: 280px; }
+  .es .actions { display: flex; gap: 8px; margin-top: 8px; }
+  .btn { font-family: Inter; font-size: 14px; line-height: 20px; height: 40px; padding: 0 16px; border-radius: 8px; cursor: pointer; border: none; font-weight: 500; }
+  .btn-prim { background: #F56738; color: #FFF; }
+  .btn-sec  { background: #FFF; color: #121619; border: 1px solid #121619; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Empty states · 4 cenários</div>
+
+  <div class="grid">
+    <div class="es">
+      <div class="art warm">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </div>
+      <div class="title">Nenhum imóvel encontrado</div>
+      <div class="desc">Ajuste os filtros ou amplie a região da busca para ver mais resultados.</div>
+      <div class="actions">
+        <button class="btn btn-sec">Limpar filtros</button>
+        <button class="btn btn-prim">Salvar busca</button>
+      </div>
+    </div>
+
+    <div class="es">
+      <div class="art">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>
+      </div>
+      <div class="title">Você ainda não tem favoritos</div>
+      <div class="desc">Salve imóveis enquanto explora para comparar depois.</div>
+      <div class="actions">
+        <button class="btn btn-prim">Buscar imóveis</button>
+      </div>
+    </div>
+
+    <div class="es">
+      <div class="art green">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+      </div>
+      <div class="title">Tudo em dia</div>
+      <div class="desc">Não há documentos pendentes. Sua proposta está pronta para análise.</div>
+    </div>
+
+    <div class="es">
+      <div class="art info">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <div class="title">Sem conexão</div>
+      <div class="desc">Verifique sua internet. Os dados serão sincronizados quando você voltar online.</div>
+      <div class="actions">
+        <button class="btn btn-sec">Tentar novamente</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top: 8px;">
+    Empty states · ícone 32px em moldura circular tonal (warm para busca, neutra para dados, green para sucesso, info para conexão). Sempre com título 18/26 + descrição 14/22 + 0-2 actions. Não usar mascote/ilustração custom — economia visual.
+  </div>
+</div>
+</body></html>

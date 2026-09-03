@@ -16,7 +16,7 @@ import {
 
 export const Route = createFileRoute("/admin/iam/settings")({
   head: () => ({
-    meta: [{ title: "Configurações — IAM | AIOPS App Model" }],
+    meta: [{ title: "Configurações — IAM | AIOps App Model" }],
   }),
   component: IamSettingsPage,
 });

@@ -17,7 +17,7 @@ version: "1.0"
 
 ## Purpose
 
-High-level view of how AIOPS App Model is structured: UI layers, server-side integration boundary, and where data lives.
+High-level view of how AIOps App Model is structured: UI layers, server-side integration boundary, and where data lives.
 
 ## Context
 

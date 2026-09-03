@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Select</title><link rel="stylesheet" href="_card.css">
+<style>
+  .field { display: flex; flex-direction: column; gap: 6px; font-family: Inter, sans-serif; }
+  .field label { font-size: 14px; font-weight: 500; color: #121619; }
+  .field .hint { font-size: 12px; color: #697077; }
+  .select { position: relative; }
+  .select .trigger { width: 100%; font-family: Inter; padding: 12px 40px 12px 14px; border: 1px solid #C1C7CD; border-radius: 8px; font-size: 16px; line-height: 24px; color: #121619; background: #FFFFFF; text-align: left; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+  .select .trigger.focused { border-color: #F56738; border-width: 2px; padding: 11px 39px 11px 13px; }
+  .select .trigger.placeholder { color: #878D96; }
+  .select .caret { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #697077; pointer-events: none; }
+  .select .menu { margin-top: 6px; background: #FFF; border: 1px solid #E1E9EF; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 16px rgba(25,31,35,0.12); }
+  .select .opt { padding: 12px 16px; font-size: 15px; line-height: 20px; color: #121619; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+  .select .opt:hover { background: #F2F4F8; }
+  .select .opt.selected { color: #121619; font-weight: 600; background: #EDF6FC; }
+  .select .opt.selected svg { color: #F56738; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Select · trigger + menu aberto</div>
+
+  <div class="grid-2">
+    <div class="field">
+      <label>Bairro</label>
+      <div class="select">
+        <button class="trigger placeholder">Selecione um bairro<span class="caret"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+      </div>
+    </div>
+    <div class="field">
+      <label>Bairro</label>
+      <div class="select">
+        <button class="trigger focused">Pinheiros<span class="caret"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></button>
+        <div class="menu">
+          <div class="opt">Jardins</div>
+          <div class="opt selected">Pinheiros <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <div class="opt">Vila Madalena</div>
+          <div class="opt">Vila Mariana</div>
+          <div class="opt">Moema</div>
+        </div>
+      </div>
+      <span class="hint">5 bairros com imóveis disponíveis</span>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top:8px;">
+    Select · herda tokens do Input. Menu 8px radius, elevation-overlay, item selecionado em bg-muted com check orange. Hover item: bg-subtle.
+  </div>
+</div>
+</body></html>

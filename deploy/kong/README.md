@@ -1,4 +1,4 @@
-# Kong + DNS — AIOPS App Model
+# Kong + DNS — AIOps App Model
 
 Working copies of manifests that must land in:
 

@@ -13,11 +13,11 @@ updated: "2026-08-19"
 >
 > Documentation Standard v1.0 (adopter)
 
-**Primary AI entry point** for the AIOPS App Model repository. Load linked documents progressively — do not assume undocumented behavior.
+**Primary AI entry point** for the AIOps App Model repository. Load linked documents progressively — do not assume undocumented behavior.
 
 ## What this system is
 
-AIOPS App Model is Loft's internal AI portal: discover AI projects (cases), explore integrations, view impact metrics, and administer content via Jira/Confluence-assisted workflows. Evidence: `src/components/layout/AppSidebar.tsx`, `.lovable/plan/ai-portal-loft-2026-08-08.md`.
+AIOps App Model is Loft's internal AI portal: discover AI projects (cases), explore integrations, view impact metrics, and administer content via Jira/Confluence-assisted workflows. Evidence: `src/components/layout/AppSidebar.tsx`, `.lovable/plan/ai-portal-loft-2026-08-08.md`.
 
 ## Stack (Confirmed)
 

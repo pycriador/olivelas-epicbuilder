@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Button — Primary</title><link rel="stylesheet" href="_card.css">
+<style>
+  .btn { font-family: Inter, sans-serif; font-weight: 500; font-size: 16px; line-height: 24px; height: 48px; padding: 0 24px; border-radius: 8px; border: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; white-space: nowrap; transition: background 150ms ease-out; }
+  .btn.ctx { height: 32px; padding: 0 16px; font-size: 14px; line-height: 20px; gap: 6px; }
+  .btn-primary        { background: #F56738; color: #fff; }
+  .btn-primary:hover  { background: #D94616; }
+  .btn-primary-press  { background: #8A2606; color: #fff; }
+  .btn-primary:focus  { outline: 2px solid #F56738; outline-offset: 2px; }
+  .btn-disabled       { background: #C1C7CD; color: #fff; cursor: not-allowed; }
+  .btn-loading .spin  { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.4); border-top-color: #fff; border-radius: 50%; animation: spin 900ms linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .state-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 6px; }
+  .state-row { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+  .state { display: flex; flex-direction: column; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Button · Primary · Default (48h)</div>
+
+  <div class="state-row">
+    <div class="state"><span class="state-label">Enabled</span><button class="btn btn-primary">Buscar apartamento</button></div>
+    <div class="state"><span class="state-label">Hover</span><button class="btn btn-primary" style="background:#D94616;">Buscar apartamento</button></div>
+    <div class="state"><span class="state-label">Pressed</span><button class="btn btn-primary-press">Buscar apartamento</button></div>
+    <div class="state"><span class="state-label">Disabled</span><button class="btn btn-disabled">Buscar apartamento</button></div>
+    <div class="state"><span class="state-label">Loading</span><button class="btn btn-primary btn-loading"><span class="spin"></span>Carregando</button></div>
+  </div>
+
+  <div class="state-label" style="margin-top:4px;">Com ícone · before / after</div>
+  <div class="state-row">
+    <button class="btn btn-primary">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
+      Buscar
+    </button>
+    <button class="btn btn-primary">
+      Agendar visita
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <div class="state-label" style="margin-top:4px;">Size · Contextual (32h)</div>
+  <div class="state-row">
+    <button class="btn ctx btn-primary">Principal</button>
+    <button class="btn ctx btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+      Adicionar
+    </button>
+  </div>
+
+  <div class="caption" style="margin-top:8px;">
+    Primary · <code class="token">$color.interaction.primary</code> fill, sem border. Usar para ação principal com alta ênfase. Uma por tela.
+  </div>
+</div>
+</body></html>

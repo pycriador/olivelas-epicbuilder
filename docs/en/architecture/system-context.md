@@ -17,13 +17,13 @@ version: "1.0"
 
 ## Purpose
 
-This document places AIOPS App Model in its ecosystem: who uses it, which external systems it calls, and what stays inside the application boundary.
+This document places AIOps App Model in its ecosystem: who uses it, which external systems it calls, and what stays inside the application boundary.
 
 ## System
 
 | Field | Value |
 | --- | --- |
-| Name | AIOPS App Model |
+| Name | AIOps App Model |
 | Purpose | Internal Loft portal for AI project discovery, impact visibility, and case administration |
 | Owner | Unknown — fill in Phase 2 (`operations/service-profile.md`) |
 | Boundary summary | TanStack Start web app: React UI + server functions/API routes; browser-local catalog; outbound calls to Atlassian and Gemini |
@@ -84,17 +84,17 @@ This document places AIOPS App Model in its ecosystem: who uses it, which extern
 
 | From | To | Relation | Notes |
 | --- | --- | --- | --- |
-| AIOPS App Model | Jira | calls | Search, scope collection, media proxy |
-| AIOPS App Model | Confluence | calls | Writes limited to status folder |
-| AIOPS App Model | Gemini | calls | Post-processing Jira scope |
-| AIOPS App Model | localStorage | reads/writes | Per-browser content catalog |
-| Admin user | AIOPS App Model | uses | No auth gate observed |
+| AIOps App Model | Jira | calls | Search, scope collection, media proxy |
+| AIOps App Model | Confluence | calls | Writes limited to status folder |
+| AIOps App Model | Gemini | calls | Post-processing Jira scope |
+| AIOps App Model | localStorage | reads/writes | Per-browser content catalog |
+| Admin user | AIOps App Model | uses | No auth gate observed |
 
 ## Context Diagram
 
 ```mermaid
 flowchart LR
-  Collaborator[Loft collaborator] --> Portal[AIOPS App Model\nTanStack Start]
+  Collaborator[Loft collaborator] --> Portal[AIOps App Model\nTanStack Start]
   Maintainer[AIOps maintainer] --> Portal
   Portal --> LS[(Browser localStorage)]
   Portal --> Jira[Atlassian Jira]

@@ -1,4 +1,4 @@
-# AIOPS App Model — Frontend (TanStack Start SSR + Nitro node-server)
+# AIOps App Model — Frontend (TanStack Start SSR + Nitro node-server)
 #
 # Minimal production image for Loft EKS (linux/arm64).
 # Use Debian slim (glibc), not Alpine: sharp/esbuild often break on musl/arm64.

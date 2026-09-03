@@ -1,0 +1,64 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Feedback banner</title><link rel="stylesheet" href="_card.css">
+<style>
+  .banner { font-family: Inter, sans-serif; padding: 14px 16px; border-radius: 8px; display: flex; align-items: flex-start; gap: 12px; }
+  .banner .ico { flex-shrink: 0; width: 20px; height: 20px; margin-top: 2px; }
+  .banner .body { flex: 1; font-size: 14px; line-height: 20px; color: #121619; }
+  .banner .body strong { font-weight: 600; }
+  .banner .act { font-size: 14px; font-weight: 500; color: #387BA8; text-decoration: underline; text-decoration-style: dashed; text-underline-offset: 3px; cursor: pointer; white-space: nowrap; }
+  .banner .close { width: 20px; height: 20px; cursor: pointer; opacity: 0.6; flex-shrink: 0; }
+  .b-info     { background: #EDF6FC; }
+  .b-info     .ico, .b-info .act     { color: #387BA8; }
+  .b-positive { background: #D9F3E9; }
+  .b-positive .ico, .b-positive .act { color: #115644; }
+  .b-warning  { background: #FFF4DF; }
+  .b-warning  .ico, .b-warning .act  { color: #7A5200; }
+  .b-negative { background: #FDECEC; }
+  .b-negative .ico, .b-negative .act { color: #8F2828; }
+  .state-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Feedback Banner · 4 variantes semânticas</div>
+
+  <div>
+    <div class="state-label">Informativa</div>
+    <div class="banner b-info">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <div class="body"><strong>Documentos em análise.</strong> Te avisamos por e-mail em até 2 dias úteis.</div>
+      <span class="act">Ver status</span>
+      <svg class="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </div>
+  </div>
+
+  <div>
+    <div class="state-label">Positiva</div>
+    <div class="banner b-positive">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+      <div class="body"><strong>Proposta enviada com sucesso.</strong> O vendedor tem 48h para responder.</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="state-label">Atenção</div>
+    <div class="banner b-warning">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      <div class="body"><strong>Revise o comprovante de renda.</strong> A resolução está abaixo do mínimo aceitável.</div>
+      <span class="act">Reenviar</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="state-label">Negativa</div>
+    <div class="banner b-negative">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+      <div class="body"><strong>Não foi possível processar o pagamento.</strong> Verifique o limite do cartão e tente novamente.</div>
+      <span class="act">Tentar de novo</span>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top:8px;">
+    Feedback banners · 8px radius, fundo na cor semântica claro, ícone 20px + label + ação + close opcionais. Usar inline no fluxo, não flutuante.
+  </div>
+</div>
+</body></html>

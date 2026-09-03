@@ -1,4 +1,4 @@
-# Route53 (`infra-live`) — AIOPS App Model
+# Route53 (`infra-live`) — AIOps App Model
 
 **Source of truth for DNS:** [`loft-br/infra-live`](https://github.com/loft-br/infra-live).
 

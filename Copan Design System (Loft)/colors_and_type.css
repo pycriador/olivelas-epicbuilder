@@ -1,0 +1,330 @@
+/* ============================================================
+   Copan Design System — Loft
+   Base color + type tokens.
+   Source of truth: Copan-Components.fig + Copan-Foundation.fig
+   Font policy: Inter only (official rule: "apenas a família Inter").
+   Substitutes Helvetica Now Text / Display used in the Figma source.
+   ============================================================ */
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-VariableFont_opsz_wght.ttf") format("truetype-variations"),
+       url("fonts/Inter-VariableFont_opsz_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Italic-VariableFont_opsz_wght.ttf") format("truetype-variations"),
+       url("fonts/Inter-Italic-VariableFont_opsz_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* ============================================================
+     BRAND
+     ============================================================ */
+  --copan-orange-50:   #FFF2EC;
+  --copan-orange-200:  #FFD9C7;
+  --copan-orange-400:  #FFA782;
+  --copan-orange-500:  #FF774A;   /* softer accent */
+  --copan-orange-550:  #F56738;   /* primary brand — CTA fill */
+  --copan-orange-600:  #D94616;   /* primary border / press */
+  --copan-orange-800:  #8A2606;
+
+  /* ============================================================
+     NEUTRALS — pure greys (text, surfaces)
+     ============================================================ */
+  --copan-neutral-0:   #FFFFFF;
+  --copan-neutral-100: #EBEBEB;   /* divider stroke */
+  --copan-neutral-200: #C1C7CD;   /* border-muted */
+  --copan-neutral-300: #A2A9B0;   /* border-strong on input */
+  --copan-neutral-400: #878D96;   /* text-tertiary */
+  --copan-neutral-500: #697077;   /* text-secondary */
+  --copan-neutral-600: #5A6A75;   /* text-body (fixed from #536470) */
+  --copan-neutral-700: #343A3F;   /* deep text */
+  --copan-neutral-800: #191F23;   /* deep surface */
+  --copan-neutral-900: #121619;   /* text-primary / heading */
+  --copan-black:       #000000;
+
+  /* ============================================================
+     SLATE — cool blue-greys (surfaces, cards, info)
+     Separate family from neutrals; used 1000+ times in the Figma.
+     ============================================================ */
+  --copan-slate-50:    #F2F4F8;   /* bg-subtle */
+  --copan-slate-100:   #E1E9EF;   /* border-subtle */
+  --copan-slate-200:   #C3DAE8;   /* divider on info surfaces */
+  --copan-slate-300:   #879DAC;   /* icon on slate */
+  --copan-slate-400:   #387BA8;   /* info text */
+  --copan-slate-500:   #225C8A;   /* info hover (derived) */
+
+  /* ============================================================
+     INFO — azul-claro (feedback banners, callouts)
+     ============================================================ */
+  --copan-info-50:     #EDF6FC;   /* feedback banner bg */
+  --copan-info-100:    #D9E9F5;
+  --copan-info-200:    #C3DAE8;
+  --copan-info-400:    #0C8CE9;   /* link blue */
+  --copan-info-500:    #387BA8;
+
+  /* ============================================================
+     FEEDBACK / SEMANTIC
+     ============================================================ */
+  --copan-positive-50:  #E8F5F0;
+  --copan-positive-500: #20A483;   /* positive */
+  --copan-positive-700: #115644;
+
+  --copan-negative-50:  #FDECEC;
+  --copan-negative-500: #CE4242;   /* negative */
+  --copan-negative-700: #991818;
+
+  --copan-attention-50:  #FFF4DF;
+  --copan-attention-500: #FFC04C;  /* attention / warning */
+  --copan-attention-700: #7A5200;
+
+  --copan-informative-50:  #EAF3F9;
+  --copan-informative-500: #4B94C5;  /* informative · azul */
+  --copan-informative-700: #1F4E73;
+
+  /* Premium — for Loft-owned listings */
+  --copan-premium-500:  #BD7B00;
+  --copan-sand-300:     #E4B266;
+
+  /* ============================================================
+     SEMANTIC — TEXT
+     ============================================================ */
+  --color-text-primary:     var(--copan-neutral-900);
+  --color-text-secondary:   var(--copan-neutral-500);
+  --color-text-tertiary:    var(--copan-neutral-400);
+  --color-text-body:        var(--copan-neutral-600);
+  --color-text-placeholder: var(--copan-neutral-400);
+  --color-text-inverted:    var(--copan-neutral-0);
+  --color-text-disabled:    var(--copan-neutral-300);
+  --color-text-highlight:   var(--copan-orange-550);
+  --color-text-premium:     var(--copan-premium-500);
+  --color-text-link:        var(--copan-positive-500);
+  --color-text-link-info:   var(--copan-info-400);
+
+  /* ============================================================
+     SEMANTIC — BACKGROUND
+     ============================================================ */
+  --color-bg-default:   var(--copan-neutral-0);
+  --color-bg-subtle:    var(--copan-slate-50);
+  --color-bg-muted:     var(--copan-info-50);
+  --color-bg-inverted:  var(--copan-neutral-800);
+  --color-bg-backdrop:  rgba(25, 31, 35, 0.5);
+  --color-bg-disabled:  var(--copan-slate-50);
+
+  /* ============================================================
+     SEMANTIC — INTERACTION
+     ============================================================ */
+  --color-interaction-primary:        var(--copan-orange-550);
+  --color-interaction-primary-hover:  var(--copan-orange-600);
+  --color-interaction-primary-border: var(--copan-orange-600);
+  --color-interaction-secondary:      var(--copan-neutral-900);
+  --color-interaction-secondary-hover:var(--copan-slate-50);
+  --color-interaction-disabled:       var(--copan-neutral-200);
+  --color-interaction-link:           var(--copan-positive-500);
+  --color-interaction-premium:        var(--copan-premium-500);
+  --color-interaction-inverted:       var(--copan-neutral-0);
+
+  /* ============================================================
+     SEMANTIC — BORDER
+     ============================================================ */
+  --color-border-subtle:  var(--copan-slate-100);   /* #E1E9EF */
+  --color-border-muted:   var(--copan-neutral-200); /* #C1C7CD */
+  --color-border-strong:  var(--copan-neutral-900); /* #121619 */
+  --color-border-focus:   var(--copan-orange-550);
+  --color-border-error:   var(--copan-negative-500);
+  --color-border-divider: var(--copan-neutral-100); /* #EBEBEB */
+
+  /* ============================================================
+     SEMANTIC — ICON
+     ============================================================ */
+  --color-icon-default:  var(--copan-neutral-900);
+  --color-icon-muted:    var(--copan-neutral-500);
+  --color-icon-subtle:   var(--copan-slate-300);
+  --color-icon-inverted: var(--copan-neutral-0);
+
+  /* ============================================================
+     RADIUS
+     ============================================================ */
+  --radius-none:   0;
+  --radius-xs:     4px;
+  --radius-sm:     8px;    /* buttons, inputs, cards-default */
+  --radius-md:     12px;   /* cards-elevated, callouts */
+  --radius-lg:     24px;   /* hero callouts, footer */
+  --radius-pill:   999px;  /* chips, tags, avatars */
+  --radius-circle: 9999px;
+
+  /* ============================================================
+     ELEVATION
+     ============================================================ */
+  --elevation-none:    none;
+  --elevation-flat:    0 1px 0 0 rgba(25,31,35,0.06);
+  --elevation-raised:  0 2px 6px 0 rgba(25,31,35,0.08);
+  --elevation-overlay: 0 6px 16px -4px rgba(25,31,35,0.12);
+  --elevation-sticky:  0 8px 24px -6px rgba(25,31,35,0.16);
+  --elevation-tempnav: 0 16px 32px -8px rgba(25,31,35,0.20);
+  --elevation-popout:  0 24px 48px -12px rgba(25,31,35,0.24);
+
+  /* ============================================================
+     SPACING — INNER (component-level)
+     ============================================================ */
+  --space-inner-01: 4px;
+  --space-inner-02: 8px;
+  --space-inner-03: 12px;
+  --space-inner-04: 16px;
+  --space-inner-05: 20px;
+  --space-inner-06: 24px;
+  --space-inner-08: 32px;
+  --space-inner-10: 40px;
+  --space-inner-12: 48px;
+  --space-inner-14: 56px;
+
+  /* ============================================================
+     SPACING — LAYOUT (page rhythm)
+     ============================================================ */
+  --space-layout-02: 16px;
+  --space-layout-03: 24px;
+  --space-layout-04: 32px;
+  --space-layout-05: 40px;
+  --space-layout-06: 48px;
+  --space-layout-07: 56px;
+  --space-layout-08: 64px;
+  --space-layout-10: 80px;
+  --space-layout-12: 96px;
+  --space-layout-15: 120px;
+
+  /* ============================================================
+     TYPOGRAPHY
+     Inter for everything. Helvetica Now / Roboto / Itau Display
+     in the Figma are substituted by Inter (official guideline).
+     ============================================================ */
+  --font-display: "Inter", Helvetica, Arial, sans-serif;
+  --font-sans:    "Inter", Helvetica, Arial, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Type scale — used across the product
+     Naming follows the Figma "De/Para de tokens":
+     - hero / h1 / h2 / h3 / h4   → display (marketing + section heads)
+     - subtitle                   → dialog / modal header
+     - paragraph-lg/md/sm         → body
+     - caption                    → legendas
+     - overline                   → ALL CAPS labels (10/16 +8%)
+     - label                      → UI labels (buttons, form labels)
+  */
+}
+
+/* ============================================================
+   GLOBAL
+   ============================================================ */
+html, body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-bg-default);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   DISPLAY TYPE (marketing + section heads)
+   ============================================================ */
+.hero {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 72px;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+.h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 64px;
+  letter-spacing: -0.02em;
+}
+.h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  letter-spacing: -0.01em;
+}
+.h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.01em;
+}
+/* h4 = "section title" — the most-used display size in product (24/32) */
+.h4, .section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+/* ============================================================
+   UI TYPE (product surfaces)
+   ============================================================ */
+.subtitle {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+}
+.p-lg, p.lg {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+.p, p {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+.p-sm, p.sm {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+.caption {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--color-text-tertiary);
+}
+.overline {
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.label     { font-size: 16px; line-height: 24px; font-weight: 500; }
+.label-md  { font-size: 14px; line-height: 20px; font-weight: 500; }
+.label-sm  { font-size: 12px; line-height: 16px; font-weight: 500; }
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+a, .link {
+  color: var(--color-interaction-link);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 3px;
+}
+a:hover, .link:hover { color: var(--copan-positive-700); }
+
+.link-info {
+  color: var(--color-text-link-info);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}

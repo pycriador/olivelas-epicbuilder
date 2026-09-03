@@ -7,7 +7,7 @@ updated: "2026-08-21"
 version: "0.10"
 ---
 
-# Loft infra publish — AIOPS App Model
+# Loft infra publish — AIOps App Model
 
 > Language: EN | [Português (pt-BR)](../../pt-BR/operations/loft-infra-publish.md)
 >
@@ -294,7 +294,7 @@ clusters/cross-prod/
 | README | [`deploy/k8s/README.md`](../../../deploy/k8s/README.md) |
 | Examples | [k8s-apps-*.example](examples/) |
 
-### Solid configuration summary (AIOPS App Model)
+### Solid configuration summary (AIOps App Model)
 
 | Field | API | Front |
 | --- | --- | --- |
@@ -337,11 +337,11 @@ cp /path/to/aiops-app-model/deploy/k8s/aiops-app-model.application.yaml \
 # 4) Commit + push branch
 git add clusters/cross-prod/deployments/aiops-app-model \
         clusters/cross-prod/applications/aiops-app-model.yaml
-git commit -m "Add AIOPS App Model (api + front) to cross-prod"
+git commit -m "Add AIOps App Model (api + front) to cross-prod"
 git push -u origin HEAD
 
 # 5) Open PR against main (requires peer review)
-gh pr create --base main --title "Add AIOPS App Model to cross-prod" --body "$(cat <<'EOF'
+gh pr create --base main --title "Add AIOps App Model to cross-prod" --body "$(cat <<'EOF'
 ## Summary
 - Add Argo CD Application `aiops-app-model` on `cross-prod`
 - Add Helm values for `aiops-app-model-api` (port 8000) and `aiops-app-model-front` (port 8080)
@@ -458,9 +458,9 @@ git add gateways/infra-prod/corp/cross/routes/aiops-app-model-front-route.yaml \
         gateways/infra-prod/corp/cross/services/aiops-app-model-front-service.yaml \
         gateways/infra-prod/external/cross/routes/aiops-app-model-api-route.yaml \
         gateways/infra-prod/external/cross/services/aiops-app-model-api-service.yaml
-git commit -m "Add AIOPS App Model Kong routes (corp front + external API)"
+git commit -m "Add AIOps App Model Kong routes (corp front + external API)"
 git push -u origin HEAD
-gh pr create --base main --title "Add AIOPS App Model Kong routes (corp + external)"
+gh pr create --base main --title "Add AIOps App Model Kong routes (corp + external)"
 
 ### DNS (never terragrunt apply locally)
 git clone git@github.com:loft-br/infra-live.git && cd infra-live
@@ -468,9 +468,9 @@ git checkout -b feat/aiops-app-model-dns
 # copy terragrunt.hcl files under the loft-corp.com.br records tree
 git add live/aws/infrastructure/production/_global/route53/records/loft-corp.com.br/aiops-app-model.loft-corp.com.br \
         live/aws/infrastructure/production/_global/route53/records/loft-corp.com.br/aiops-app-model-api.loft-corp.com.br
-git commit -m "Add Route53 Kong records for AIOPS App Model"
+git commit -m "Add Route53 Kong records for AIOps App Model"
 git push -u origin HEAD
-gh pr create --base main --title "Add Route53 records for AIOPS App Model (corp + external)"
+gh pr create --base main --title "Add Route53 records for AIOps App Model (corp + external)"
 ```
 
 ### Peer review checklist

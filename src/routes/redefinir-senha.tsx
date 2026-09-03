@@ -10,7 +10,7 @@ export const Route = createFileRoute("/redefinir-senha")({
       ? { token: search["token"] as string }
       : {},
   head: () => ({
-    meta: [{ title: "Redefinir senha — AIOPS App Model" }],
+    meta: [{ title: "Redefinir senha — AIOps App Model" }],
   }),
   component: ResetPasswordPage,
 });

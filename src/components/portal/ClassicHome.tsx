@@ -117,7 +117,7 @@ export function ClassicHome() {
             />
             <div className="text-left">
               <h1 className="font-display text-3xl font-bold leading-[1.05] text-white sm:text-4xl">
-                AIOPS App Model
+                AIOps App Model
               </h1>
             </div>
           </div>

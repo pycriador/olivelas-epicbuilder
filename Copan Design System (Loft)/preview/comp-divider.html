@@ -1,0 +1,94 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Divider</title><link rel="stylesheet" href="_card.css">
+<style>
+  .frame { font-family: Inter, sans-serif; background: #FFF; border: 1px solid #E1E9EF; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+  .lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; }
+  .row { display: flex; gap: 12px; align-items: center; }
+
+  /* Solid */
+  .div-sub  { height: 1px; background: #E1E9EF; }
+  .div-mut  { height: 1px; background: #C1C7CD; }
+  .div-strg { height: 1px; background: #121619; }
+
+  .div-dashed { border: none; border-top: 1px dashed #C1C7CD; }
+  .div-thick  { height: 2px; background: #121619; }
+
+  /* Section divider with label */
+  .with-label { display: flex; align-items: center; gap: 14px; }
+  .with-label::before, .with-label::after { content: ""; flex: 1; height: 1px; background: #E1E9EF; }
+  .with-label .txt { font-size: 12px; font-weight: 700; color: #697077; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  /* Vertical */
+  .vert-host { display: flex; gap: 16px; align-items: center; padding: 8px 0; }
+  .vert-host span { font-size: 13px; color: #121619; }
+  .vert { width: 1px; align-self: stretch; background: #E1E9EF; }
+
+  /* Use in cards */
+  .pcard { background: #FFF; border: 1px solid #E1E9EF; border-radius: 10px; overflow: hidden; }
+  .pcard .header { padding: 14px 16px; font-size: 14px; font-weight: 600; color: #121619; }
+  .pcard .body { padding: 14px 16px; font-size: 13px; color: #697077; }
+  .pcard .foot { padding: 14px 16px; display: flex; justify-content: space-between; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Divider · pesos · com label · vertical</div>
+
+  <div class="frame">
+    <div class="lbl">Pesos horizontais</div>
+    <div>
+      <div style="font-size:12px; color:#697077; margin-bottom:6px;">Subtle · #E1E9EF (default)</div>
+      <div class="div-sub"></div>
+    </div>
+    <div>
+      <div style="font-size:12px; color:#697077; margin-bottom:6px;">Muted · #C1C7CD</div>
+      <div class="div-mut"></div>
+    </div>
+    <div>
+      <div style="font-size:12px; color:#697077; margin-bottom:6px;">Strong · #121619</div>
+      <div class="div-strg"></div>
+    </div>
+    <div>
+      <div style="font-size:12px; color:#697077; margin-bottom:6px;">Dashed · 1px C1C7CD</div>
+      <div class="div-dashed"></div>
+    </div>
+    <div>
+      <div style="font-size:12px; color:#697077; margin-bottom:6px;">Thick · 2px #121619 (page break)</div>
+      <div class="div-thick"></div>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="lbl">Section divider com label</div>
+    <div class="with-label"><span class="txt">Sobre o imóvel</span></div>
+    <div class="with-label"><span class="txt">ou</span></div>
+  </div>
+
+  <div class="frame">
+    <div class="lbl">Vertical inline</div>
+    <div class="vert-host">
+      <span>62m²</span>
+      <div class="vert"></div>
+      <span>2 quartos</span>
+      <div class="vert"></div>
+      <span>1 vaga</span>
+      <div class="vert"></div>
+      <span style="color: #20A483; font-weight: 600;">Reformado</span>
+    </div>
+  </div>
+
+  <div class="frame">
+    <div class="lbl">Em card</div>
+    <div class="pcard">
+      <div class="header">R$ 1.245.000</div>
+      <div class="div-sub"></div>
+      <div class="body">Pinheiros · 62m² · 2 quartos · 1 vaga</div>
+      <div class="div-sub"></div>
+      <div class="foot"><span style="color:#697077;">Atualizado há 2 dias</span><span style="color:#F56738; font-weight:600;">Ver imóvel →</span></div>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top: 8px;">
+    Divider · 1px subtle por padrão (95% dos casos). Usar muted em containers já claros, strong para emphasis. Vertical para metadata inline. Section divider com label centralizado em pt-BR uppercase 12/spaced.
+  </div>
+</div>
+</body></html>

@@ -15,7 +15,7 @@ version: "1.0"
 >
 > Documentation Standard v1.0 (adopter)
 
-Database schema and REST endpoints for persisting AIOPS App Model portal content (replacing browser `localStorage` over time).
+Database schema and REST endpoints for persisting AIOps App Model portal content (replacing browser `localStorage` over time).
 
 ## Schema `portal`
 

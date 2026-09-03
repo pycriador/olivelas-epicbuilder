@@ -11,13 +11,13 @@ export const Route = createFileRoute("/busca")({
   }),
   head: () => ({
     meta: [
-      { title: "Busca no AIOPS App Model — Loft" },
+      { title: "Busca no AIOps App Model — Loft" },
       {
         name: "description",
         content:
-          "Busque cases, aulas, ferramentas, templates e prompts de IA em um único lugar dentro do AIOPS App Model da Loft.",
+          "Busque cases, aulas, ferramentas, templates e prompts de IA em um único lugar dentro do AIOps App Model da Loft.",
       },
-      { property: "og:title", content: "Busca — AIOPS App Model" },
+      { property: "og:title", content: "Busca — AIOps App Model" },
       { property: "og:description", content: "Encontre tudo sobre IA na Loft em uma busca." },
     ],
   }),

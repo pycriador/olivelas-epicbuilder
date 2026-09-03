@@ -7,7 +7,7 @@ updated: "2026-08-19"
 version: "1.0"
 ---
 
-# RDS provisioning — AIOPS App Model
+# RDS provisioning — AIOps App Model
 
 > Language: EN | [Português (pt-BR)](../../pt-BR/backend/rds-provisioning.md)
 >

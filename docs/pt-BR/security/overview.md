@@ -13,7 +13,7 @@ updated: "2026-08-20"
 
 ## Autenticação (Confirmed)
 
-O AIOPS App Model implementa IAM de aplicação no schema `iam` (PostgreSQL) com:
+O AIOps App Model implementa IAM de aplicação no schema `iam` (PostgreSQL) com:
 
 - Credenciais locais (hash Argon2id)
 - Access tokens JWT de curta duração (header Bearer e/ou cookie `access_token`)

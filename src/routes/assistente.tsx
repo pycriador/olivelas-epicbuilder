@@ -21,7 +21,7 @@ export const Route = createFileRoute("/assistente")({
   }),
   head: () => ({
     meta: [
-      { title: "Assistente de IA interno — AIOPS App Model" },
+      { title: "Assistente de IA interno — AIOps App Model" },
       {
         name: "description",
         content:

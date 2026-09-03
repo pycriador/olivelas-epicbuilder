@@ -1,7 +1,7 @@
 [project]
 name = "aiops-app-model-api"
 version = "0.1.0"
-description = "FastAPI backend for AIOPS App Model"
+description = "FastAPI backend for AIOps App Model"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

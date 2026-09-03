@@ -27,6 +27,21 @@ export const colors = {
     error: "#E74C3C",
     info: "#3498DB",
   },
+  /** Copan-aligned tokens (see Copan Design System preview). */
+  copan: {
+    orange550: "#F56738",
+    orange50: "#FFF2EC",
+    neutral900: "#121619",
+    neutral500: "#697077",
+    neutral400: "#878D96",
+    slate50: "#F2F4F8",
+    slate100: "#E1E9EF",
+    positive50: "#E8F5F0",
+    positive500: "#20A483",
+    info50: "#EDF6FC",
+    elevationOverlay: "0 10px 28px rgba(25,31,35,0.14)",
+    elevationPopout: "0 24px 48px -12px rgba(25,31,35,0.24)",
+  },
 } as const;
 
 export const typography = {

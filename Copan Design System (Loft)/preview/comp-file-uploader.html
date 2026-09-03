@@ -1,0 +1,69 @@
+<!doctype html><html><head><meta charset="utf-8"><title>File uploader</title><link rel="stylesheet" href="_card.css">
+<style>
+  .dropzone { border: 2px dashed #C1C7CD; border-radius: 12px; padding: 32px 24px; text-align: center; font-family: Inter, sans-serif; display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; transition: all 150ms; background: #FFF; }
+  .dropzone:hover, .dropzone.active { border-color: #F56738; background: #FFF2EC; }
+  .dropzone .ico { width: 48px; height: 48px; border-radius: 999px; background: #F2F4F8; color: #697077; display: flex; align-items: center; justify-content: center; }
+  .dropzone.active .ico { background: #FFD9C7; color: #D94616; }
+  .dropzone .title { font-size: 16px; font-weight: 600; color: #121619; }
+  .dropzone .sub { font-size: 13px; color: #697077; }
+  .dropzone .act { font-size: 14px; font-weight: 500; color: #20A483; text-decoration: underline; text-decoration-style: dashed; text-underline-offset: 3px; cursor: pointer; }
+  .file-list { font-family: Inter, sans-serif; display: flex; flex-direction: column; gap: 8px; }
+  .file { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border: 1px solid #E1E9EF; border-radius: 8px; background: #FFF; }
+  .file.success { border-color: #D9F3E9; }
+  .file.error   { border-color: #FDECEC; background: #FDECEC; }
+  .file .thumb { width: 40px; height: 40px; border-radius: 6px; background: #F2F4F8; display: flex; align-items: center; justify-content: center; color: #697077; flex-shrink: 0; }
+  .file .info { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+  .file .name { font-size: 14px; font-weight: 500; color: #121619; }
+  .file .meta { font-size: 12px; color: #697077; }
+  .file .bar { height: 4px; background: #E1E9EF; border-radius: 999px; overflow: hidden; }
+  .file .bar > div { height: 100%; background: #F56738; }
+  .file .del { width: 32px; height: 32px; border: none; background: none; border-radius: 8px; color: #697077; cursor: pointer; }
+  .file .del:hover { background: #F2F4F8; color: #121619; }
+  .file.error .name { color: #8F2828; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">File uploader · dropzone + lista</div>
+
+  <div class="dropzone active">
+    <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg></div>
+    <div class="title">Solte os documentos aqui</div>
+    <div class="sub">PDF, JPG ou PNG até 10 MB · <span class="act">procurar no computador</span></div>
+  </div>
+
+  <div class="file-list" style="margin-top: 6px;">
+    <div class="file success">
+      <div class="thumb" style="color:#115644;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+      <div class="info">
+        <div class="name">comprovante-renda.pdf</div>
+        <div class="meta">2,4 MB · enviado</div>
+      </div>
+      <button class="del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+    </div>
+
+    <div class="file">
+      <div class="thumb"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg></div>
+      <div class="info">
+        <div class="name">rg-frente-verso.jpg</div>
+        <div class="bar"><div style="width: 72%;"></div></div>
+        <div class="meta">1,8 MB · 72%</div>
+      </div>
+      <button class="del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+
+    <div class="file error">
+      <div class="thumb" style="background:#FDECEC; color:#8F2828;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+      <div class="info">
+        <div class="name">contrato-antigo.docx</div>
+        <div class="meta" style="color:#8F2828;">Formato não aceito. Use PDF, JPG ou PNG.</div>
+      </div>
+      <button class="del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top:8px;">
+    File uploader · dropzone 12px radius, border dashed 2px. Drop ativo: border orange + fundo orange-50. Items: sucesso (verde), em upload (progresso 4px orange), erro (fundo vermelho claro).
+  </div>
+</div>
+</body></html>

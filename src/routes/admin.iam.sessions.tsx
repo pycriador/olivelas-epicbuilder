@@ -10,7 +10,7 @@ import { listSessions, revokeSession, type SessionRow } from "@/lib/auth-api";
 
 export const Route = createFileRoute("/admin/iam/sessions")({
   head: () => ({
-    meta: [{ title: "Sessões — IAM | AIOPS App Model" }],
+    meta: [{ title: "Sessões — IAM | AIOps App Model" }],
   }),
   component: IamSessionsPage,
 });

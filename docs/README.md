@@ -1,6 +1,6 @@
 # Documentation
 
-> Documentation Standard v1.0 (adopter) — AIOPS App Model
+> Documentation Standard v1.0 (adopter) — AIOps App Model
 
 Choose a language / Escolha o idioma:
 

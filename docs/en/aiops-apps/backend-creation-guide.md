@@ -57,7 +57,7 @@ related:
 
 ---
 
-## Example stack (AIOPS App Model)
+## Example stack (AIOps App Model)
 
 This is **one validated example**, not the only allowed stack.
 
@@ -169,7 +169,7 @@ If CORS is wrong, the browser shows `Failed to fetch` and the UI may display an 
 
 **Principle:** admin credentials provision infrastructure; the API runs with a least-privilege app role.
 
-| Artifact | AIOPS App Model example | Your app |
+| Artifact | AIOps App Model example | Your app |
 | --- | --- | --- |
 | Database | `aiops_app_model` | `my_app_db` |
 | App role | `aiops_app_model_app` | `my_app_user` |
@@ -219,7 +219,7 @@ Detailed RDS doc (adopter): [aiops-app-model docs — rds-provisioning](https://
 
 Prefix: `/api/v1/`
 
-AIOPS App Model exposes:
+AIOps App Model exposes:
 
 - `GET/PUT /api/v1/portal/snapshot` — bulk sync with frontend store
 - CRUD under `/api/v1/cases`, `/areas`, `/integrations`, `/hub`
@@ -265,7 +265,7 @@ cd backend
 uv run pytest
 ```
 
-Example patterns (AIOPS App Model):
+Example patterns (AIOps App Model):
 
 - **Health:** real route, mocked DB check optional
 - **Portal snapshot:** mock `load_portal_snapshot` service; use `httpx.AsyncClient` + `ASGITransport`
@@ -324,7 +324,7 @@ Until promoted, the living draft stays in [aiops-app-model `docs/en/aiops-apps/`
 | Document | Location |
 | --- | --- |
 | Example files | [examples/README.md](examples/README.md) |
-| AIOPS App Model backend README | [github.com/loft-br/aiops-app-model/backend/README.md](https://github.com/loft-br/aiops-app-model/blob/main/backend/README.md) |
+| AIOps App Model backend README | [github.com/loft-br/aiops-app-model/backend/README.md](https://github.com/loft-br/aiops-app-model/blob/main/backend/README.md) |
 | Local setup (adopter) | [aiops-app-model — local-setup](https://github.com/loft-br/aiops-app-model/blob/main/docs/en/backend/local-setup.md) |
 | RDS provisioning (adopter) | [aiops-app-model — rds-provisioning](https://github.com/loft-br/aiops-app-model/blob/main/docs/en/backend/rds-provisioning.md) |
 | Schema and API (adopter) | [aiops-app-model — schema-and-api](https://github.com/loft-br/aiops-app-model/blob/main/docs/en/backend/schema-and-api.md) |

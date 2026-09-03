@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Provision AIOPS App Model database, app user, and schema on RDS PostgreSQL."""
+"""Provision AIOps App Model database, app user, and schema on RDS PostgreSQL."""
 
 from __future__ import annotations
 
@@ -65,7 +65,7 @@ def _write_app_env(
         f"DB_USER={app_user}",
         f"DB_PASSWORD={app_password}",
         f"DB_SCHEMA={schema}",
-        "APP_NAME=AIOPS App Model API",
+        "APP_NAME=AIOps App Model API",
         "CORS_ORIGINS=http://localhost:5173,http://localhost:8080,http://localhost:3000,http://127.0.0.1:5173,http://127.0.0.1:8080",
         "",
     ]
@@ -168,7 +168,7 @@ async def provision(
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Provision AIOPS App Model on RDS PostgreSQL")
+    parser = argparse.ArgumentParser(description="Provision AIOps App Model on RDS PostgreSQL")
     parser.add_argument("--database", default=os.environ.get("APP_DATABASE_NAME", DEFAULT_DB_NAME))
     parser.add_argument("--app-user", default=os.environ.get("APP_DB_USER", DEFAULT_APP_USER))
     parser.add_argument("--schema", default=os.environ.get("DB_SCHEMA", DEFAULT_SCHEMA))

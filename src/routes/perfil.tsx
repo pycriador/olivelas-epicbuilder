@@ -8,7 +8,7 @@ import { PageShell } from "@/components/layout/PageShell";
 
 export const Route = createFileRoute("/perfil")({
   head: () => ({
-    meta: [{ title: "Meu perfil — AIOPS App Model" }],
+    meta: [{ title: "Meu perfil — AIOps App Model" }],
   }),
   component: ProfilePage,
 });

@@ -1,4 +1,4 @@
-# AIOPS App Model API
+# AIOps App Model API
 
 FastAPI backend (AIOps Family B) with PostgreSQL (RDS) persistence.
 

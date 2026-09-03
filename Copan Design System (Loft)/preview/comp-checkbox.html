@@ -1,0 +1,58 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Checkbox</title><link rel="stylesheet" href="_card.css">
+<style>
+  .row-c { display: flex; gap: 10px; align-items: flex-start; font-family: Inter, sans-serif; }
+  .box { width: 20px; height: 20px; border: 2px solid #5A6A75; border-radius: 4px; background: #FFF; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+  .box.checked { background: #F56738; border-color: #F56738; color: #FFF; }
+  .box.indeterminate { background: #F56738; border-color: #F56738; color: #FFF; }
+  .box.disabled { border-color: #C1C7CD; background: #F2F4F8; }
+  .box.checked.disabled { background: #C1C7CD; border-color: #C1C7CD; }
+  .box.focus { outline: 2px solid #F56738; outline-offset: 2px; }
+  .label { font-size: 16px; line-height: 24px; color: #121619; }
+  .label.disabled { color: #C1C7CD; }
+  .desc { font-size: 14px; line-height: 20px; color: #697077; margin-top: 2px; }
+  .state-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 6px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .group { display: flex; flex-direction: column; gap: 12px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Checkbox · estados</div>
+
+  <div class="grid">
+    <div>
+      <div class="state-label">Estados</div>
+      <div class="group">
+        <div class="row-c"><div class="box"></div><span class="label">Enabled</span></div>
+        <div class="row-c"><div class="box focus"></div><span class="label">Focus</span></div>
+        <div class="row-c"><div class="box checked"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><span class="label">Selected</span></div>
+        <div class="row-c"><div class="box indeterminate"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14"/></svg></div><span class="label">Indeterminate</span></div>
+        <div class="row-c"><div class="box disabled"></div><span class="label disabled">Disabled</span></div>
+        <div class="row-c"><div class="box checked disabled"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><span class="label disabled">Disabled selected</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="state-label">Checkbox group · filtros</div>
+      <div class="group">
+        <div class="row-c"><div class="box checked"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <div><div class="label">Piscina</div><div class="desc">18 imóveis com piscina</div></div>
+        </div>
+        <div class="row-c"><div class="box"></div>
+          <div><div class="label">Academia</div><div class="desc">12 imóveis com academia</div></div>
+        </div>
+        <div class="row-c"><div class="box checked"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <div><div class="label">Varanda</div><div class="desc">32 imóveis com varanda</div></div>
+        </div>
+        <div class="row-c"><div class="box"></div>
+          <div><div class="label">Pet-friendly</div><div class="desc">24 imóveis aceitam animais</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top:8px;">
+    Checkbox · 20×20, 4px radius, border 2px. Fill orange quando selected/indeterminate. Label à direita, descrição opcional 14/20 text-secondary.
+  </div>
+</div>
+</body></html>

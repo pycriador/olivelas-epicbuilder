@@ -1,0 +1,154 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Table</title><link rel="stylesheet" href="_card.css">
+<style>
+  .tbl-wrap { font-family: Inter, sans-serif; background: #FFF; border: 1px solid #E1E9EF; border-radius: 12px; overflow: hidden; }
+  .toolbar { padding: 12px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #E1E9EF; background: #FAFBFC; }
+  .toolbar .title { font-size: 14px; font-weight: 600; color: #121619; }
+  .toolbar .meta { font-size: 12px; color: #697077; margin-left: 4px; }
+  .toolbar .spacer { flex: 1; }
+  .tbtn { font-family: Inter; height: 32px; padding: 0 12px; background: #FFF; border: 1px solid #C1C7CD; border-radius: 6px; font-size: 13px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; color: #121619; }
+  .tbtn.active { background: #FFE5D6; border-color: #FFB58F; color: #8B2D0B; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th { background: #F2F4F8; padding: 10px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #697077; text-align: left; border-bottom: 1px solid #E1E9EF; cursor: pointer; user-select: none; }
+  thead th .sort { display: inline-flex; vertical-align: middle; margin-left: 4px; color: #C1C7CD; }
+  thead th.sorted .sort { color: #F56738; }
+  tbody td { padding: 14px 16px; border-bottom: 1px solid #F2F4F8; color: #121619; vertical-align: middle; }
+  tbody tr:hover { background: #FAFBFC; }
+  tbody tr.sel { background: #FFF7F2; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .id { font-family: Monaco, monospace; font-size: 12px; color: #697077; }
+  .addr { display: flex; flex-direction: column; gap: 2px; }
+  .addr .a1 { font-weight: 600; }
+  .addr .a2 { font-size: 12px; color: #697077; }
+
+  .pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+  .pill .dot { width: 6px; height: 6px; border-radius: 999px; }
+  .p-pos { background: #DEF5E5; color: #115644; } .p-pos .dot { background: #20A483; }
+  .p-att { background: #FFF4DF; color: #7A5200; } .p-att .dot { background: #FFC04C; }
+  .p-neg { background: #FDECEC; color: #8F2828; } .p-neg .dot { background: #CE4242; }
+  .p-pen { background: #EAF3F9; color: #1F4E73; } .p-pen .dot { background: #4B94C5; }
+
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .delta-up   { color: #115644; font-weight: 600; }
+  .delta-down { color: #8F2828; font-weight: 600; }
+
+  .actions { display: flex; gap: 4px; justify-content: flex-end; }
+  .ico-btn { width: 28px; height: 28px; border: none; background: none; border-radius: 6px; color: #697077; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+  .ico-btn:hover { background: #F2F4F8; color: #121619; }
+
+  .check { width: 16px; height: 16px; border: 1.5px solid #C1C7CD; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+  .check.on { background: #F56738; border-color: #F56738; color: #FFF; }
+
+  .pagination { padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-top: 1px solid #E1E9EF; font-size: 13px; color: #697077; }
+  .pagination .spacer { flex: 1; }
+  .page { width: 32px; height: 32px; border: 1px solid #E1E9EF; border-radius: 6px; background: #FFF; cursor: pointer; font-family: Inter; }
+  .page.curr { background: #121619; color: #FFF; border-color: #121619; }
+</style>
+</head>
+<body>
+<div class="card" style="padding: 0; gap: 0; max-width: 1080px;">
+  <div style="padding: 14px 24px 0;"><div class="eyebrow">Table · listagem de propostas</div></div>
+
+  <div class="tbl-wrap" style="margin: 12px;">
+    <div class="toolbar">
+      <span class="title">Propostas ativas</span>
+      <span class="meta">218 resultados · 3 selecionadas</span>
+      <span class="spacer"></span>
+      <button class="tbtn active">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></svg>
+        Filtros · 2
+      </button>
+      <button class="tbtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+        Exportar
+      </button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 36px;"><span class="check"></span></th>
+          <th>ID</th>
+          <th class="sorted">Imóvel
+            <span class="sort"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6-6 6 6"/></svg></span>
+          </th>
+          <th>Comprador</th>
+          <th>Status</th>
+          <th class="num">Valor</th>
+          <th class="num" style="width: 90px;">Δ Mês</th>
+          <th style="width: 80px;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="sel">
+          <td><span class="check on"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+          <td><span class="id">#PR-2841</span></td>
+          <td><div class="addr"><span class="a1">Rua Cardeal Arcoverde, 1200</span><span class="a2">Pinheiros · 62m² · 2 quartos</span></div></td>
+          <td>Mariana Castro</td>
+          <td><span class="pill p-att"><span class="dot"></span>Documentos</span></td>
+          <td class="num">R$ 1.245.000</td>
+          <td class="num delta-up">+2,1%</td>
+          <td><div class="actions"><button class="ico-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="ico-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></div></td>
+        </tr>
+        <tr>
+          <td><span class="check"></span></td>
+          <td><span class="id">#PR-2840</span></td>
+          <td><div class="addr"><span class="a1">Av. Brigadeiro Faria Lima, 3477</span><span class="a2">Itaim Bibi · 84m² · 3 quartos</span></div></td>
+          <td>João Pedro Silva</td>
+          <td><span class="pill p-pos"><span class="dot"></span>Aprovada</span></td>
+          <td class="num">R$ 2.890.000</td>
+          <td class="num delta-up">+0,4%</td>
+          <td><div class="actions"><button class="ico-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="ico-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></div></td>
+        </tr>
+        <tr class="sel">
+          <td><span class="check on"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+          <td><span class="id">#PR-2839</span></td>
+          <td><div class="addr"><span class="a1">Rua Augusta, 2840</span><span class="a2">Jardins · 48m² · 1 quarto</span></div></td>
+          <td>Beatriz Tavares</td>
+          <td><span class="pill p-pen"><span class="dot"></span>Análise jurídica</span></td>
+          <td class="num">R$ 845.000</td>
+          <td class="num delta-down">−1,2%</td>
+          <td><div class="actions"><button class="ico-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="ico-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></div></td>
+        </tr>
+        <tr>
+          <td><span class="check"></span></td>
+          <td><span class="id">#PR-2838</span></td>
+          <td><div class="addr"><span class="a1">Rua Oscar Freire, 940</span><span class="a2">Cerqueira César · 110m² · 3 quartos</span></div></td>
+          <td>Renato Aoki</td>
+          <td><span class="pill p-neg"><span class="dot"></span>Recusada</span></td>
+          <td class="num">R$ 3.150.000</td>
+          <td class="num delta-down">−3,8%</td>
+          <td><div class="actions"><button class="ico-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="ico-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></div></td>
+        </tr>
+        <tr class="sel">
+          <td><span class="check on"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span></td>
+          <td><span class="id">#PR-2837</span></td>
+          <td><div class="addr"><span class="a1">Rua Joaquim Antunes, 558</span><span class="a2">Pinheiros · 95m² · 3 quartos</span></div></td>
+          <td>Camila Nunes</td>
+          <td><span class="pill p-pos"><span class="dot"></span>Aprovada</span></td>
+          <td class="num">R$ 1.680.000</td>
+          <td class="num delta-up">+1,7%</td>
+          <td><div class="actions"><button class="ico-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="ico-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></div></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination">
+      <span>Mostrando 1-5 de 218</span>
+      <span class="spacer"></span>
+      <button class="page">‹</button>
+      <button class="page curr">1</button>
+      <button class="page">2</button>
+      <button class="page">3</button>
+      <button class="page">…</button>
+      <button class="page">44</button>
+      <button class="page">›</button>
+    </div>
+  </div>
+
+  <div style="padding: 0 24px 18px;" class="caption">
+    Table · header uppercase 11px text-tertiary, sort indicator orange. Linhas 56h, hover suave, selected com bg-orange-tint. Status como pill semântico, valores monetários align-right tabular-nums. Toolbar superior + paginação inferior, ambos com border 1px.
+  </div>
+</div>
+</body></html>

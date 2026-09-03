@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Colors — Feedback</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 28px; }
+  .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--copan-neutral-500); margin-bottom: 6px; }
+  .h { font-size: 22px; font-weight: 700; color: var(--copan-neutral-900); letter-spacing: -0.01em; margin: 0 0 6px; }
+  .sub { font-size: 13px; color: var(--copan-neutral-500); margin: 0 0 22px; max-width: 64ch; line-height: 20px; }
+
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .col { display: flex; flex-direction: column; gap: 8px; }
+
+  .swatch {
+    border-radius: 10px;
+    padding: 16px 14px;
+    color: #FFFFFF;
+    min-height: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .swatch.on-light { color: #121619; }
+  .name { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.9; }
+  .hex { font-size: 14px; font-weight: 600; font-family: "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.02em; }
+
+  .scale {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-subtle);
+  }
+  .scale > div {
+    padding: 10px 10px;
+    font-size: 10px;
+    font-weight: 600;
+    font-family: "JetBrains Mono", monospace;
+    text-align: center;
+  }
+
+  .toast {
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .ic { width: 16px; height: 16px; border-radius: 999px; flex: 0 0 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; margin-top: 1px; }
+</style>
+</head>
+<body>
+
+<div class="eyebrow">Tokens · Feedback</div>
+<div class="h">Cores semânticas</div>
+<div class="sub">Quatro intenções para sinalizar status ao usuário. Cada uma possui um tom 500 (cor base), 50 (background suave) e 700 (texto sobre 50). Use o 500 para fills e ícones, e o par 50/700 para banners e textos contextuais.</div>
+
+<div class="grid">
+
+  <!-- POSITIVE -->
+  <div class="col">
+    <div class="swatch" style="background:#20A483;">
+      <div class="name">Positive · 500</div>
+      <div class="hex">#20A483</div>
+    </div>
+    <div class="scale">
+      <div style="background:#E8F5F0; color:#115644;">50</div>
+      <div style="background:#20A483; color:#FFF;">500</div>
+      <div style="background:#115644; color:#FFF;">700</div>
+    </div>
+    <div class="toast" style="background:#E8F5F0; color:#115644;">
+      <span class="ic" style="background:#20A483; color:#FFF;">✓</span>
+      <span>Pagamento confirmado</span>
+    </div>
+  </div>
+
+  <!-- ATTENTION -->
+  <div class="col">
+    <div class="swatch on-light" style="background:#FFC04C;">
+      <div class="name">Attention · 500</div>
+      <div class="hex">#FFC04C</div>
+    </div>
+    <div class="scale">
+      <div style="background:#FFF4DF; color:#7A5200;">50</div>
+      <div style="background:#FFC04C; color:#3D2700;">500</div>
+      <div style="background:#7A5200; color:#FFF;">700</div>
+    </div>
+    <div class="toast" style="background:#FFF4DF; color:#7A5200;">
+      <span class="ic" style="background:#FFC04C; color:#3D2700;">!</span>
+      <span>Aguardando assinatura</span>
+    </div>
+  </div>
+
+  <!-- NEGATIVE -->
+  <div class="col">
+    <div class="swatch" style="background:#CE4242;">
+      <div class="name">Negative · 500</div>
+      <div class="hex">#CE4242</div>
+    </div>
+    <div class="scale">
+      <div style="background:#FDECEC; color:#8A2A2A;">50</div>
+      <div style="background:#CE4242; color:#FFF;">500</div>
+      <div style="background:#8A2A2A; color:#FFF;">700</div>
+    </div>
+    <div class="toast" style="background:#FDECEC; color:#8A2A2A;">
+      <span class="ic" style="background:#CE4242; color:#FFF;">×</span>
+      <span>Proposta recusada</span>
+    </div>
+  </div>
+
+  <!-- INFORMATIVE -->
+  <div class="col">
+    <div class="swatch" style="background:#4B94C5;">
+      <div class="name">Informative · 500</div>
+      <div class="hex">#4B94C5</div>
+    </div>
+    <div class="scale">
+      <div style="background:#EAF3F9; color:#1F4E73;">50</div>
+      <div style="background:#4B94C5; color:#FFF;">500</div>
+      <div style="background:#1F4E73; color:#FFF;">700</div>
+    </div>
+    <div class="toast" style="background:#EAF3F9; color:#1F4E73;">
+      <span class="ic" style="background:#4B94C5; color:#FFF;">i</span>
+      <span>Visita agendada</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

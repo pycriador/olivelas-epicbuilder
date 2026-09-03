@@ -1,0 +1,63 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Switch</title><link rel="stylesheet" href="_card.css">
+<style>
+  .row-s { display: flex; gap: 12px; align-items: center; font-family: Inter, sans-serif; }
+  .switch { width: 44px; height: 24px; border-radius: 999px; background: #C1C7CD; position: relative; flex-shrink: 0; transition: background 180ms; cursor: pointer; }
+  .switch::after { content: ""; position: absolute; width: 18px; height: 18px; background: #FFF; border-radius: 999px; top: 3px; left: 3px; transition: left 180ms; box-shadow: 0 1px 2px rgba(0,0,0,0.15); }
+  .switch.on { background: #F56738; }
+  .switch.on::after { left: 23px; }
+  .switch.disabled { background: #E1E9EF; cursor: not-allowed; }
+  .switch.on.disabled { background: #FFD9C7; }
+  .switch.focus { outline: 2px solid #F56738; outline-offset: 2px; }
+  .label { font-size: 16px; line-height: 24px; color: #121619; }
+  .label.disabled { color: #C1C7CD; }
+  .desc { font-size: 14px; line-height: 20px; color: #697077; }
+  .state-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 6px; }
+  .group { display: flex; flex-direction: column; gap: 14px; }
+  .pref-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid #E1E9EF; gap: 16px; }
+  .pref-row:last-child { border-bottom: none; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Switch · estados + aplicação</div>
+
+  <div style="display:grid; grid-template-columns: 1fr 1.4fr; gap: 24px;">
+    <div>
+      <div class="state-label">Estados</div>
+      <div class="group">
+        <div class="row-s"><div class="switch"></div><span class="label">Off</span></div>
+        <div class="row-s"><div class="switch on"></div><span class="label">On</span></div>
+        <div class="row-s"><div class="switch focus"></div><span class="label">Focus</span></div>
+        <div class="row-s"><div class="switch on focus"></div><span class="label">Focus on</span></div>
+        <div class="row-s"><div class="switch disabled"></div><span class="label disabled">Disabled</span></div>
+        <div class="row-s"><div class="switch on disabled"></div><span class="label disabled">Disabled on</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="state-label">Preferências de notificação</div>
+      <div>
+        <div class="pref-row">
+          <div><div class="label"><strong>Novos imóveis no seu raio</strong></div><div class="desc">Até 1 e-mail/dia quando aparecerem opções que combinam.</div></div>
+          <div class="switch on"></div>
+        </div>
+        <div class="pref-row">
+          <div><div class="label"><strong>Mudança de preço</strong></div><div class="desc">Avisar quando imóveis favoritos mudarem de valor.</div></div>
+          <div class="switch on"></div>
+        </div>
+        <div class="pref-row">
+          <div><div class="label"><strong>Visitas agendadas</strong></div><div class="desc">Lembretes por WhatsApp 1h antes da visita.</div></div>
+          <div class="switch"></div>
+        </div>
+        <div class="pref-row">
+          <div><div class="label disabled"><strong>Newsletter mensal</strong></div><div class="desc">Em breve.</div></div>
+          <div class="switch disabled"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top:8px;">
+    Switch · 44×24 pill, knob 18×18 branco. Off: track cinza #C1C7CD. On: track orange brand. Sempre com label ao lado; descrição opcional.
+  </div>
+</div>
+</body></html>

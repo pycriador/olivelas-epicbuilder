@@ -188,28 +188,21 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="flex h-full min-w-0 items-center gap-2">
           <Link
             to="/portal"
-            className="shrink-0 text-xl font-bold tracking-tight text-[#FF774A] no-underline hover:no-underline"
+            className="shrink-0 text-xl font-bold tracking-tight text-[#F56738] no-underline hover:no-underline"
             aria-label="AIOps Central — página inicial"
           >
             AIOps Central
           </Link>
-          <span className="hidden text-[#8A9197] sm:inline" aria-hidden>
+          <span className="hidden text-[#878D96] sm:inline" aria-hidden>
             /
           </span>
-          <span className="hidden truncate text-sm font-medium text-[#191F23] sm:inline">
+          <span className="hidden truncate text-sm font-medium text-[#121619] sm:inline">
             {sectionLabel}
           </span>
           <AppLauncher />
         </div>
 
         <div className="flex h-full items-center gap-1">
-          <Button
-            type="text"
-            className="lg:hidden"
-            aria-label={collapsed ? "Expandir menu" : "Recolher menu"}
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed((v) => !v)}
-          />
           {user && (
             <Dropdown
               menu={{

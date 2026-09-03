@@ -1,0 +1,63 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Status light</title><link rel="stylesheet" href="_card.css">
+<style>
+  .row { font-family: Inter, sans-serif; display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; }
+  .stat { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; color: #121619; }
+  .dot { width: 10px; height: 10px; border-radius: 999px; flex-shrink: 0; box-shadow: 0 0 0 3px rgba(0,0,0,0.04); }
+
+  .dot-positive  { background: #20A483; }
+  .dot-attention { background: #E5A300; }
+  .dot-negative  { background: #CE4242; }
+  .dot-info      { background: #4B94C5; }
+  .dot-neutral   { background: #C1C7CD; }
+  .dot-pending   { background: #4B94C5; }
+
+  .pulse { position: relative; }
+  .pulse::after { content:""; position: absolute; inset: -4px; border-radius: 999px; background: inherit; opacity: 0.4; animation: pulse 1.6s ease-out infinite; }
+  @keyframes pulse { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(2.6); opacity: 0; } }
+
+  .label-pill { padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+  .label-pill .dot { width: 8px; height: 8px; box-shadow: none; }
+
+  .pill-positive  { background: #DEF5E5; color: #115644; }
+  .pill-attention { background: #FFF4DF; color: #7A5200; }
+  .pill-negative  { background: #FDECEC; color: #8F2828; }
+  .pill-info      { background: #EAF3F9; color: #1F4E73; }
+  .pill-pending   { background: #EAF3F9; color: #1F4E73; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 12px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Status light · dot + label</div>
+
+  <div class="grid">
+    <div>
+      <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 14px;">Dot inline (em listas)</div>
+      <div class="row" style="flex-direction: column; align-items: flex-start; gap: 12px;">
+        <span class="stat"><span class="dot dot-positive"></span> Disponível</span>
+        <span class="stat"><span class="dot dot-attention"></span> Em análise</span>
+        <span class="stat"><span class="dot dot-negative"></span> Indisponível</span>
+        <span class="stat"><span class="dot dot-info"></span> Reservado</span>
+        <span class="stat"><span class="dot dot-neutral"></span> Rascunho</span>
+        <span class="stat"><span class="dot dot-pending pulse"></span> Aguardando vendedor</span>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 14px;">Pill com fundo (em cards e tabelas)</div>
+      <div class="row" style="flex-direction: column; align-items: flex-start; gap: 10px;">
+        <span class="label-pill pill-positive"><span class="dot dot-positive"></span> Aprovada</span>
+        <span class="label-pill pill-attention"><span class="dot dot-attention"></span> Aguardando documentos</span>
+        <span class="label-pill pill-negative"><span class="dot dot-negative"></span> Recusada</span>
+        <span class="label-pill pill-info"><span class="dot dot-info"></span> Em vistoria</span>
+        <span class="label-pill pill-pending"><span class="dot dot-pending"></span> Em análise jurídica</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top: 12px;">
+    Status light · 6 intents (positive · attention · negative · info · neutral · pending). Dot 8-10px com box-shadow neutro. Variante <strong>pulse</strong> para estados ativos em tempo real. Para etiquetas de cards use a versão pill com background tonal.
+  </div>
+</div>
+</body></html>

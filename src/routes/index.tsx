@@ -16,13 +16,13 @@ import { colors } from "@/theme/tokens";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AIOPS App Model — Loft | Inteligência Artificial em um só lugar" },
+      { title: "AIOps App Model — Loft | Inteligência Artificial em um só lugar" },
       {
         name: "description",
         content:
           "Portal interno de IA da Loft: descubra cases, ferramentas, impacto e governança de acesso.",
       },
-      { property: "og:title", content: "AIOPS App Model — Loft" },
+      { property: "og:title", content: "AIOps App Model — Loft" },
       {
         property: "og:description",
         content: "Descubra, aprenda e construa com IA na Loft.",
@@ -67,7 +67,7 @@ const beneficios = [
 const faqs = [
   {
     key: "1",
-    label: "O que é o AIOPS App Model?",
+    label: "O que é o AIOps App Model?",
     children:
       "É o portal interno da Loft para descobrir, aprender e acompanhar tudo que envolve Inteligência Artificial — projetos, mapa de atuação, ferramentas e impacto.",
   },
@@ -94,7 +94,7 @@ function LandingPage() {
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-sm font-black text-primary-foreground">
               L
             </span>
-            <span className="text-sm font-semibold tracking-tight">AIOPS App Model</span>
+            <span className="text-sm font-semibold tracking-tight">AIOps App Model</span>
           </div>
           <div className="flex items-center gap-2">
             <Link to="/login">
@@ -127,7 +127,7 @@ function LandingPage() {
                 Loft · Inteligência Artificial
               </span>
               <h1 className="mt-4 text-balance text-3xl font-semibold leading-tight md:text-5xl">
-                AIOPS App Model
+                AIOps App Model
               </h1>
               <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-white/85 md:text-lg">
                 Descubra cases, acompanhe impacto e construa com IA — tudo em um portal interno
@@ -245,7 +245,7 @@ function LandingPage() {
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-sm font-black text-primary-foreground">
               L
             </span>
-            <span className="text-sm font-medium">AIOPS App Model</span>
+            <span className="text-sm font-medium">AIOps App Model</span>
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
             <Link to="/login" className="hover:text-primary">

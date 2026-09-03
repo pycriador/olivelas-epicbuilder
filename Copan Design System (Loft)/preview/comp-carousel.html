@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Carousel</title>
+<link rel="stylesheet" href="_card.css">
+<style>
+  body { padding: 32px; font-family: Inter, -apple-system, sans-serif; color: #121619; }
+  h1.title { font-size: 36px; line-height: 40px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 4px; }
+  .ver { font-size: 12px; color: #697077; font-weight: 600; }
+  .lede { font-size: 15px; line-height: 22px; color: #4D5358; margin: 12px 0 28px; max-width: 64ch; }
+  .section-h { font-size: 18px; font-weight: 700; color: #121619; margin: 36px 0 14px; padding-bottom: 12px; border-bottom: 1px solid #E1E9EF; }
+  .sub-h { font-size: 14px; font-weight: 600; color: #121619; margin: 22px 0 4px; }
+  .sub-d { font-size: 13px; color: #697077; line-height: 20px; margin: 0 0 14px; max-width: 70ch; }
+
+  /* === The carousel itself === */
+  .carousel {
+    background: #FFF;
+    border: 1px solid #E1E9EF;
+    border-radius: 12px;
+    padding: 36px 56px 24px;
+    position: relative;
+  }
+  .track {
+    display: grid;
+    gap: var(--gap, 16px);
+  }
+  .track.cols-1 { grid-template-columns: 1fr; }
+  .track.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .track.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .track.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+  /* placeholder item — dashed frame with center dot */
+  .ph-item {
+    border: 1px dashed #A2A9B0;
+    border-radius: 10px;
+    aspect-ratio: 16/10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4B94C5;
+  }
+  .ph-item svg { width: 18px; height: 18px; }
+
+  /* nav arrows: 40px white circle, dark stroke, subtle shadow, sit outside items */
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px; height: 40px; border-radius: 999px;
+    background: #FFFFFF;
+    border: 1px solid #E1E9EF;
+    box-shadow: 0 2px 6px rgba(18, 22, 25, 0.08);
+    cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #121619;
+  }
+  .nav.prev { left: 14px; }
+  .nav.next { right: 14px; }
+  .nav:hover { background: #F8F9FB; }
+  .nav.disabled { color: #C1C7CD; cursor: not-allowed; }
+
+  /* pagination = pill + dots in Loft green */
+  .pager {
+    display: flex; align-items: center; justify-content: center;
+    gap: 6px;
+    margin-top: 18px;
+  }
+  .pager .pdot { width: 8px; height: 8px; border-radius: 999px; background: transparent; border: 1.5px solid #A2A9B0; }
+  .pager .pill { width: 24px; height: 8px; border-radius: 999px; background: #20A483; }
+
+  /* Anatomy callouts */
+  .anatomy { position: relative; padding: 60px 56px 80px; }
+  .anatomy .pin { position: absolute; background: #FFF; border: 1px solid #C1C7CD; border-radius: 999px; padding: 4px 12px; font-size: 12px; font-weight: 500; color: #121619; }
+  .anatomy .ln { position: absolute; background: #C1C7CD; }
+  .anatomy .pin.item { top: 12px; left: 50%; transform: translateX(-50%); }
+  .anatomy .ln.item { top: 36px; left: 50%; width: 1px; height: 28px; transform: translateX(-50%); }
+  .anatomy .pin.nav { top: 50%; left: 8px; transform: translate(-100%, -50%); margin-left: -10px; }
+  .anatomy .ln.nav { top: 50%; left: 30px; width: 28px; height: 1px; transform: translateY(-50%); }
+  .anatomy .pin.pag { bottom: 16px; left: 50%; transform: translateX(-50%); }
+  .anatomy .ln.pag { bottom: 44px; left: 50%; width: 1px; height: 28px; transform: translateX(-50%); }
+
+  /* Property table */
+  table.props { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  table.props th, table.props td { padding: 14px 0; text-align: left; vertical-align: top; }
+  table.props thead th { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #697077; border-bottom: 1px solid #E1E9EF; }
+  table.props tbody td { border-bottom: 1px solid #F2F4F8; font-size: 14px; color: #121619; }
+  table.props tbody td:first-child { font-weight: 600; width: 25%; }
+  table.props tbody td:nth-child(2) { color: #4D5358; width: 50%; }
+  table.props tbody td:nth-child(3) { color: #121619; }
+
+  /* Do/Dont */
+  .do-dont { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .do, .dont { border: 1px solid #E1E9EF; border-radius: 12px; padding: 18px 20px; }
+  .do .head, .dont .head { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+  .dont .head { color: #CE4242; }
+  .do .head { color: #20A483; }
+  .badge-x, .badge-c { width: 18px; height: 18px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; color: #FFF; font-size: 12px; font-weight: 700; }
+  .badge-x { background: #CE4242; }
+  .badge-c { background: #20A483; }
+
+  /* Mixed items demo (don't) */
+  .mix { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; padding: 24px 56px; position: relative; background: #FFF; border: 1px solid #E1E9EF; border-radius: 12px; }
+  .mix .avatar-cell { display: flex; justify-content: center; align-items: center; }
+  .mix .avatar-cell img { width: 140px; height: 140px; border-radius: 999px; object-fit: cover; }
+  .mix .pcard { background: #FFF; border-radius: 10px; overflow: hidden; }
+  .mix .pcard .ph { aspect-ratio: 16/10; background: linear-gradient(135deg, #E1E9EF, #A2A9B0); }
+  .mix .pcard .body { padding: 14px; }
+  .mix .pcard .price { font-size: 16px; font-weight: 700; }
+  .mix .pcard .addr { font-size: 13px; color: #4D5358; margin-top: 4px; }
+  .mix .pcard .meta { font-size: 12px; color: #697077; margin-top: 4px; }
+
+  /* Hero example with real photos */
+  .hero { background: #FFF; border: 1px solid #E1E9EF; border-radius: 12px; padding: 28px 56px 22px; position: relative; }
+  .hero .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .hero .photo { aspect-ratio: 1/1; border-radius: 10px; background-size: cover; background-position: center; }
+
+  .caption-foot { font-size: 12px; color: #697077; line-height: 18px; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 2px solid #121619; padding-bottom: 12px;">
+  <h1 class="title">Carousel</h1>
+  <span class="ver">Versão 1.0.0</span>
+</div>
+<p class="lede">O Carrossel é um padrão usado para apresentar conteúdo na forma de lista horizontal. A navegação entre as páginas pode ser feita usando os botões de anterior/próximo ou pelo gesto de swipe.</p>
+
+<!-- Hero example with photos -->
+<div class="hero">
+  <button class="nav prev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+  <button class="nav next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+  <div class="grid">
+    <div class="photo" style="background-image: url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=300&q=70');"></div>
+    <div class="photo" style="background-image: url('https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=300&q=70');"></div>
+    <div class="photo" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=70');"></div>
+    <div class="photo" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=70');"></div>
+  </div>
+  <div class="pager">
+    <span class="pdot"></span>
+    <span class="pill"></span>
+    <span class="pdot"></span>
+  </div>
+</div>
+
+<!-- Anatomy -->
+<div class="section-h">Anatomia</div>
+<div class="carousel anatomy">
+  <span class="pin item">Item</span>
+  <span class="ln item"></span>
+  <span class="pin nav">Navegação</span>
+  <span class="ln nav"></span>
+  <button class="nav prev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+  <button class="nav next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+  <div class="track cols-3" style="--gap: 16px;">
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+  </div>
+  <div class="pager">
+    <span class="pdot"></span>
+    <span class="pill"></span>
+    <span class="pdot"></span>
+    <span class="pdot"></span>
+  </div>
+  <span class="ln pag"></span>
+  <span class="pin pag">Paginação</span>
+</div>
+
+<!-- Opções: margem -->
+<div class="section-h">Opções</div>
+
+<div class="sub-h">Margem entre itens</div>
+<p class="sub-d">O espaçamento entre os itens do carrossel possui 4 opções de tamanho, e pode ser alterado para se ajustar melhor ao contexto de uma interface.</p>
+<div class="carousel">
+  <button class="nav prev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+  <button class="nav next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+
+  <!-- small -->
+  <div class="track cols-3" style="--gap: 4px;">
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+  </div>
+  <div class="pager"><span class="pdot"></span><span class="pill"></span><span class="pdot"></span><span class="pdot"></span></div>
+
+  <!-- medium -->
+  <div class="track cols-3" style="--gap: 12px; margin-top: 28px;">
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+  </div>
+  <div class="pager"><span class="pdot"></span><span class="pill"></span><span class="pdot"></span><span class="pdot"></span></div>
+
+  <!-- large -->
+  <div class="track cols-3" style="--gap: 24px; margin-top: 28px;">
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+  </div>
+  <div class="pager"><span class="pdot"></span><span class="pill"></span><span class="pdot"></span><span class="pdot"></span></div>
+
+  <!-- none (joined) -->
+  <div class="track cols-3" style="--gap: 0; margin-top: 28px;">
+    <div class="ph-item" style="border-right: none; border-radius: 10px 0 0 10px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item" style="border-right: none; border-radius: 0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item" style="border-radius: 0 10px 10px 0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+  </div>
+  <div class="pager"><span class="pdot"></span><span class="pill"></span><span class="pdot"></span><span class="pdot"></span></div>
+</div>
+
+<!-- Visible items -->
+<div class="sub-h">Número de itens por página</div>
+<p class="sub-d">Os itens por página podem variar entre um e quatro.</p>
+<div class="carousel">
+  <button class="nav prev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+  <button class="nav next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+
+  <div class="track cols-4" style="--gap: 12px;">
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+  </div>
+  <div class="pager"><span class="pill"></span><span class="pdot"></span></div>
+
+  <div class="track cols-3" style="--gap: 12px; margin-top: 28px;">
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+  </div>
+  <div class="pager"><span class="pdot"></span><span class="pill"></span><span class="pdot"></span><span class="pdot"></span></div>
+
+  <div class="track cols-2" style="--gap: 12px; margin-top: 28px;">
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+  </div>
+  <div class="pager"><span class="pdot"></span><span class="pill"></span><span class="pdot"></span><span class="pdot"></span><span class="pdot"></span><span class="pdot"></span></div>
+
+  <div class="track cols-1" style="--gap: 0; margin-top: 28px;">
+    <div class="ph-item" style="aspect-ratio: 32/5;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+  </div>
+  <div class="pager"><span class="pdot"></span><span class="pill"></span><span class="pdot"></span><span class="pdot"></span></div>
+</div>
+
+<!-- Navigation off (mobile) -->
+<div class="sub-h">Navegação</div>
+<p class="sub-d">É possível suprimir os botões de navegação. Quando não há botões, a navegação só é possível com o gesto swipe, e só deve ser aplicada em dispositivos móveis.</p>
+<div class="carousel">
+  <button class="nav prev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+  <button class="nav next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+  <div class="track cols-3" style="--gap: 16px;">
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+  </div>
+  <div class="pager"><span class="pdot"></span><span class="pill"></span><span class="pdot"></span><span class="pdot"></span></div>
+
+  <div class="track cols-3" style="--gap: 16px; margin-top: 28px;">
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+  </div>
+  <div class="pager"><span class="pdot"></span><span class="pill"></span><span class="pdot"></span><span class="pdot"></span></div>
+</div>
+
+<!-- Properties table -->
+<div class="section-h">Tabela de propriedades</div>
+<table class="props">
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Valores</th>
+      <th>Valor padrão</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Current page</td>
+      <td>first / middle / last</td>
+      <td>middle</td>
+    </tr>
+    <tr>
+      <td>Children</td>
+      <td>02 / 03 / 04 / 05 / 06 / 07 / 08 / 09 / 10 / 11 / 12</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Visible itens</td>
+      <td>01 / 02 / 03 / 04</td>
+      <td>04</td>
+    </tr>
+    <tr>
+      <td>Margin</td>
+      <td>small / medium / large / none</td>
+      <td>large</td>
+    </tr>
+    <tr>
+      <td>Controls</td>
+      <td>true / false</td>
+      <td>true</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Comportamentos · Auto paginação -->
+<div class="section-h">Comportamentos</div>
+<div class="sub-h">Auto paginação</div>
+<p class="sub-d">O número de páginas é calculado automaticamente com base no número de itens filhos e do número de itens exibidos página.</p>
+<div class="carousel">
+  <button class="nav prev disabled"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+  <button class="nav next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+  <div class="track cols-3" style="--gap: 16px;">
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+  </div>
+  <div class="pager"><span class="pill"></span><span class="pdot"></span></div>
+  <div class="track cols-2" style="--gap: 16px; margin-top: 28px;">
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+    <div class="ph-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+  </div>
+  <div class="pager"><span class="pdot"></span><span class="pill"></span></div>
+</div>
+
+<!-- Diretrizes de uso -->
+<div class="section-h">Diretrizes de uso</div>
+<div class="sub-h">Conteúdo do carrossel</div>
+<p class="sub-d">Sempre use componentes iguais no carrossel. Certifique-se que os itens filhos possuem a mesma altura.</p>
+<div class="dont">
+  <div class="head"><span class="badge-x">×</span>Não misture tipos de componente</div>
+  <div class="mix">
+    <button class="nav prev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button class="nav next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    <div class="avatar-cell">
+      <img src="https://i.pravatar.cc/200?img=12" alt="">
+    </div>
+    <div class="pcard">
+      <div class="ph" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=70'); background-size: cover; background-position: center;"></div>
+      <div class="body">
+        <div class="price">R$ 1.070.000</div>
+        <div class="addr">Rua Cândido Mendes 279, Glória</div>
+        <div class="meta">2 quartos · 1 vagas · 76 m²</div>
+      </div>
+    </div>
+  </div>
+  <div class="pager" style="margin-top: 14px;"><span class="pdot"></span><span class="pill"></span><span class="pdot"></span><span class="pdot"></span></div>
+</div>
+
+<p class="caption-foot">Carousel · Setas circulares brancas 40px com sombra suave, posicionadas fora dos itens. Indicador de paginação com pill verde Loft (#20A483) para a página ativa, e dots cinza com borda 1.5px para inativas. Margens entre itens: small (4) / medium (12) / large (24) / none (0). Itens visíveis: 1–4 com auto-paginação calculada.</p>
+
+</body>
+</html>

@@ -13,7 +13,7 @@ updated: "2026-08-19"
 >
 > Documentation Standard v1.0 (adopter)
 
-Documentação rascunho do backend AIOPS App Model. Destinada a ser promovida depois para [loft-br/aiops-documentation](https://github.com/loft-br/aiops-documentation) no pack AIOps apps.
+Documentação rascunho do backend AIOps App Model. Destinada a ser promovida depois para [loft-br/aiops-documentation](https://github.com/loft-br/aiops-documentation) no pack AIOps apps.
 
 **Candidato a promoção:** [../aiops-apps/backend-creation-guide.md](../aiops-apps/backend-creation-guide.md) — guia genérico AIOps com arquivos de exemplo.
 

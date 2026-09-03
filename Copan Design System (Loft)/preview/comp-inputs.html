@@ -1,0 +1,69 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Inputs</title><link rel="stylesheet" href="_card.css">
+<style>
+  .field { display: flex; flex-direction: column; gap: 6px; font-family: Inter, sans-serif; }
+  .field label { font-size: 14px; font-weight: 500; color: #121619; }
+  .field .input-wrap { position: relative; }
+  .field input, .field .select, .field textarea { font-family: Inter, sans-serif; width: 100%; padding: 12px 14px; border: 1px solid #C1C7CD; border-radius: 8px; font-size: 16px; line-height: 24px; color: #121619; background: #FFFFFF; outline: none; box-sizing: border-box; transition: border-color 150ms; }
+  .field input::placeholder, .field textarea::placeholder { color: #878D96; }
+  .field input:hover, .field textarea:hover { border-color: #697077; }
+  .field input:focus, .field textarea:focus { border-color: #F56738; border-width: 2px; padding: 11px 13px; }
+  .field.error input { border-color: #CE4242; background: #FFFFFF; }
+  .field.error input:focus { border-width: 2px; }
+  .field.disabled input { background: #F2F4F8; color: #C1C7CD; cursor: not-allowed; border-color: #E1E9EF; }
+  .field .hint { font-size: 12px; line-height: 16px; color: #697077; }
+  .field.error .hint { color: #CE4242; }
+  .field .icon-left { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #697077; }
+  .field .has-icon input { padding-left: 44px; }
+  .state-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 6px; }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Text fields · estados</div>
+
+  <div class="row-2">
+    <div class="field">
+      <label>E-mail</label>
+      <div class="input-wrap"><input type="email" placeholder="voce@exemplo.com"></div>
+      <span class="hint">Usamos para confirmar sua proposta.</span>
+    </div>
+
+    <div class="field">
+      <label>Telefone</label>
+      <div class="input-wrap"><input type="tel" value="(11) 98765-4321"></div>
+    </div>
+
+    <div class="field">
+      <label>Localização</label>
+      <div class="input-wrap has-icon">
+        <span class="icon-left">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
+        </span>
+        <input placeholder="Bairro, cidade ou região">
+      </div>
+    </div>
+
+    <div class="field error">
+      <label>CPF</label>
+      <div class="input-wrap"><input value="000.000.000-00"></div>
+      <span class="hint">CPF inválido. Confira o número.</span>
+    </div>
+
+    <div class="field disabled">
+      <label>Complemento</label>
+      <div class="input-wrap"><input disabled value="Bloco A · Apto 42"></div>
+      <span class="hint">Preenchido pelo síndico.</span>
+    </div>
+
+    <div class="field">
+      <label>Observações</label>
+      <textarea rows="3" placeholder="Conte um pouco sobre o que você procura"></textarea>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top:8px;">
+    Inputs · 8px radius, 1px #C1C7CD. Focus: border laranja 2px (inset compensado). Error: border #CE4242 + hint em vermelho. Disabled: fundo #F2F4F8 + cursor not-allowed.
+  </div>
+</div>
+</body></html>

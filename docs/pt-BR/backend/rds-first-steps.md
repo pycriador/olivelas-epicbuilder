@@ -7,7 +7,7 @@ updated: "2026-08-19"
 version: "1.0"
 ---
 
-# Primeiros passos RDS — AIOPS App Model API
+# Primeiros passos RDS — AIOps App Model API
 
 > Language: [English (EN)](../../en/backend/rds-first-steps.md) | Português (pt-BR)
 >
@@ -15,7 +15,7 @@ version: "1.0"
 >
 > Documentation Standard v1.0 (adopter)
 
-Primeiro marco do backend AIOPS App Model: conectar FastAPI ao PostgreSQL no AWS RDS e expor health probes.
+Primeiro marco do backend AIOps App Model: conectar FastAPI ao PostgreSQL no AWS RDS e expor health probes.
 
 Este documento está estruturado para publicação futura em `loft-br/aiops-documentation`.
 
@@ -112,7 +112,7 @@ flowchart LR
 1. Definir schema inicial (conteúdo do portal hoje em `localStorage`).
 2. Adicionar migrations Alembic.
 3. Conectar leitura/escrita do frontend à API.
-4. Publicar este doc em `aiops-documentation` em `docs/*/aiops-apps/` ou seção dedicada ao AIOPS App Model.
+4. Publicar este doc em `aiops-documentation` em `docs/*/aiops-apps/` ou seção dedicada ao AIOps App Model.
 
 ## Relacionados
 

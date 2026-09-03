@@ -13,15 +13,15 @@ import {
 export const Route = createFileRoute("/admin/integracoes")({
   head: () => ({
     meta: [
-      { title: "Status das integrações — AIOPS App Model" },
+      { title: "Status das integrações — AIOps App Model" },
       {
         name: "description",
-        content: "Diagnóstico das conexões com Jira, Confluence e Gemini do AIOPS App Model.",
+        content: "Diagnóstico das conexões com Jira, Confluence e Gemini do AIOps App Model.",
       },
-      { property: "og:title", content: "Status das integrações — AIOPS App Model" },
+      { property: "og:title", content: "Status das integrações — AIOps App Model" },
       {
         property: "og:description",
-        content: "Diagnóstico das conexões com Jira, Confluence e Gemini do AIOPS App Model.",
+        content: "Diagnóstico das conexões com Jira, Confluence e Gemini do AIOps App Model.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

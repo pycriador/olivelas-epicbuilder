@@ -1,0 +1,60 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Slider</title><link rel="stylesheet" href="_card.css">
+<style>
+  .slider { position: relative; height: 40px; font-family: Inter, sans-serif; }
+  .slider .track { position: absolute; top: 50%; left: 0; right: 0; height: 4px; background: #E1E9EF; border-radius: 999px; transform: translateY(-50%); }
+  .slider .fill  { position: absolute; top: 50%; height: 4px; background: #F56738; border-radius: 999px; transform: translateY(-50%); }
+  .slider .knob  { position: absolute; top: 50%; width: 20px; height: 20px; background: #FFF; border: 2px solid #F56738; border-radius: 999px; transform: translate(-50%, -50%); box-shadow: 0 1px 3px rgba(0,0,0,0.1); cursor: grab; }
+  .slider .knob.focus { box-shadow: 0 0 0 4px rgba(245,103,56,0.25); }
+  .slider .bubble { position: absolute; top: -24px; transform: translateX(-50%); background: #121619; color: #FFF; font-size: 12px; font-weight: 600; padding: 4px 8px; border-radius: 4px; white-space: nowrap; }
+  .slider .bubble::after { content: ""; position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%) rotate(45deg); width: 8px; height: 8px; background: #121619; }
+  .scale { display: flex; justify-content: space-between; font-size: 12px; color: #697077; margin-top: -4px; }
+  .field-label { font-family: Inter, sans-serif; font-size: 14px; font-weight: 500; color: #121619; margin-bottom: 14px; display: flex; justify-content: space-between; }
+  .field-label .values { color: #121619; font-weight: 600; }
+  .state-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Slider · single + range</div>
+
+  <div style="margin-top:4px;">
+    <div class="field-label"><span>Área útil (m²)</span><span class="values">62 m²</span></div>
+    <div class="slider">
+      <div class="track"></div>
+      <div class="fill" style="left:0; width: 52%;"></div>
+      <div class="knob focus" style="left: 52%;">
+        <div class="bubble" style="left: 0;">62 m²</div>
+      </div>
+    </div>
+    <div class="scale"><span>20 m²</span><span>200 m²</span></div>
+  </div>
+
+  <div style="margin-top: 24px;">
+    <div class="field-label"><span>Faixa de preço</span><span class="values">R$ 450k — R$ 1,2M</span></div>
+    <div class="slider">
+      <div class="track"></div>
+      <div class="fill" style="left: 18%; width: 50%;"></div>
+      <div class="knob" style="left: 18%;">
+        <div class="bubble">R$ 450k</div>
+      </div>
+      <div class="knob" style="left: 68%;">
+        <div class="bubble">R$ 1,2M</div>
+      </div>
+    </div>
+    <div class="scale"><span>R$ 200k</span><span>R$ 3M</span></div>
+  </div>
+
+  <div style="margin-top: 24px;">
+    <div class="field-label" style="color:#C1C7CD;"><span>Distância do metrô (disabled)</span><span>—</span></div>
+    <div class="slider">
+      <div class="track"></div>
+      <div class="fill" style="left: 0; width: 30%; background:#C1C7CD;"></div>
+      <div class="knob" style="left: 30%; border-color: #C1C7CD;"></div>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top:8px;">
+    Slider · track 4px, knob 20px branco com border orange 2px. Bubble com valor aparece em hover/focus. Range slider: dois knobs + fill entre eles.
+  </div>
+</div>
+</body></html>

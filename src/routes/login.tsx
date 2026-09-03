@@ -8,7 +8,7 @@ import { useAuth } from "@/auth/useAuth";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Entrar — AIOPS App Model" },
+      { title: "Entrar — AIOps App Model" },
       { name: "description", content: "Acesse o portal de Inteligência Artificial da Loft." },
     ],
   }),
@@ -58,7 +58,7 @@ function LoginPage() {
           <span className="mx-auto grid h-10 w-10 place-items-center rounded-lg bg-primary text-sm font-black text-primary-foreground">
             L
           </span>
-          <h1 className="mt-4 text-xl font-semibold text-foreground">AIOPS App Model</h1>
+          <h1 className="mt-4 text-xl font-semibold text-foreground">AIOps App Model</h1>
           <p className="mt-1 text-sm text-muted-foreground">Entre com sua conta para acessar o portal</p>
         </div>
 

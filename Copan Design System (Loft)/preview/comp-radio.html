@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Radio</title><link rel="stylesheet" href="_card.css">
+<style>
+  .row-r { display: flex; gap: 10px; align-items: flex-start; font-family: Inter, sans-serif; }
+  .radio { width: 20px; height: 20px; border: 2px solid #5A6A75; border-radius: 999px; background: #FFF; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+  .radio.checked { border-color: #F56738; }
+  .radio.checked::after { content:""; width: 10px; height: 10px; background: #F56738; border-radius: 999px; }
+  .radio.disabled { border-color: #C1C7CD; background: #F2F4F8; }
+  .radio.checked.disabled::after { background: #C1C7CD; }
+  .radio.focus { outline: 2px solid #F56738; outline-offset: 2px; }
+  .label { font-size: 16px; line-height: 24px; color: #121619; }
+  .label.disabled { color: #C1C7CD; }
+  .desc { font-size: 14px; line-height: 20px; color: #697077; margin-top: 2px; }
+  .state-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 6px; }
+  .group { display: flex; flex-direction: column; gap: 12px; }
+  .card-opt { border: 1px solid #E1E9EF; border-radius: 8px; padding: 14px; display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+  .card-opt.selected { border-color: #F56738; background: #FFF2EC; }
+  .card-opt .price { font-weight: 600; color: #121619; font-size: 15px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Radio · estados + grupo card</div>
+
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+    <div>
+      <div class="state-label">Estados</div>
+      <div class="group">
+        <div class="row-r"><div class="radio"></div><span class="label">Enabled</span></div>
+        <div class="row-r"><div class="radio focus"></div><span class="label">Focus</span></div>
+        <div class="row-r"><div class="radio checked"></div><span class="label">Selected</span></div>
+        <div class="row-r"><div class="radio disabled"></div><span class="label disabled">Disabled</span></div>
+        <div class="row-r"><div class="radio checked disabled"></div><span class="label disabled">Disabled selected</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="state-label">Radio group · forma de pagamento</div>
+      <div class="group">
+        <div class="card-opt selected">
+          <div class="radio checked" style="margin-top:0;"></div>
+          <div style="flex:1;">
+            <div class="label"><strong>Financiamento bancário</strong></div>
+            <div class="desc">Taxa a partir de 10,49% a.a. · simulação grátis</div>
+          </div>
+          <div class="price">R$ 8.420/mês</div>
+        </div>
+        <div class="card-opt">
+          <div class="radio" style="margin-top:0;"></div>
+          <div style="flex:1;">
+            <div class="label"><strong>À vista</strong></div>
+            <div class="desc">Desconto de 3% no valor total</div>
+          </div>
+          <div class="price">R$ 1.207.650</div>
+        </div>
+        <div class="card-opt">
+          <div class="radio" style="margin-top:0;"></div>
+          <div style="flex:1;">
+            <div class="label"><strong>Consórcio</strong></div>
+            <div class="desc">Sem juros · entrega média 24 meses</div>
+          </div>
+          <div class="price">R$ 5.190/mês</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top:8px;">
+    Radio · 20×20 pill, border 2px. Dot orange 10×10 no selected. Radio cards: border orange + fundo orange-50 quando selecionados.
+  </div>
+</div>
+</body></html>

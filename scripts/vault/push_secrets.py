@@ -179,7 +179,7 @@ def push_target(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Push AIOPS App Model local .env files to Loft Vault (cross / ai-ops)"
+        description="Push AIOps App Model local .env files to Loft Vault (cross / ai-ops)"
     )
     parser.add_argument(
         "--target",

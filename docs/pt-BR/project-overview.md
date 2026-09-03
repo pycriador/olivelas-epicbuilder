@@ -7,7 +7,7 @@ updated: "2026-08-19"
 version: "1.0"
 ---
 
-# AIOPS App Model
+# AIOps App Model
 
 > Language: [English (EN)](../en/project-overview.md) | Português (pt-BR)
 >
@@ -17,7 +17,7 @@ version: "1.0"
 
 ## Propósito
 
-O AIOPS App Model é o portal interno da Loft para descobrir, aprender e construir com IA. Consolida cases de projetos de IA, integrações, métricas de impacto e fluxos administrativos conectados ao Jira e Confluence. Evidência: plano de produto `.lovable/plan/ai-portal-loft-2026-08-08.md`, branding em `src/components/layout/AppSidebar.tsx`.
+O AIOps App Model é o portal interno da Loft para descobrir, aprender e construir com IA. Consolida cases de projetos de IA, integrações, métricas de impacto e fluxos administrativos conectados ao Jira e Confluence. Evidência: plano de produto `.lovable/plan/ai-portal-loft-2026-08-08.md`, branding em `src/components/layout/AppSidebar.tsx`.
 
 ## Problema
 

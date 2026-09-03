@@ -9,9 +9,9 @@ import { usePortalContent } from "@/hooks/use-portal-content";
 export const Route = createFileRoute("/ferramentas/$id")({
   head: () => ({
     meta: [
-      { title: "Integração — AIOPS App Model" },
+      { title: "Integração — AIOps App Model" },
       { name: "description", content: "Integração conectada às soluções de IA da Loft." },
-      { property: "og:title", content: "Integração — AIOPS App Model" },
+      { property: "og:title", content: "Integração — AIOps App Model" },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary" },
     ],

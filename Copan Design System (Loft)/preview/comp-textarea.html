@@ -1,0 +1,50 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Text area</title><link rel="stylesheet" href="_card.css">
+<style>
+  .field { display: flex; flex-direction: column; gap: 6px; font-family: Inter, sans-serif; }
+  .field label { font-size: 14px; font-weight: 500; color: #121619; display: flex; justify-content: space-between; }
+  .field .count { font-size: 12px; color: #697077; font-weight: 400; }
+  .field textarea { font-family: Inter; width: 100%; padding: 12px 14px; border: 1px solid #C1C7CD; border-radius: 8px; font-size: 16px; line-height: 24px; color: #121619; background: #FFFFFF; outline: none; resize: vertical; box-sizing: border-box; min-height: 96px; }
+  .field textarea::placeholder { color: #878D96; }
+  .field textarea:hover { border-color: #697077; }
+  .field textarea:focus { border-color: #F56738; border-width: 2px; padding: 11px 13px; }
+  .field.error textarea { border-color: #CE4242; }
+  .field.disabled textarea { background: #F2F4F8; color: #C1C7CD; border-color: #E1E9EF; cursor: not-allowed; }
+  .field .hint { font-size: 12px; color: #697077; }
+  .field.error .hint { color: #CE4242; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Text area · estados</div>
+
+  <div class="grid">
+    <div class="field">
+      <label>Mensagem para o vendedor <span class="count">0 / 500</span></label>
+      <textarea placeholder="Conte um pouco sobre você, quando pretende visitar e outros detalhes que ajudem o vendedor."></textarea>
+      <span class="hint">Mensagens mais detalhadas costumam receber resposta mais rápido.</span>
+    </div>
+
+    <div class="field">
+      <label>Mensagem para o vendedor <span class="count">128 / 500</span></label>
+      <textarea style="border-color:#F56738; border-width:2px; padding: 11px 13px;">Olá, sou Ana e tenho interesse em visitar o apartamento esta semana. Trabalho em Pinheiros e posso ir terça à tarde.</textarea>
+      <span class="hint">Mensagens mais detalhadas costumam receber resposta mais rápido.</span>
+    </div>
+
+    <div class="field error">
+      <label>Descrição do imóvel <span class="count" style="color:#CE4242;">812 / 500</span></label>
+      <textarea>Apartamento de alto padrão localizado em uma das regiões mais desejadas de São Paulo. Totalmente reformado, com acabamento premium, vista privilegiada, e pronto para morar. Fica próximo a todos os principais pontos de transporte, comércio e lazer.</textarea>
+      <span class="hint">Mensagem acima do limite. Corte 312 caracteres.</span>
+    </div>
+
+    <div class="field disabled">
+      <label>Observações internas</label>
+      <textarea disabled>Apenas o time de operações edita este campo.</textarea>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top:8px;">
+    Text area · segue tokens do Input. Min-height 96px, resize vertical. Contador de caracteres no label, vira vermelho quando excede. Focus: border orange 2px; error: border #CE4242.
+  </div>
+</div>
+</body></html>

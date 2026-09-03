@@ -41,7 +41,7 @@ application:
     - name: PORT
       value: "8000"
     - name: APP_NAME
-      value: AIOPS App Model API
+      value: AIOps App Model API
   vaultSecrets:
     - mount: cross
       path: ai-ops/aiops-app-model-api

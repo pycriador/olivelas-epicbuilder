@@ -22,7 +22,7 @@ This folder mirrors the target path in `aiops-documentation`: `docs/*/aiops-apps
 
 ## Adopter-specific backend docs
 
-Detailed runbooks for AIOPS App Model (RDS scripts, schema) remain under [../backend/README.md](../backend/README.md) until promoted as `aiops-apps/aiops-app-model/` subpack.
+Detailed runbooks for AIOps App Model (RDS scripts, schema) remain under [../backend/README.md](../backend/README.md) until promoted as `aiops-apps/aiops-app-model/` subpack.
 
 ## Promotion PR checklist
 

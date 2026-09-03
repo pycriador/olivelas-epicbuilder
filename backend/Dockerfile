@@ -1,4 +1,4 @@
-# AIOPS App Model API — FastAPI + uvicorn (ARM-friendly)
+# AIOps App Model API — FastAPI + uvicorn (ARM-friendly)
 #
 # Minimal production image for Loft EKS (linux/arm64).
 # Secrets (DATABASE_URL, JWT_SECRET, …) come from env / Vault at runtime — never bake them in.

@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Chips</title><link rel="stylesheet" href="_card.css">
+<style>
+  .chip { font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; height: 32px; padding: 0 14px; border-radius: 999px; background: #FFFFFF; border: 1px solid #C1C7CD; color: #121619; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap; transition: all 150ms ease-out; }
+  .chip:hover { background: #F2F4F8; }
+  .chip.selected { background: #121619; border-color: #121619; color: #FFFFFF; }
+  .chip.selected:hover { background: #343A3F; }
+  .chip.disabled { color: #C1C7CD; border-color: #E1E9EF; background: #FFFFFF; cursor: not-allowed; }
+  .chip.focus { outline: 2px solid #F56738; outline-offset: 2px; }
+  .state-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 6px; }
+  .state-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .state { display: flex; flex-direction: column; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Chips · Choice (estados)</div>
+
+  <div class="state-row">
+    <div class="state"><span class="state-label">Enabled</span><button class="chip">Até R$ 500 mil</button></div>
+    <div class="state"><span class="state-label">Hover</span><button class="chip" style="background:#F2F4F8;">Até R$ 500 mil</button></div>
+    <div class="state"><span class="state-label">Focus</span><button class="chip focus">Até R$ 500 mil</button></div>
+    <div class="state"><span class="state-label">Selected</span><button class="chip selected">Até R$ 500 mil</button></div>
+    <div class="state"><span class="state-label">Disabled</span><button class="chip disabled">Até R$ 500 mil</button></div>
+  </div>
+
+  <div class="state-label" style="margin-top:4px;">Com ícone · Icon position (left / right)</div>
+  <div class="state-row">
+    <button class="chip">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Pinheiros
+    </button>
+    <button class="chip selected">
+      2 quartos
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <button class="chip">
+      Piscina
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </button>
+  </div>
+
+  <div class="state-label" style="margin-top:4px;">Grupo de filtros (selecionáveis)</div>
+  <div class="state-row">
+    <button class="chip selected">Todos</button>
+    <button class="chip">Venda</button>
+    <button class="chip">Aluguel</button>
+    <button class="chip">Temporada</button>
+  </div>
+
+  <div class="caption" style="margin-top:8px;">
+    Chips · pill radius (999px), 32h, sempre com label. Usado para filtros e choices múltiplas. Nunca só ícone.
+  </div>
+</div>
+</body></html>

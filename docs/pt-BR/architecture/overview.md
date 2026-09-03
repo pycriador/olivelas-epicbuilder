@@ -17,7 +17,7 @@ version: "1.0"
 
 ## Propósito
 
-Visão de alto nível de como o AIOPS App Model é estruturado: camadas de UI, boundary de integração server-side e onde os dados residem.
+Visão de alto nível de como o AIOps App Model é estruturado: camadas de UI, boundary de integração server-side e onde os dados residem.
 
 ## Contexto
 

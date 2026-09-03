@@ -1,5 +1,5 @@
 ---
-title: "Histórico do Projeto — AIOPS App Model"
+title: "Histórico do Projeto — AIOps App Model"
 status: "DRAFT"
 owner: "aiops-app-model"
 created: "2026-08-19"
@@ -7,7 +7,7 @@ updated: "2026-08-19"
 version: "1.0"
 ---
 
-# AIOPS App Model — Descrição completa do projeto e histórico de decisões
+# AIOps App Model — Descrição completa do projeto e histórico de decisões
 
 > Language: pt-BR
 >
@@ -20,7 +20,7 @@ version: "1.0"
 
 ## 1. Visão geral
 
-AIOPS App Model (nome anterior: "AI Portal — Loft") é o portal interno de IA da Loft.
+AIOps App Model (nome anterior: "AI Portal — Loft") é o portal interno de IA da Loft.
 Ele reúne, num único lugar:
 
 - projetos de IA em andamento e concluídos (cases),
@@ -261,7 +261,7 @@ Esta seção é a base para expor as ações como botões na interface.
 
 | De | Para |
 | --- | --- |
-| AI Portal — Loft | AIOPS App Model |
+| AI Portal — Loft | AIOps App Model |
 | O que já temos | Projetos |
 | Cases de Sucesso | Projetos em andamento |
 | Explorar cases | Todos os projetos |

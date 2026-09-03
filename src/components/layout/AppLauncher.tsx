@@ -1,33 +1,50 @@
-import { CheckOutlined } from "@ant-design/icons";
+import {
+  AppstoreOutlined,
+  BarChartOutlined,
+  CheckOutlined,
+  CompassOutlined,
+  EnvironmentOutlined,
+  HomeOutlined,
+  MessageOutlined,
+  PlusSquareOutlined,
+  SafetyCertificateOutlined,
+} from "@ant-design/icons";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import { useAuth } from "@/auth/useAuth";
 import { buildAdminLauncherItems, PRINCIPAL_APP_ITEMS, type AppNavItem } from "@/lib/nav-items";
 import { cn } from "@/lib/utils";
 
-function WaffleDots() {
-  const dotSize = 5;
-  const gap = 5;
+const LAUNCHER_ICONS: Record<string, ReactNode> = {
+  "/portal": <HomeOutlined />,
+  "/cases": <CompassOutlined />,
+  "/mapa": <EnvironmentOutlined />,
+  "/impacto": <BarChartOutlined />,
+  "/assistente": <MessageOutlined />,
+  "/ferramentas": <AppstoreOutlined />,
+  "/admin/adicionar-case": <PlusSquareOutlined />,
+  "/admin/adicionar-areas": <EnvironmentOutlined />,
+  "/admin/iam": <SafetyCertificateOutlined />,
+};
 
+function AppGridIcon() {
   return (
-    <span
-      className="inline-grid"
-      style={{
-        gridTemplateColumns: `repeat(3, ${dotSize}px)`,
-        gridTemplateRows: `repeat(3, ${dotSize}px)`,
-        gap,
-      }}
-      aria-hidden
-    >
-      {Array.from({ length: 9 }).map((_, index) => (
-        <span
-          key={index}
-          className="block rounded-[1px] bg-current"
-          style={{ width: dotSize, height: dotSize }}
-        />
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      {[
+        [3, 3],
+        [8, 3],
+        [13, 3],
+        [3, 8],
+        [8, 8],
+        [13, 8],
+        [3, 13],
+        [8, 13],
+        [13, 13],
+      ].map(([cx, cy]) => (
+        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r="1.75" fill="currentColor" />
       ))}
-    </span>
+    </svg>
   );
 }
 
@@ -44,7 +61,7 @@ function isActiveRoute(pathname: string, href: string): boolean {
   return normalized === href || normalized.startsWith(`${href}/`);
 }
 
-function ProductCard({
+function LauncherTile({
   item,
   active,
   onNavigate,
@@ -53,59 +70,76 @@ function ProductCard({
   active: boolean;
   onNavigate: () => void;
 }) {
+  const icon = LAUNCHER_ICONS[item.key];
+
   return (
     <Link
       to={item.key as never}
       role="menuitem"
       onClick={onNavigate}
       className={cn(
-        "flex flex-col gap-px rounded-lg border px-3 py-[7px] text-[#191F23] transition-colors",
+        "group flex items-start gap-3 rounded-lg border p-3 transition-all duration-150",
         active
-          ? "border-[#B7E9C6] bg-[#EAF9EF]"
-          : "border-[#DDE1E6] hover:border-[#C5CBD0] hover:bg-[#F2F4F8]",
+          ? "border-[color-mix(in_oklab,#20A483_35%,#E1E9EF)] bg-[#E8F5F0] shadow-[inset_0_0_0_1px_color-mix(in_oklab,#20A483_12%,transparent)]"
+          : "border-[#E1E9EF] bg-white hover:border-[#C1C7CD] hover:bg-[#F2F4F8]",
       )}
     >
-      <span className="flex items-center justify-between gap-2">
-        <span className="text-sm font-semibold text-[#0B6B4F]">{item.label}</span>
-        {active ? (
-          <span
-            className="inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full bg-[#2ECC71] text-white"
-            aria-label="Área atual"
-          >
-            <CheckOutlined style={{ fontSize: 10 }} />
-          </span>
-        ) : (
-          <span
-            className="text-[#8A9197] transition-transform group-hover:translate-x-0.5"
-            aria-hidden
-          >
-            →
-          </span>
+      <span
+        className={cn(
+          "grid h-10 w-10 shrink-0 place-items-center rounded-lg text-base transition-colors",
+          active
+            ? "bg-white text-[#20A483] shadow-sm"
+            : "bg-[#FFF2EC] text-[#F56738] group-hover:bg-[#FFD9C7]",
         )}
+      >
+        {icon}
       </span>
-      <span className="text-xs leading-tight text-[#4D5358]">{item.description}</span>
+      <span className="min-w-0 flex-1 pt-0.5">
+        <span className="flex items-center justify-between gap-2">
+          <span className="truncate text-sm font-semibold leading-tight text-[#121619]">
+            {item.label}
+          </span>
+          {active ? (
+            <span
+              className="inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full bg-[#F56738] text-white"
+              aria-label="Área atual"
+            >
+              <CheckOutlined style={{ fontSize: 10 }} />
+            </span>
+          ) : null}
+        </span>
+        <span className="mt-0.5 line-clamp-2 text-xs leading-snug text-[#697077]">
+          {item.description}
+        </span>
+      </span>
     </Link>
   );
 }
 
-function ProductMini({ item, onNavigate }: { item: AppNavItem; onNavigate: () => void }) {
+function AdminMenuItem({ item, onNavigate }: { item: AppNavItem; onNavigate: () => void }) {
+  const icon = LAUNCHER_ICONS[item.key];
+
   return (
     <Link
       to={item.key as never}
       role="menuitem"
       onClick={onNavigate}
-      className="flex items-center gap-2.5 rounded-lg border border-[#DDE1E6] px-2.5 py-[9px] text-[13px] font-medium text-[#191F23] transition-colors hover:border-[#C5CBD0] hover:bg-[#F2F4F8]"
+      className="flex items-center gap-2.5 rounded-md px-3 py-2.5 text-sm font-medium text-[#121619] transition-colors hover:bg-[#F2F4F8]"
     >
-      <span className="relative h-2.5 w-[15px] shrink-0" aria-hidden>
-        <span className="absolute left-0 top-1/2 h-[9px] w-[9px] -translate-y-1/2 rounded-full border-[1.6px] border-[#FF774A] bg-white" />
-        <span className="absolute left-2 top-1/2 h-0.5 w-[7px] -translate-y-1/2 bg-[#FF774A]" />
+      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-[#FFF2EC] text-[#F56738]">
+        {icon}
       </span>
-      {item.label}
+      <span className="min-w-0">
+        <span className="block truncate">{item.label}</span>
+        <span className="block truncate text-xs font-normal text-[#697077]">
+          {item.description}
+        </span>
+      </span>
     </Link>
   );
 }
 
-/** Google-style 9-dot app launcher for primary navigation areas. */
+/** Copan-styled app launcher for primary navigation areas. */
 export function AppLauncher() {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -142,48 +176,64 @@ export function AppLauncher() {
       <button
         type="button"
         className={cn(
-          "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border-0 bg-transparent p-0 text-[#4D5358] transition-colors hover:bg-[#F2F4F8]",
-          open && "bg-[#F2F4F8]",
+          "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border bg-white p-0 transition-all duration-150",
+          open
+            ? "border-[#E1E9EF] text-[#121619] shadow-[0_2px_6px_rgba(25,31,35,0.08)]"
+            : "border-transparent text-[#697077] hover:border-[#E1E9EF] hover:bg-[#F2F4F8] hover:text-[#121619]",
         )}
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label="Abrir menu de áreas do AIOps Central"
         onClick={() => setOpen((value) => !value)}
       >
-        <WaffleDots />
+        <AppGridIcon />
       </button>
 
       {open ? (
         <div
           role="menu"
           aria-label="Áreas do AIOps Central"
-          className="fixed left-6 top-14 z-[1020] flex max-h-[calc(100vh-56px-12px)] w-[460px] max-w-[calc(100vw-48px)] flex-col overflow-y-auto rounded-xl bg-white p-6 text-[#191F23] shadow-[0_16px_40px_rgba(25,31,35,0.18)]"
+          className="absolute left-0 top-[calc(100%+8px)] z-[1020] w-[min(400px,calc(100vw-48px))] overflow-hidden rounded-xl border border-[#E1E9EF] bg-white shadow-[0_24px_48px_-12px_rgba(25,31,35,0.24)]"
         >
-          <p className="mb-4 text-base text-[#4D5358]">
-            Áreas do <strong className="font-semibold text-[#191F23]">AIOps Central</strong>
-          </p>
+          <div className="border-b border-[#E1E9EF] bg-[#F2F4F8] px-4 py-3">
+            <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-[#697077]">
+              Navegação
+            </p>
+            <p className="mt-0.5 text-base font-semibold text-[#121619]">AIOps Central</p>
+          </div>
 
-          <ul className="mb-2 grid grid-cols-2 gap-2" role="none">
-            {PRINCIPAL_APP_ITEMS.map((item) => (
-              <li key={item.key} role="none" className="group">
-                <ProductCard
-                  item={item}
-                  active={isActiveRoute(pathname, item.key)}
-                  onNavigate={close}
-                />
-              </li>
-            ))}
-          </ul>
-
-          {adminItems.length > 0 ? (
-            <ul className="grid grid-cols-2 gap-2" role="none">
-              {adminItems.map((item) => (
+          <div className="max-h-[min(480px,calc(100vh-120px))] overflow-y-auto p-3">
+            <p className="mb-2 px-1 text-[11px] font-bold uppercase tracking-[0.06em] text-[#697077]">
+              Principais áreas
+            </p>
+            <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2" role="none">
+              {PRINCIPAL_APP_ITEMS.map((item) => (
                 <li key={item.key} role="none">
-                  <ProductMini item={item} onNavigate={close} />
+                  <LauncherTile
+                    item={item}
+                    active={isActiveRoute(pathname, item.key)}
+                    onNavigate={close}
+                  />
                 </li>
               ))}
             </ul>
-          ) : null}
+
+            {adminItems.length > 0 ? (
+              <>
+                <div className="my-3 h-px bg-[#E1E9EF]" role="separator" />
+                <p className="mb-1 px-1 text-[11px] font-bold uppercase tracking-[0.06em] text-[#697077]">
+                  Administração
+                </p>
+                <ul className="space-y-0.5" role="none">
+                  {adminItems.map((item) => (
+                    <li key={item.key} role="none">
+                      <AdminMenuItem item={item} onNavigate={close} />
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+          </div>
         </div>
       ) : null}
     </div>

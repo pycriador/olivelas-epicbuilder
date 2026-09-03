@@ -1,0 +1,117 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Avatar</title><link rel="stylesheet" href="_card.css">
+<style>
+  .frame { font-family: Inter, sans-serif; }
+  .row { display: flex; align-items: center; gap: 16px; }
+  .lbl { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #697077; margin-bottom: 14px; }
+
+  .av { display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; flex-shrink: 0; font-weight: 600; color: #FFF; position: relative; }
+  .av .clip { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .av img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+  .av .initials { position: relative; z-index: 1; }
+  .av-xs { width: 24px; height: 24px; font-size: 10px; }
+  .av-sm { width: 32px; height: 32px; font-size: 12px; }
+  .av-md { width: 40px; height: 40px; font-size: 14px; }
+  .av-lg { width: 56px; height: 56px; font-size: 18px; }
+  .av-xl { width: 80px; height: 80px; font-size: 26px; }
+
+  .av-bg-1 { background: #387BA8; }
+  .av-bg-2 { background: #B62D2D; }
+  .av-bg-3 { background: #115644; }
+  .av-bg-4 { background: #7351BA; }
+  .av-bg-5 { background: #7A4D00; }
+  .av-bg-6 { background: #D94616; }
+
+  .badge { position: absolute; bottom: 0; right: 0; width: 12px; height: 12px; border-radius: 999px; border: 2px solid #FFF; box-sizing: border-box; z-index: 2; transform: translate(15%, 15%); }
+  .av-lg .badge, .av-xl .badge { width: 16px; height: 16px; border-width: 3px; transform: translate(10%, 10%); }
+  .b-pos { background: #20A483; }
+  .b-att { background: #E5A300; }
+  .b-neg { background: #CE4242; }
+
+  .ring { box-shadow: 0 0 0 2px #FFF, 0 0 0 4px #F56738; }
+
+  /* Stack / group */
+  .stack { display: inline-flex; }
+  .stack .av { border: 2px solid #FFF; }
+  .stack .av:not(:first-child) { margin-left: -8px; }
+  .more { background: #F2F4F8; color: #121619; font-weight: 600; }
+
+  /* Avatar with name + role */
+  .person { display: inline-flex; align-items: center; gap: 10px; }
+  .person .name { font-size: 14px; font-weight: 600; color: #121619; line-height: 18px; }
+  .person .role { font-size: 12px; color: #697077; line-height: 16px; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .tile { background: #FFF; border: 1px solid #E1E9EF; border-radius: 10px; padding: 18px; }
+</style>
+</head>
+<body>
+<div class="card frame">
+  <div class="eyebrow">Avatar · pessoa, status, grupo</div>
+
+  <div class="grid">
+    <div class="tile">
+      <div class="lbl">Tamanhos · com iniciais</div>
+      <div class="row" style="gap: 12px;">
+        <span class="av av-xs av-bg-1">MN</span>
+        <span class="av av-sm av-bg-2">JS</span>
+        <span class="av av-md av-bg-3">BT</span>
+        <span class="av av-lg av-bg-4">RA</span>
+        <span class="av av-xl av-bg-5">CN</span>
+      </div>
+    </div>
+
+    <div class="tile">
+      <div class="lbl">Com foto</div>
+      <div class="row">
+        <span class="av av-md"><span class="clip"><img src="https://i.pravatar.cc/80?img=47" alt=""/></span></span>
+        <span class="av av-lg ring"><span class="clip"><img src="https://i.pravatar.cc/80?img=14" alt=""/></span></span>
+        <span class="av av-xl"><span class="clip"><img src="https://i.pravatar.cc/120?img=33" alt=""/></span></span>
+      </div>
+    </div>
+
+    <div class="tile">
+      <div class="lbl">Status presence</div>
+      <div class="row">
+        <span class="av av-lg av-bg-1">RA<span class="badge b-pos"></span></span>
+        <span class="av av-lg av-bg-6">DM<span class="badge b-att"></span></span>
+        <span class="av av-lg av-bg-2">JS<span class="badge b-neg"></span></span>
+      </div>
+    </div>
+
+    <div class="tile">
+      <div class="lbl">Stack · time da Loft</div>
+      <div class="stack">
+        <span class="av av-md av-bg-1">MA</span>
+        <span class="av av-md av-bg-3">RT</span>
+        <span class="av av-md av-bg-4">JS</span>
+        <span class="av av-md av-bg-6">CN</span>
+        <span class="av av-md more">+8</span>
+      </div>
+    </div>
+
+    <div class="tile" style="grid-column: span 2;">
+      <div class="lbl">Em contexto · pessoa + função</div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="person">
+          <span class="av av-md av-bg-3">CT</span>
+          <div>
+            <div class="name">Carla Tavares</div>
+            <div class="role">Especialista de transação · Loft</div>
+          </div>
+        </div>
+        <div class="person">
+          <span class="av av-md av-bg-1">RA<span class="badge b-pos"></span></span>
+          <div>
+            <div class="name">Rafael Andrade</div>
+            <div class="role">Online agora · responde em ~5min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caption" style="margin-top: 12px;">
+    Avatar · 5 tamanhos (24/32/40/56/80). Iniciais com fundo da paleta extended (info/red/green/lilac/yellow/orange-deep), nunca <strong>orange-500</strong> (reservado a CTAs). Status badge 12-16px com border branca. Stack para grupos com counter "+N".
+  </div>
+</div>
+</body></html>

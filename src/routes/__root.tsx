@@ -80,13 +80,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AIOPS App Model — Loft" },
+      { title: "AIOps App Model — Loft" },
       {
         name: "description",
         content:
           "Portal interno de Inteligência Artificial da Loft: cases, trilhas, ferramentas, templates e prompts em um só lugar.",
       },
-      { property: "og:title", content: "AIOPS App Model — Loft" },
+      { property: "og:title", content: "AIOps App Model — Loft" },
       {
         property: "og:description",
         content: "Descubra, aprenda e construa com IA na Loft.",
