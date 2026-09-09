@@ -33,7 +33,7 @@ version: "0.11"
 | 3 | Paths Vault KV + push de secrets | Vault UI + `scripts/vault/push_secrets.py` | Script pronto | **Feito** — v1 gravado 2026-09-03 (clonado do KV Central, hosts reescritos) |
 | 4 | values k8s-apps + Application Argo | `loft-br/k8s-apps` | `deploy/k8s/` | **Merged** — [PR #10622](https://github.com/loft-br/k8s-apps/pull/10622) |
 | 5 | Kong corp front + API external (+ CORS) | `loft-br/kong-configs` | `deploy/kong/` | **Merged** — [PR #1134](https://github.com/loft-br/kong-configs/pull/1134) |
-| 6 | Route53 corp front + API external | `loft-br/infra-live` | `deploy/dns/` (`#AUTOAPPLYME`) | **Aberto** — [PR #2350](https://github.com/loft-br/infra-live/pull/2350) (ainda OPEN em 2026-09-03) |
+| 6 | Route53 corp front + API external | `loft-br/infra-live` | `deploy/dns/` (`#AUTOAPPLYME`) | Front **na main**; API **aberto/mergeable** — [PR #2350](https://github.com/loft-br/infra-live/pull/2350) (precisa review; API hoje resolve para `kong-internal` → 404 Kong) |
 | 7 | Primeiro deploy (API depois front) | GHA `workflow_dispatch` | Workflows presentes | Depois de 2–4 no mínimo |
 | 8 | Verificar Datadog + checks pós-deploy | Datadog + curl | `datadog.enabled: true` nos values | Pendente |
 
@@ -263,14 +263,17 @@ python3 scripts/vault/push_secrets.py             # grava os dois paths
 
 ### Aplicado (este app)
 
-- Ainda nada (Confirmed 2026-09-03 — namespace novo).
+- **Confirmed 2026-09-03:** KV v1 em `cross/ai-ops/aiops-app-model-api` e `cross/ai-ops/aiops-app-model-front`.
+- Origem: clonado dos paths KV do Central, com rewrite de hosts para corp/Cross do App Model (`APP_NAME`, `CORS_ORIGINS`, `VITE_API_URL`).
+- **Inferred:** `DATABASE_URL` / `DB_*` ainda apontam para o mesmo RDS/role do Central até provisionar DB dedicado.
+- `.env` / `backend/.env` locais regenerados para o push (gitignored — nunca commitar).
 
-### Pendências antes dos pods em produção
+### Pendências antes / depois do 1º deploy
 
-1. Criar paths KV vazios no Vault UI (ou primeiro `vault kv put`)
-2. Preencher `backend/.env` / `.env` na raiz localmente, com `CORS_ORIGINS` nos origins corp/Cross exatos (sem trailing slash)
-3. `python3 scripts/vault/push_secrets.py --dry-run` e depois o push
-4. Garantir que `application.vaultSecrets` no k8s-apps bate com os paths
+1. Merge / apply do DNS [infra-live#2350](https://github.com/loft-br/infra-live/pull/2350) se ainda aberto
+2. Opcional: provisionar DB `aiops_app_model` + rotacionar credenciais longe do Central
+3. Confirmar `GIT_HUB_TOKEN` no repo e rodar `workflow_dispatch` API → front
+4. Reenviar Vault se CORS / JWT / DB mudarem
 
 Doc canônica: [aiops-documentation vault-secrets](https://github.com/loft-br/aiops-documentation/blob/main/docs/pt-BR/loft-infra/vault-secrets.md).
 
@@ -278,7 +281,7 @@ Doc canônica: [aiops-documentation vault-secrets](https://github.com/loft-br/ai
 
 ## Passo 4 — k8s-apps (values Helm + Application Argo CD)
 
-**Status:** PR aberta — [k8s-apps#10622](https://github.com/loft-br/k8s-apps/pull/10622) (merge exige **aprovação de par**).
+**Status:** Merged — [k8s-apps#10622](https://github.com/loft-br/k8s-apps/pull/10622).
 
 ### Por que PR (e um par)
 

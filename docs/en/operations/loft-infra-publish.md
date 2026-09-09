@@ -33,7 +33,7 @@ version: "0.11"
 | 3 | Vault KV paths + push secrets | Vault UI + `scripts/vault/push_secrets.py` | Script ready | **Done** — v1 written 2026-09-03 (cloned from Central KV, hosts rewritten) |
 | 4 | k8s-apps values + Argo Application | `loft-br/k8s-apps` | `deploy/k8s/` | **Merged** — [PR #10622](https://github.com/loft-br/k8s-apps/pull/10622) |
 | 5 | Kong corp front + external API (+ CORS) | `loft-br/kong-configs` | `deploy/kong/` | **Merged** — [PR #1134](https://github.com/loft-br/kong-configs/pull/1134) |
-| 6 | Route53 corp front + external API | `loft-br/infra-live` | `deploy/dns/` (`#AUTOAPPLYME`) | **Open / approved?** — [PR #2350](https://github.com/loft-br/infra-live/pull/2350) (still OPEN 2026-09-03) |
+| 6 | Route53 corp front + external API | `loft-br/infra-live` | `deploy/dns/` (`#AUTOAPPLYME`) | Front **on main**; API **open/mergeable** — [PR #2350](https://github.com/loft-br/infra-live/pull/2350) (needs review; API currently resolves to `kong-internal` → Kong 404) |
 | 7 | First deploy (API then front) | GHA `workflow_dispatch` | Workflows present | After 2–4 at minimum |
 | 8 | Datadog verify + post-deploy checks | Datadog + curl | `datadog.enabled: true` in values | Pending |
 
@@ -82,7 +82,7 @@ Not every AIOps repo ships front **and** API:
 | Vault KV paths populated (Cross Prod) | **Done** | v1 @ 2026-09-03 — `ai-ops/aiops-app-model-{api,front}`; seeded from Central KV with host rewrite |
 | k8s-apps PR (peer approval) | **Merged** | https://github.com/loft-br/k8s-apps/pull/10622 |
 | kong-configs PR | **Merged** | https://github.com/loft-br/kong-configs/pull/1134 |
-| infra-live DNS PR | **Open** | https://github.com/loft-br/infra-live/pull/2350 |
+| infra-live DNS PR | **Open (mergeable)** | https://github.com/loft-br/infra-live/pull/2350 — API record only; front already on `main`. Until merge/apply, `aiops-app-model-api.loft-corp.com.br` → `kong-internal` (no route; browser shows as CORS) |
 | Repo GitHub Environment `production` + OIDC | **Created (env)** | Environment `production` created 2026-09-03; OIDC/trust still Unknown |
 | Org secret `GIT_HUB_TOKEN` available to repo | Unknown | Required by `loft-br/actions/deploy` |
 
