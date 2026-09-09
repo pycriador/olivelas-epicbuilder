@@ -5,4 +5,4 @@ set -e
 export PORT="${PORT:-8080}"
 export HOST="${HOST:-0.0.0.0}"
 
-exec node --import dd-trace/init .output/server/index.mjs
+exec node --import dd-trace/init.js .output/server/index.mjs
