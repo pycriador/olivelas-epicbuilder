@@ -242,7 +242,7 @@ function CasesPage() {
 
         <div className="min-w-0 lg:col-span-3">
           {!hydrated ? (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[0, 1, 2, 3, 4, 5].map((i) => (
                 <div
                   key={i}
@@ -271,9 +271,11 @@ function CasesPage() {
               </div>
             </Card>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid auto-rows-fr items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {filtrados.map((c) => (
-                <CaseCard key={c.id} item={c} />
+                <div key={c.id} className="min-w-0 h-full">
+                  <CaseCard item={c} />
+                </div>
               ))}
             </div>
           )}

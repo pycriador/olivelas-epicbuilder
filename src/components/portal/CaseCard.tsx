@@ -82,8 +82,15 @@ export function CaseCard({
   return (
     <Card
       size="small"
-      styles={{ body: { padding: 0 } }}
-      className="group relative h-full overflow-hidden border-border shadow-card transition-all hover:-translate-y-0.5 hover:shadow-lift"
+      styles={{
+        body: {
+          padding: 0,
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+        },
+      }}
+      className="group relative flex h-full flex-col overflow-hidden border-border shadow-card transition-all hover:-translate-y-0.5 hover:shadow-lift [&_.ant-card-body]:flex [&_.ant-card-body]:h-full [&_.ant-card-body]:flex-col"
       hoverable
     >
       <Link
@@ -126,11 +133,11 @@ export function CaseCard({
         </div>
       )}
       <CaseThumb item={item} />
-      <div className="flex min-w-0 flex-1 flex-col p-4">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col p-4">
         <div className="mb-2">
           <StatusBadge status={item.status} />
         </div>
-        <Title level={5} style={{ margin: 0 }}>
+        <Title level={5} className="line-clamp-2" style={{ margin: 0 }}>
           {item.nome}
         </Title>
         <Text type="secondary" className="mt-2 line-clamp-3 text-sm">
@@ -139,7 +146,7 @@ export function CaseCard({
         <p className="mt-4 text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
           Integrações
         </p>
-        <div className="mt-1.5 flex flex-wrap gap-1.5">
+        <div className="mt-1.5 flex min-h-[1.75rem] flex-wrap gap-1.5">
           {integracoesDoCard(item).map((f) => {
             const logo = logoDaIntegracao(f) ?? integracaoLogoPorNome(f);
             return (
@@ -156,7 +163,7 @@ export function CaseCard({
           })}
         </div>
         <div className="mt-4 flex-1" />
-        <span className="flex h-10 w-full items-center justify-between rounded-md border border-border bg-background px-3 text-sm font-medium">
+        <span className="flex h-10 w-full shrink-0 items-center justify-between rounded-md border border-border bg-background px-3 text-sm font-medium">
           Ver case
           <ArrowRightOutlined />
         </span>
