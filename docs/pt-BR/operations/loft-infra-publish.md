@@ -82,7 +82,7 @@ Nem todo repo AIOps tem front **e** API:
 | Paths Vault populados (Cross Prod) | **Feito** | v1 @ 2026-09-03 — `ai-ops/aiops-app-model-{api,front}`; seed do KV Central com rewrite de hosts |
 | PR k8s-apps (aprovação de par) | **Merged** | https://github.com/loft-br/k8s-apps/pull/10622 |
 | PR kong-configs | **Merged** | https://github.com/loft-br/kong-configs/pull/1134 |
-| PR infra-live (DNS) | **Aberto** | https://github.com/loft-br/infra-live/pull/2350 |
+| PR infra-live (DNS) | **Aberto (mergeable)** | https://github.com/loft-br/infra-live/pull/2350 — só o record da API; front já está na `main`. Até merge/apply, `aiops-app-model-api.loft-corp.com.br` → `kong-internal` (sem rota; browser acusa CORS) |
 | GitHub Environment `production` + OIDC | **Criado (env)** | Environment `production` criado em 2026-09-03; OIDC/trust ainda Unknown |
 | Secret org `GIT_HUB_TOKEN` no repo | Unknown | Obrigatório para `loft-br/actions/deploy` |
 
