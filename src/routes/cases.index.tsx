@@ -169,12 +169,12 @@ function CasesPage() {
       />
 
       {/*
-        Print layout: 4 equal tracks — filter balloon width === case card width,
-        with the same 24px gutter between every column.
+        Filter column width matches one card column: (100% - 3×gap) / 4.
+        gap-6 = 1.5rem → three gutters between four tracks = 4.5rem.
       */}
-      <div className="grid items-stretch gap-6 lg:grid-cols-4">
+      <div className="flex flex-col items-stretch gap-6 lg:flex-row lg:items-start">
         <aside
-          className={`${mostrarFiltros ? "block" : "hidden"} relative lg:col-span-1 lg:block`}
+          className={`${mostrarFiltros ? "block" : "hidden"} relative w-full shrink-0 lg:block lg:w-[calc((100%-4.5rem)/4)]`}
         >
           <Card
             className="filters-sticky w-full border-border shadow-card lg:sticky lg:top-4 lg:z-20"
@@ -240,9 +240,9 @@ function CasesPage() {
           </Card>
         </aside>
 
-        <div className="min-w-0 lg:col-span-3">
+        <div className="min-w-0 flex-1">
           {!hydrated ? (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[0, 1, 2, 3, 4, 5].map((i) => (
                 <div
                   key={i}
@@ -271,9 +271,11 @@ function CasesPage() {
               </div>
             </Card>
           ) : (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid auto-rows-fr items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {filtrados.map((c) => (
-                <CaseCard key={c.id} item={c} />
+                <div key={c.id} className="min-h-0 min-w-0 h-full">
+                  <CaseCard item={c} />
+                </div>
               ))}
             </div>
           )}

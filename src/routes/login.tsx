@@ -63,7 +63,7 @@ function LoginPage() {
         </div>
 
         {error && (
-          <Alert type="error" showIcon message={error} className="mb-4" closable onClose={() => setError(null)} />
+          <Alert type="error" showIcon title={error} className="mb-4" closable onClose={() => setError(null)} />
         )}
 
         <Form<LoginForm>
