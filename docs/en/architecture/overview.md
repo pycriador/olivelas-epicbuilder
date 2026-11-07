@@ -1,9 +1,9 @@
 ---
 title: "Architecture Overview"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 
@@ -17,7 +17,7 @@ version: "1.0"
 
 ## Purpose
 
-High-level view of how AIOps App Model is structured: UI layers, server-side integration boundary, and where data lives.
+High-level view of how Olivelas App Model is structured: UI layers, server-side integration boundary, and where data lives.
 
 ## Context
 
@@ -140,7 +140,7 @@ flowchart TB
 | --- | --- | --- | --- | --- |
 | CON-001 | Lovable-connected Git history must not be force-rewritten | `AGENTS.md` | Deployment/sync risk | Active |
 | CON-002 | Confluence creates only under configured folder | `confluence.server.ts` | Limits blast radius | Active |
-| CON-003 | UI copy in Brazilian Portuguese | Loft language standards | Documentation/code language split | Active |
+| CON-003 | UI copy in Brazilian Portuguese | Olivelas language standards | Documentation/code language split | Active |
 
 ## Trade-offs
 

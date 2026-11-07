@@ -36,7 +36,7 @@ export const hubContents: HubContent[] = [
     id: "guia-comecar-ia-dia-a-dia",
     kind: "tutorial",
     titulo: "Guia completo: como começar a usar IA no seu dia a dia",
-    descricao: "Fundamentos de IA generativa (AWS Developers LATAM) e um plano prático para aplicar no trabalho na Loft com Gemini, Copilot ou Claude.",
+    descricao: "Fundamentos de IA generativa (AWS Developers LATAM) e um plano prático para aplicar no trabalho na Olivelas com Gemini, Copilot ou Claude.",
     cor: "#115644",
     tags: [
       "Guia",
@@ -72,7 +72,7 @@ export const hubContents: HubContent[] = [
       },
       {
         type: "paragraph",
-        text: "No dia a dia da Loft, isso se traduz em: resumir threads, extrair campos de texto livre, gerar primeira versão de docs e apoiar triagem. O que não se traduz bem: decidir crédito, jurídico ou atendimento sensível sem humano no loop."
+        text: "No dia a dia da Olivelas, isso se traduz em: resumir threads, extrair campos de texto livre, gerar primeira versão de docs e apoiar triagem. O que não se traduz bem: decidir crédito, jurídico ou atendimento sensível sem humano no loop."
       },
       {
         type: "image",
@@ -86,7 +86,7 @@ export const hubContents: HubContent[] = [
       {
         type: "list",
         items: [
-          "Acesso a um assistente aprovado na Loft (Gemini, ChatGPT/OpenAI, Claude/Anthropic ou Copilot)",
+          "Acesso a um assistente aprovado na Olivelas (Gemini, ChatGPT/OpenAI, Claude/Anthropic ou Copilot)",
           "Uma tarefa recorrente que você já faz toda semana",
           "Política de dados: não colar CPF, CNPJ, contrato ou dado de cliente em ferramenta sem aprovação"
         ]
@@ -119,7 +119,7 @@ export const hubContents: HubContent[] = [
       {
         type: "code",
         language: "markdown",
-        title: "Prompt TCREI (exemplo Loft)",
+        title: "Prompt TCREI (exemplo Olivelas)",
         text: "Tarefa: Escreva um update de 5 bullets para o time de produto.\nContexto: Sprint focada em reduzir tempo de triagem de leads; meta −20%.\nReferências: Tom direto; público = PMs e comercial.\nEvaluate: Cada bullet com ação; sem inventar números.\nIterate: Se faltar impacto, peça versão com 1 risco e 1 próximo passo."
       },
       {
@@ -237,7 +237,7 @@ export const hubContents: HubContent[] = [
         type: "code",
         language: "markdown",
         title: "Esqueleto de instruções",
-        text: "Você é um agente de suporte interno da Loft.\nObjetivo: responder com base nos documentos disponíveis.\nRegras:\n- Cite a fonte\n- Se não souber, diga que não sabe\n- Nunca invente política\n- Escalone jurídico/financeiro para humano"
+        text: "Você é um agente de suporte interno da Olivelas.\nObjetivo: responder com base nos documentos disponíveis.\nRegras:\n- Cite a fonte\n- Se não souber, diga que não sabe\n- Nunca invente política\n- Escalone jurídico/financeiro para humano"
       },
       {
         type: "paragraph",
@@ -300,7 +300,7 @@ export const hubContents: HubContent[] = [
       },
       {
         type: "paragraph",
-        text: "A sessão “Agentes em ação: personalize e gerencie suas automações comerciais” (Microsoft Reactor, português) mostra como personalizar e operar automações com agentes no ecossistema Microsoft. Use-a como referência de produto e governação; no laboratório, você pode replicar o fluxo em n8n se essa for a stack aprovada na Loft."
+        text: "A sessão “Agentes em ação: personalize e gerencie suas automações comerciais” (Microsoft Reactor, português) mostra como personalizar e operar automações com agentes no ecossistema Microsoft. Use-a como referência de produto e governação; no laboratório, você pode replicar o fluxo em n8n se essa for a stack aprovada na Olivelas."
       },
       {
         type: "heading",
@@ -370,7 +370,7 @@ export const hubContents: HubContent[] = [
     id: "tutorial-rag-interno",
     kind: "tutorial",
     titulo: "Montando um RAG com documentos internos",
-    descricao: "Como grounding com bases internas funciona na prática (AWS Bedrock / GenAI LATAM) e o checklist de citação + permissão para a Loft.",
+    descricao: "Como grounding com bases internas funciona na prática (AWS Bedrock / GenAI LATAM) e o checklist de citação + permissão para a Olivelas.",
     cor: "#25302c",
     tags: [
       "RAG",
@@ -571,7 +571,7 @@ export const hubContents: HubContent[] = [
       },
       {
         type: "paragraph",
-        text: "A sessão “Governança de Agentes do Copilot” (Microsoft Reactor, português) cobre controles práticos no ecossistema Microsoft. Combine com um golden set interno (≥20 casos anotados) antes de escalar qualquer fluxo na Loft."
+        text: "A sessão “Governança de Agentes do Copilot” (Microsoft Reactor, português) cobre controles práticos no ecossistema Microsoft. Combine com um golden set interno (≥20 casos anotados) antes de escalar qualquer fluxo na Olivelas."
       },
       {
         type: "image",
@@ -727,7 +727,7 @@ export const hubContents: HubContent[] = [
       },
       {
         type: "paragraph",
-        text: "Na Loft, trate cada uso como experimento com dono: qual tarefa, qual ferramenta aprovada, qual risco se a resposta estiver errada."
+        text: "Na Olivelas, trate cada uso como experimento com dono: qual tarefa, qual ferramenta aprovada, qual risco se a resposta estiver errada."
       },
       {
         type: "heading",
@@ -948,7 +948,7 @@ export const hubContents: HubContent[] = [
       },
       {
         type: "heading",
-        title: "Por que importa na Loft"
+        title: "Por que importa na Olivelas"
       },
       {
         type: "list",
@@ -1049,7 +1049,7 @@ export const hubContents: HubContent[] = [
       },
       {
         type: "tip",
-        title: "Regra Loft",
+        title: "Regra Olivelas",
         text: "Escolha a camada mais simples que resolve. Agente com computer use não substitui um workflow bem feito."
       },
       {
@@ -1092,7 +1092,7 @@ export const hubContents: HubContent[] = [
       },
       {
         type: "heading",
-        title: "Boas práticas na Loft"
+        title: "Boas práticas na Olivelas"
       },
       {
         type: "list",
@@ -1129,7 +1129,7 @@ export const hubContents: HubContent[] = [
     ],
     fonte: "Google Cloud",
     capa: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80",
-    whyItMatters: "Define o padrão de plataforma de agentes que a Loft deve observar ao avaliar Gemini Enterprise, conectores e governança central.",
+    whyItMatters: "Define o padrão de plataforma de agentes que a Olivelas deve observar ao avaliar Gemini Enterprise, conectores e governança central.",
     blocks: [
       {
         type: "paragraph",
@@ -1189,7 +1189,7 @@ export const hubContents: HubContent[] = [
       },
       {
         type: "callout",
-        title: "Por que isso importa na Loft?",
+        title: "Por que isso importa na Olivelas?",
         text: "Gemini Enterprise embala o que avaliamos internamente: agentes com contexto corporativo, conectores, governança e caminho de capacitação. Use a matéria completa como referência ao comparar stacks."
       },
       {
@@ -1218,7 +1218,7 @@ export const hubContents: HubContent[] = [
     ],
     fonte: "Google Workspace",
     capa: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80",
-    whyItMatters: "Baixa a barreira de adoção de IA no dia a dia — e reforça controles de privacidade que a Loft deve conhecer antes de liberar uso amplo.",
+    whyItMatters: "Baixa a barreira de adoção de IA no dia a dia — e reforça controles de privacidade que a Olivelas deve conhecer antes de liberar uso amplo.",
     blocks: [
       {
         type: "paragraph",
@@ -1270,7 +1270,7 @@ export const hubContents: HubContent[] = [
       },
       {
         type: "callout",
-        title: "Por que isso importa na Loft?",
+        title: "Por que isso importa na Olivelas?",
         text: "Se a empresa usa Workspace, a IA já está no caminho do usuário final. Combine com o post de dados sensíveis e com a política interna antes de liberar para todos."
       },
       {
@@ -1298,7 +1298,7 @@ export const hubContents: HubContent[] = [
     ],
     fonte: "OpenAI",
     capa: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=80",
-    whyItMatters: "Reduz o tempo para prototipar agentes com ferramentas e observabilidade — ainda exige guardrails e revisão humana na Loft.",
+    whyItMatters: "Reduz o tempo para prototipar agentes com ferramentas e observabilidade — ainda exige guardrails e revisão humana na Olivelas.",
     blocks: [
       {
         type: "paragraph",
@@ -1331,7 +1331,7 @@ export const hubContents: HubContent[] = [
       },
       {
         type: "heading",
-        title: "O que observar antes de produção na Loft"
+        title: "O que observar antes de produção na Olivelas"
       },
       {
         type: "list",
@@ -1410,7 +1410,7 @@ export const hubContents: HubContent[] = [
       },
       {
         type: "callout",
-        title: "Por que isso importa na Loft?",
+        title: "Por que isso importa na Olivelas?",
         text: "Use apenas em fluxos delimitados (formulário interno, conta de teste). Prefira integrações via API/MCP quando existirem."
       },
       {
@@ -1472,7 +1472,7 @@ export const hubContents: HubContent[] = [
       {
         type: "callout",
         title: "Por que isso importa?",
-        text: "Mesmo após as datas, o modelo de capacitação e os temas (prompt, responsabilidade, testes) continuam o checklist mínimo para adotar Copilot na Loft."
+        text: "Mesmo após as datas, o modelo de capacitação e os temas (prompt, responsabilidade, testes) continuam o checklist mínimo para adotar Copilot na Olivelas."
       },
       {
         type: "callout",
@@ -1547,7 +1547,7 @@ export const hubContents: HubContent[] = [
       },
       {
         type: "callout",
-        title: "Por que isso importa na Loft?",
+        title: "Por que isso importa na Olivelas?",
         text: "Mapeie sistemas internos por risco, documente finalidade/dados e mantenha humano no loop em decisões de alto impacto."
       },
       {
@@ -1574,7 +1574,7 @@ export const hubContents: HubContent[] = [
     ],
     fonte: "Mercado / Oficiais",
     capa: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1400&q=80",
-    whyItMatters: "O padrão vencedor é o que queremos na Loft: automação com dono, alerta e caminho humano quando falha.",
+    whyItMatters: "O padrão vencedor é o que queremos na Olivelas: automação com dono, alerta e caminho humano quando falha.",
     blocks: [
       {
         type: "paragraph",

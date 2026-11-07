@@ -13,15 +13,15 @@ import {
 export const Route = createFileRoute("/admin/integracoes")({
   head: () => ({
     meta: [
-      { title: "Status das integrações — AIOps App Model" },
+      { title: "Status das integrações — Olivelas App Model" },
       {
         name: "description",
-        content: "Diagnóstico das conexões com Jira, Confluence e Gemini do AIOps App Model.",
+        content: "Diagnóstico das conexões com Jira, Confluence e Gemini do Olivelas App Model.",
       },
-      { property: "og:title", content: "Status das integrações — AIOps App Model" },
+      { property: "og:title", content: "Status das integrações — Olivelas App Model" },
       {
         property: "og:description",
-        content: "Diagnóstico das conexões com Jira, Confluence e Gemini do AIOps App Model.",
+        content: "Diagnóstico das conexões com Jira, Confluence e Gemini do Olivelas App Model.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/admin/integracoes")({
 const { Text } = Typography;
 
 function IntegracoesStatusPage() {
-  const [projeto, setProjeto] = useState("Squad AIOPS");
+  const [projeto, setProjeto] = useState("Squad Olivelas");
   const [consulta, setConsulta] = useState("");
 
   const status = useQuery({

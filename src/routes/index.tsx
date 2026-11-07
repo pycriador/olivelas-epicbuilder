@@ -16,16 +16,16 @@ import { colors } from "@/theme/tokens";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AIOps App Model — Loft | Inteligência Artificial em um só lugar" },
+      { title: "Olivelas App Model — Olivelas | Inteligência Artificial em um só lugar" },
       {
         name: "description",
         content:
-          "Portal interno de IA da Loft: descubra cases, ferramentas, impacto e governança de acesso.",
+          "Portal interno de IA da Olivelas: descubra cases, ferramentas, impacto e governança de acesso.",
       },
-      { property: "og:title", content: "AIOps App Model — Loft" },
+      { property: "og:title", content: "Olivelas App Model — Olivelas" },
       {
         property: "og:description",
-        content: "Descubra, aprenda e construa com IA na Loft.",
+        content: "Descubra, aprenda e construa com IA na Olivelas.",
       },
     ],
   }),
@@ -67,9 +67,9 @@ const beneficios = [
 const faqs = [
   {
     key: "1",
-    label: "O que é o AIOps App Model?",
+    label: "O que é o Olivelas App Model?",
     children:
-      "É o portal interno da Loft para descobrir, aprender e acompanhar tudo que envolve Inteligência Artificial — projetos, mapa de atuação, ferramentas e impacto.",
+      "É o portal interno da Olivelas para descobrir, aprender e acompanhar tudo que envolve Inteligência Artificial — projetos, mapa de atuação, ferramentas e impacto.",
   },
   {
     key: "2",
@@ -81,7 +81,7 @@ const faqs = [
     key: "3",
     label: "Como solicitar acesso?",
     children:
-      "Fale com o time de AIOPS ou use o formulário de contato abaixo. Um administrador pode enviar um convite por e-mail.",
+      "Fale com o time de Olivelas ou use o formulário de contato abaixo. Um administrador pode enviar um convite por e-mail.",
   },
 ];
 
@@ -92,9 +92,9 @@ function LandingPage() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
           <div className="flex items-center gap-3">
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-sm font-black text-primary-foreground">
-              L
+              O
             </span>
-            <span className="text-sm font-semibold tracking-tight">AIOps App Model</span>
+            <span className="text-sm font-semibold tracking-tight">Olivelas App Model</span>
           </div>
           <div className="flex items-center gap-2">
             <Link to="/login">
@@ -124,10 +124,10 @@ function LandingPage() {
             <div className="relative max-w-2xl">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-medium backdrop-blur">
                 <ThunderboltOutlined className="text-xs" />
-                Loft · Inteligência Artificial
+                Olivelas · Inteligência Artificial
               </span>
               <h1 className="mt-4 text-balance text-3xl font-semibold leading-tight md:text-5xl">
-                AIOps App Model
+                Olivelas App Model
               </h1>
               <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-white/85 md:text-lg">
                 Descubra cases, acompanhe impacto e construa com IA — tudo em um portal interno
@@ -158,7 +158,7 @@ function LandingPage() {
         <div className="mx-auto max-w-6xl">
           <h2 className="text-sm font-semibold">Recursos</h2>
           <p className="mt-1 max-w-2xl text-[13px] text-muted-foreground">
-            Tudo o que os times precisam para navegar o ecossistema de IA da Loft.
+            Tudo o que os times precisam para navegar o ecossistema de IA da Olivelas.
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {recursos.map((r) => (
@@ -185,7 +185,7 @@ function LandingPage() {
           <article className="rounded-xl border border-border bg-card p-6 md:p-8">
             <h2 className="text-sm font-semibold">Benefícios</h2>
             <p className="mt-1 text-[13px] text-muted-foreground">
-              Menos dispersão, mais clareza sobre o que a IA já entrega na Loft.
+              Menos dispersão, mais clareza sobre o que a IA já entrega na Olivelas.
             </p>
             <ul className="mt-6 space-y-3">
               {beneficios.map((b) => (
@@ -231,7 +231,7 @@ function LandingPage() {
               e.preventDefault();
             }}
           >
-            <Input type="email" required placeholder="seu.email@loft.com.br" size="large" className="flex-1" />
+            <Input type="email" required placeholder="seu.email@olivelas.com.br" size="large" className="flex-1" />
             <Button type="primary" htmlType="submit" size="large">
               Enviar
             </Button>
@@ -243,9 +243,9 @@ function LandingPage() {
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
           <div className="flex items-center gap-3">
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-sm font-black text-primary-foreground">
-              L
+              O
             </span>
-            <span className="text-sm font-medium">AIOps App Model</span>
+            <span className="text-sm font-medium">Olivelas App Model</span>
           </div>
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
             <Link to="/login" className="hover:text-primary">
@@ -258,7 +258,7 @@ function LandingPage() {
               Contato
             </a>
           </div>
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Loft. Uso interno.</p>
+          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Olivelas. Uso interno.</p>
         </div>
       </footer>
     </div>

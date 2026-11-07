@@ -25,13 +25,13 @@ const { TextArea } = Input;
 export const Route = createFileRoute("/ferramentas/")({
   head: () => ({
     meta: [
-      { title: "Integrações — AIOps App Model" },
+      { title: "Integrações — Olivelas App Model" },
       {
         name: "description",
         content:
-          "Sistemas já conectados às soluções de IA da Loft: Jira, Confluence, Slack, Metabase e mais.",
+          "Sistemas já conectados às soluções de IA da Olivelas: Jira, Confluence, Slack, Metabase e mais.",
       },
-      { property: "og:title", content: "Integrações já realizadas — AIOps App Model" },
+      { property: "og:title", content: "Integrações já realizadas — Olivelas App Model" },
       {
         property: "og:description",
         content: "Veja quais sistemas os times já conectaram às automações de IA.",

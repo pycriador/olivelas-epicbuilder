@@ -80,16 +80,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AIOps App Model — Loft" },
+      { title: "Olivelas App Model — Olivelas" },
       {
         name: "description",
         content:
-          "Portal interno de Inteligência Artificial da Loft: cases, trilhas, ferramentas, templates e prompts em um só lugar.",
+          "Portal interno de Inteligência Artificial da Olivelas: cases, trilhas, ferramentas, templates e prompts em um só lugar.",
       },
-      { property: "og:title", content: "AIOps App Model — Loft" },
+      { property: "og:title", content: "Olivelas App Model — Olivelas" },
       {
         property: "og:description",
-        content: "Descubra, aprenda e construa com IA na Loft.",
+        content: "Descubra, aprenda e construa com IA na Olivelas.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

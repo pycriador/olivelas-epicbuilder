@@ -1,13 +1,13 @@
 ---
 title: "RDS provisioning"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 
-# RDS provisioning — AIOps App Model
+# RDS provisioning — Olivelas App Model
 
 > Language: EN | [Português (pt-BR)](../../pt-BR/backend/rds-provisioning.md)
 >
@@ -15,7 +15,7 @@ version: "1.0"
 >
 > Documentation Standard v1.0 (adopter)
 
-Guide to provision a dedicated PostgreSQL database, application user, and schema on the shared AIOps RDS instance. Structured for later inclusion in `loft-br/aiops-documentation`.
+Guide to provision a dedicated PostgreSQL database, application user, and schema on the shared Olivelas RDS instance. Structured for later inclusion in `loft-br/aiops-documentation`.
 
 ## Overview
 

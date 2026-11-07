@@ -128,7 +128,7 @@ export const ferramentas: Ferramenta[] = [
   },
   {
     id: "loft-copilot",
-    nome: "Loft Copilot",
+    nome: "Olivelas Copilot",
     descricao:
       "Assistente interno fictício conectado à documentação e aos sistemas de apoio dos times.",
     paraQue: "Responder dúvidas internas com citação da fonte.",
@@ -155,7 +155,7 @@ export const ferramentas: Ferramenta[] = [
   },
   {
     id: "loft-studio",
-    nome: "Loft Studio",
+    nome: "Olivelas Studio",
     descricao:
       "Ambiente interno fictício para criar e versionar prompts com aprovação antes do uso em produção.",
     paraQue: "Padronizar e versionar prompts usados por vários times.",
@@ -179,7 +179,7 @@ export const ferramentas: Ferramenta[] = [
   },
   {
     id: "loft-insights",
-    nome: "Loft Insights",
+    nome: "Olivelas Insights",
     descricao:
       "Camada analítica interna fictícia com séries históricas e indicadores por área e região.",
     paraQue: "Alimentar modelos e análises com dados já tratados.",
@@ -200,7 +200,7 @@ export const ferramentas: Ferramenta[] = [
   },
   {
     id: "loft-guard",
-    nome: "Loft Guard",
+    nome: "Olivelas Guard",
     descricao:
       "Serviço interno fictício de validação de saída: verifica formato, escopo e presença de dados sensíveis.",
     paraQue: "Garantir que a resposta do modelo pode ser usada com segurança.",

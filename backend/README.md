@@ -1,6 +1,6 @@
-# AIOps App Model API
+# Olivelas App Model API
 
-FastAPI backend (AIOps Family B) with PostgreSQL (RDS) persistence.
+FastAPI backend (Olivelas Family B) with PostgreSQL (RDS) persistence.
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ FastAPI backend (AIOps Family B) with PostgreSQL (RDS) persistence.
 
 Full setup guide: [../docs/en/backend/local-setup.md](../docs/en/backend/local-setup.md) (pt-BR: [../docs/pt-BR/backend/local-setup.md](../docs/pt-BR/backend/local-setup.md))
 
-**AIOps backend creation guide (for aiops-documentation):** [../docs/en/aiops-apps/backend-creation-guide.md](../docs/en/aiops-apps/backend-creation-guide.md)
+**Olivelas backend creation guide (for aiops-documentation):** [../docs/en/aiops-apps/backend-creation-guide.md](../docs/en/aiops-apps/backend-creation-guide.md)
 
 ## Local environment (first time)
 

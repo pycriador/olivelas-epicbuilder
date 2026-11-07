@@ -1,11 +1,11 @@
 ---
 id: REF-AIOPS-APPS-008
-title: Guia de criação de backend AIOps
+title: Guia de criação de backend Olivelas
 type: Reference
 status: DRAFT
-owner: aiops
+owner: olivelas
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-11-07
 authority: Verified
 classification: Confirmed
 tags:
@@ -21,7 +21,7 @@ related:
   - loft-infra/checklist-novo-servico.md
 ---
 
-# Guia de criação de backend AIOps
+# Guia de criação de backend Olivelas
 
 > Language: [English (EN)](../../en/aiops-apps/backend-creation-guide.md) | Português (pt-BR)
 >
@@ -31,11 +31,11 @@ related:
 >
 > Authority: Verified
 
-**Propósito:** guia prático para times que estão subindo um backend AIOps — **não** é um padrão fixo. Use como checklist e ponto de partida; adapte nomes, rotas e schema ao seu produto.
+**Propósito:** guia prático para times que estão subindo um backend Olivelas — **não** é um padrão fixo. Use como checklist e ponto de partida; adapte nomes, rotas e schema ao seu produto.
 
-**Implementação de referência:** [loft-br/aiops-app-model](https://github.com/loft-br/aiops-app-model) (pasta `backend/`, agosto/2026).
+**Implementação de referência:** [pycriador/olivelas-epicbuilder](https://github.com/pycriador/olivelas-epicbuilder) (pasta `backend/`, agosto/2026).
 
-**Docs Loft relacionados (autoridade para escolha de stack):**
+**Docs Olivelas relacionados (autoridade para escolha de stack):**
 
 - [Visão geral AIOps apps](https://github.com/loft-br/aiops-documentation/blob/main/docs/pt-BR/aiops-apps/overview.md)
 - [Famílias de backend](https://github.com/loft-br/aiops-documentation/blob/main/docs/pt-BR/aiops-apps/backend-stack.md)
@@ -57,13 +57,13 @@ related:
 
 ---
 
-## Stack de exemplo (AIOps App Model)
+## Stack de exemplo (Olivelas App Model)
 
 **Um exemplo validado**, não a única stack permitida.
 
 | Camada | Escolha de exemplo | Notas |
 | --- | --- | --- |
-| Linguagem | Python 3.12+ | Família B AIOps Loft |
+| Linguagem | Python 3.12+ | Família B Olivelas |
 | Framework | FastAPI + uvicorn | Async-first |
 | Gerenciador de pacotes | [uv](https://docs.astral.sh/uv/) | Exportar também `requirements.txt` para pip |
 | ORM | SQLAlchemy 2 async + asyncpg | Driver de runtime |

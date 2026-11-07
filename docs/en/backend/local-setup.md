@@ -1,9 +1,9 @@
 ---
 title: "Backend local setup"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 
@@ -32,7 +32,7 @@ How to create the Python virtual environment, install dependencies, and run the 
 | --- | --- |
 | Python | 3.12+ (**Confirmed** — `backend/pyproject.toml`) |
 | Package manager | [uv](https://docs.astral.sh/uv/) recommended; `pip` + `venv` also documented |
-| Git | Clone `https://github.com/loft-br/aiops-app-model` |
+| Git | Clone `https://github.com/pycriador/olivelas-epicbuilder` |
 
 Install uv (macOS / Linux):
 

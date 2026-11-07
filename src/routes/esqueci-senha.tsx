@@ -6,7 +6,7 @@ import { forgotPassword } from "@/lib/auth-api";
 
 export const Route = createFileRoute("/esqueci-senha")({
   head: () => ({
-    meta: [{ title: "Esqueci a senha — AIOps App Model" }],
+    meta: [{ title: "Esqueci a senha — Olivelas App Model" }],
   }),
   component: ForgotPasswordPage,
 });
@@ -35,7 +35,7 @@ function ForgotPasswordPage() {
     <div className="flex min-h-screen items-center justify-center bg-[color-mix(in_oklab,var(--muted)_60%,var(--background))] px-4 py-12">
       <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 shadow-card">
         <span className="mx-auto grid h-10 w-10 place-items-center rounded-lg bg-primary text-sm font-black text-primary-foreground">
-          L
+          O
         </span>
         <h1 className="mt-4 text-center text-xl font-semibold">Esqueci a senha</h1>
         <p className="mt-1 text-center text-sm text-muted-foreground">
@@ -79,7 +79,7 @@ function ForgotPasswordPage() {
                 { type: "email", message: "E-mail inválido" },
               ]}
             >
-              <Input size="large" type="email" placeholder="nome@loft.com.br" />
+              <Input size="large" type="email" placeholder="nome@olivelas.com.br" />
             </Form.Item>
             <Button type="primary" htmlType="submit" size="large" block loading={loading}>
               Enviar link

@@ -1,9 +1,9 @@
 ---
 title: "Routes"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 

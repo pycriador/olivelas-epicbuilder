@@ -10,7 +10,7 @@ from app.schemas.portal import PortalSnapshot
 async def test_integrations_status_endpoint(app):
     mocked = {
         "jira": {"ok": True, "detail": "Connected"},
-        "confluence": {"ok": True, "detail": "1 spaces: AIOps"},
+        "confluence": {"ok": True, "detail": "1 spaces: Olivelas"},
         "gemini": {"ok": True, "detail": "ok"},
     }
     with patch(

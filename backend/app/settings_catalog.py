@@ -28,7 +28,7 @@ MANAGED_SETTINGS: tuple[SettingDefinition, ...] = (
         description="Ex.: https://sua-empresa.atlassian.net",
         is_secret=False,
         settings_field="jira_base_url",
-        placeholder="https://loftbr.atlassian.net",
+        placeholder="https://olivelas.atlassian.net",
     ),
     SettingDefinition(
         key="JIRA_EMAIL",
@@ -50,7 +50,7 @@ MANAGED_SETTINGS: tuple[SettingDefinition, ...] = (
         key="CONFLUENCE_STATUS_FOLDER_ID",
         label="ID da pasta Confluence",
         category="Integrações",
-        description="Pasta Status Projetos AIOps no Confluence",
+        description="Pasta Status Projetos Olivelas no Confluence",
         is_secret=False,
         settings_field="confluence_status_folder_id",
     ),

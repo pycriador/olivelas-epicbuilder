@@ -9,9 +9,9 @@ import { usePortalContent } from "@/hooks/use-portal-content";
 export const Route = createFileRoute("/ferramentas/$id")({
   head: () => ({
     meta: [
-      { title: "Integração — AIOps App Model" },
-      { name: "description", content: "Integração conectada às soluções de IA da Loft." },
-      { property: "og:title", content: "Integração — AIOps App Model" },
+      { title: "Integração — Olivelas App Model" },
+      { name: "description", content: "Integração conectada às soluções de IA da Olivelas." },
+      { property: "og:title", content: "Integração — Olivelas App Model" },
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -92,7 +92,7 @@ function IntegracaoDetalhe() {
 
           {item.exemplos.length > 0 && (
             <Card className="shadow-card" styles={{ body: { padding: 20 } }}>
-              <h2 className="text-base font-semibold">Exemplos na Loft</h2>
+              <h2 className="text-base font-semibold">Exemplos na Olivelas</h2>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 {item.exemplos.map((e) => (
                   <li key={e}>• {e}</li>

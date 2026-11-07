@@ -1,13 +1,13 @@
 ---
 title: "RDS first steps"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 
-# RDS first steps — AIOps App Model API
+# RDS first steps — Olivelas App Model API
 
 > Language: EN | [Português (pt-BR)](../../pt-BR/backend/rds-first-steps.md)
 >
@@ -15,7 +15,7 @@ version: "1.0"
 >
 > Documentation Standard v1.0 (adopter)
 
-First milestone for the AIOps App Model backend: connect FastAPI to PostgreSQL on AWS RDS and expose health probes.
+First milestone for the Olivelas App Model backend: connect FastAPI to PostgreSQL on AWS RDS and expose health probes.
 
 This document is structured for later publication in `loft-br/aiops-documentation`.
 
@@ -32,7 +32,7 @@ This document is structured for later publication in `loft-br/aiops-documentatio
 | Requirement | Notes |
 | --- | --- |
 | Local Python env | [local-setup.md](local-setup.md) — `.venv`, `requirements.txt`, `uv sync` |
-| Python 3.12+ | AIOps backend standard |
+| Python 3.12+ | Olivelas backend standard |
 | uv | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
 | RDS PostgreSQL instance | Host, port, database, user, password from infra team |
 | Network access | Security group / VPN allowing your IP or cluster → RDS |
@@ -112,7 +112,7 @@ flowchart LR
 1. Define initial schema (portal content off `localStorage`).
 2. Add Alembic migrations.
 3. Wire frontend reads/writes to the API.
-4. Publish this doc to `aiops-documentation` under `docs/*/aiops-apps/` or a dedicated AIOps App Model section.
+4. Publish this doc to `aiops-documentation` under `docs/*/aiops-apps/` or a dedicated Olivelas App Model section.
 
 ## Related
 

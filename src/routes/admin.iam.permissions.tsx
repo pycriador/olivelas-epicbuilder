@@ -17,7 +17,7 @@ import {
 
 export const Route = createFileRoute("/admin/iam/permissions")({
   head: () => ({
-    meta: [{ title: "Permissões — IAM | AIOps App Model" }],
+    meta: [{ title: "Permissões — IAM | Olivelas App Model" }],
   }),
   component: IamPermissionsPage,
 });

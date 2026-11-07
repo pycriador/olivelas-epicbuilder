@@ -8,8 +8,8 @@ import { useAuth } from "@/auth/useAuth";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Entrar — AIOps App Model" },
-      { name: "description", content: "Acesse o portal de Inteligência Artificial da Loft." },
+      { title: "Entrar — Olivelas App Model" },
+      { name: "description", content: "Acesse o portal de Inteligência Artificial da Olivelas." },
     ],
   }),
   component: LoginPage,
@@ -56,9 +56,9 @@ function LoginPage() {
       <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 shadow-card">
         <div className="mb-8 text-center">
           <span className="mx-auto grid h-10 w-10 place-items-center rounded-lg bg-primary text-sm font-black text-primary-foreground">
-            L
+            O
           </span>
-          <h1 className="mt-4 text-xl font-semibold text-foreground">AIOps App Model</h1>
+          <h1 className="mt-4 text-xl font-semibold text-foreground">Olivelas App Model</h1>
           <p className="mt-1 text-sm text-muted-foreground">Entre com sua conta para acessar o portal</p>
         </div>
 
@@ -77,7 +77,7 @@ function LoginPage() {
             label="E-mail ou usuário"
             rules={[{ required: true, message: "Informe e-mail ou usuário" }]}
           >
-            <Input prefix={<UserOutlined />} size="large" autoComplete="username" placeholder="nome@loft.com.br" />
+            <Input prefix={<UserOutlined />} size="large" autoComplete="username" placeholder="nome@olivelas.com.br" />
           </Form.Item>
 
           <Form.Item

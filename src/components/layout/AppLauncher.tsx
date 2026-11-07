@@ -183,7 +183,7 @@ export function AppLauncher() {
         )}
         aria-haspopup="menu"
         aria-expanded={open}
-        aria-label="Abrir menu de áreas do AIOps Central"
+        aria-label="Abrir menu de áreas do Olivelas Central"
         onClick={() => setOpen((value) => !value)}
       >
         <AppGridIcon />
@@ -192,14 +192,14 @@ export function AppLauncher() {
       {open ? (
         <div
           role="menu"
-          aria-label="Áreas do AIOps Central"
+          aria-label="Áreas do Olivelas Central"
           className="absolute left-0 top-[calc(100%+8px)] z-[1020] w-[min(400px,calc(100vw-48px))] overflow-hidden rounded-xl border border-[#E1E9EF] bg-white shadow-[0_24px_48px_-12px_rgba(25,31,35,0.24)]"
         >
           <div className="border-b border-[#E1E9EF] bg-[#F2F4F8] px-4 py-3">
             <p className="text-[11px] font-bold uppercase tracking-[0.08em] text-[#697077]">
               Navegação
             </p>
-            <p className="mt-0.5 text-base font-semibold text-[#121619]">AIOps Central</p>
+            <p className="mt-0.5 text-base font-semibold text-[#121619]">Olivelas Central</p>
           </div>
 
           <div className="max-h-[min(480px,calc(100vh-120px))] overflow-y-auto p-3">

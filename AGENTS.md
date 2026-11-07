@@ -1,10 +1,10 @@
 # AGENTS.md
 
-Engineering agent entry — **AIOps App Model** (standard Loft AIOps application template). Start at `docs/en/ai-context.md` (pt-BR: `docs/pt-BR/ai-context.md`).
+Engineering agent entry — **Olivelas App Model** (standard Olivelas application template). Start at `docs/en/ai-context.md` (pt-BR: `docs/pt-BR/ai-context.md`).
 
 ## What this repo is
 
-Template for new AIOps apps. Component / namespace / host names use the `aiops-app-model*` prefix as placeholders — rename them before production deploy. Never commit `.env` or `backend/.env`.
+Template for new Olivelas apps. Component / namespace / host names use the `aiops-app-model*` prefix as placeholders — rename them before production deploy. Never commit `.env` or `backend/.env`.
 
 ## Stack
 

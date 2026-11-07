@@ -189,9 +189,9 @@ export function AppShell({ children }: { children: ReactNode }) {
           <Link
             to="/portal"
             className="shrink-0 text-xl font-bold tracking-tight text-[#F56738] no-underline hover:no-underline"
-            aria-label="AIOps Central — página inicial"
+            aria-label="Olivelas Central — página inicial"
           >
-            AIOps Central
+            Olivelas Central
           </Link>
           <span className="hidden text-[#878D96] sm:inline" aria-hidden>
             /

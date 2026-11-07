@@ -1,9 +1,9 @@
 ---
 title: "Setup local do backend"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 
@@ -32,7 +32,7 @@ Como criar o ambiente virtual Python, instalar dependências e subir a API FastA
 | --- | --- |
 | Python | 3.12+ (**Confirmed** — `backend/pyproject.toml`) |
 | Gerenciador de pacotes | [uv](https://docs.astral.sh/uv/) recomendado; `pip` + `venv` também documentado |
-| Git | Clone `https://github.com/loft-br/aiops-app-model` |
+| Git | Clone `https://github.com/pycriador/olivelas-epicbuilder` |
 
 Instalar uv (macOS / Linux):
 

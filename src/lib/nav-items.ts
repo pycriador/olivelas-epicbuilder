@@ -19,12 +19,12 @@ export const PRINCIPAL_APP_ITEMS: AppNavItem[] = [
   {
     key: "/portal",
     label: "Home",
-    description: "Página inicial do portal AIOps.",
+    description: "Página inicial do portal Olivelas.",
   },
   {
     key: "/cases",
     label: "Projetos",
-    description: "Cases e projetos de IA da Loft.",
+    description: "Cases e projetos de IA da Olivelas.",
   },
   {
     key: "/mapa",
@@ -81,7 +81,7 @@ export function getCurrentSectionLabel(pathname: string): string {
     .sort((a, b) => b.length - a.length)
     .find((key) => normalized.startsWith(key));
 
-  return prefix ? SECTION_LABELS[prefix]! : "AIOps Central";
+  return prefix ? SECTION_LABELS[prefix]! : "Olivelas Central";
 }
 
 const IAM_SECTION_LABELS: Record<string, string> = {

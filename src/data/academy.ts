@@ -45,7 +45,7 @@ export const trilhas: Trilha[] = [
   },
   {
     id: "ia-na-loft",
-    nome: "IA na Loft",
+    nome: "IA na Olivelas",
     descricao:
       "Como propor, aprovar e colocar uma solução de IA em produção dentro do nosso contexto.",
     nivel: "Intermediário",

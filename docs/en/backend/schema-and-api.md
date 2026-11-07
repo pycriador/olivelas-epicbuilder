@@ -1,9 +1,9 @@
 ---
 title: "Schema and API"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 
@@ -15,7 +15,7 @@ version: "1.0"
 >
 > Documentation Standard v1.0 (adopter)
 
-Database schema and REST endpoints for persisting AIOps App Model portal content (replacing browser `localStorage` over time).
+Database schema and REST endpoints for persisting Olivelas App Model portal content (replacing browser `localStorage` over time).
 
 ## Schema `portal`
 

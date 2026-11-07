@@ -60,9 +60,9 @@ export const Route = createFileRoute("/cases/$id")({
   }),
   head: ({ loaderData }) => ({
     meta: [
-      { title: `${loaderData?.nome ?? "Case"} — Cases de IA | Loft` },
+      { title: `${loaderData?.nome ?? "Case"} — Cases de IA | Olivelas` },
       { name: "description", content: loaderData?.descricao ?? "" },
-      { property: "og:title", content: `${loaderData?.nome ?? "Case"} — AI Portal Loft` },
+      { property: "og:title", content: `${loaderData?.nome ?? "Case"} — AI Portal Olivelas` },
     ],
   }),
   component: CaseDetalhe,

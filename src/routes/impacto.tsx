@@ -9,13 +9,13 @@ import { usePortalContent } from "@/hooks/use-portal-content";
 export const Route = createFileRoute("/impacto")({
   head: () => ({
     meta: [
-      { title: "Impacto da IA na Loft — números consolidados" },
+      { title: "Impacto da IA na Olivelas — números consolidados" },
       {
         name: "description",
         content:
-          "Horas economizadas, soluções em produção, pessoas impactadas e evolução mensal da adoção de IA na Loft.",
+          "Horas economizadas, soluções em produção, pessoas impactadas e evolução mensal da adoção de IA na Olivelas.",
       },
-      { property: "og:title", content: "Impacto da IA na Loft" },
+      { property: "og:title", content: "Impacto da IA na Olivelas" },
       {
         property: "og:description",
         content: "Os números consolidados da adoção de IA nos times.",
@@ -69,7 +69,7 @@ function ImpactoPage() {
       <PageShell
         crumbs={[{ label: "Home", to: "/portal" }, { label: "Impacto" }]}
         eyebrow="Resultados"
-        titulo="Impacto da IA na Loft"
+        titulo="Impacto da IA na Olivelas"
         descricao="Carregando métricas do portal…"
       >
         <div className="h-40 animate-pulse rounded-2xl bg-secondary" />
@@ -81,7 +81,7 @@ function ImpactoPage() {
     <PageShell
       crumbs={[{ label: "Home", to: "/portal" }, { label: "Impacto" }]}
       eyebrow="Resultados"
-      titulo="Impacto da IA na Loft"
+      titulo="Impacto da IA na Olivelas"
       descricao="O que a adoção de IA já devolveu para os times, em números consolidados."
     >
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

@@ -29,7 +29,7 @@ const atalhos = [
   },
   {
     titulo: "AI Map",
-    desc: "Veja onde a IA já atua em cada área da Loft.",
+    desc: "Veja onde a IA já atua em cada área da Olivelas.",
     to: "/mapa",
     icon: EnvironmentOutlined,
     cta: "Abrir mapa",
@@ -143,7 +143,7 @@ export function PortalHome() {
                   </h1>
                   <p className="mt-2 max-w-md text-sm text-white/85">
                     Acompanhe projetos, responsáveis e o estágio de cada solução de Inteligência
-                    Artificial da Loft em um só lugar.
+                    Artificial da Olivelas em um só lugar.
                   </p>
                   <div className="mt-5 flex flex-wrap gap-2">
                     <Link to="/cases">

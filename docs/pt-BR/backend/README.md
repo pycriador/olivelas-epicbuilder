@@ -1,8 +1,8 @@
 ---
 title: "Documentação do backend"
 status: "DRAFT"
-owner: "aiops-app-model"
-updated: "2026-08-19"
+owner: "olivelas"
+updated: "2026-11-07"
 ---
 
 # Documentação do backend
@@ -13,16 +13,16 @@ updated: "2026-08-19"
 >
 > Documentation Standard v1.0 (adopter)
 
-Documentação rascunho do backend AIOps App Model. Destinada a ser promovida depois para [loft-br/aiops-documentation](https://github.com/loft-br/aiops-documentation) no pack AIOps apps.
+Documentação rascunho do backend Olivelas App Model. Destinada a ser promovida depois para [loft-br/aiops-documentation](https://github.com/loft-br/aiops-documentation) no pack Olivelas apps.
 
-**Candidato a promoção:** [../aiops-apps/backend-creation-guide.md](../aiops-apps/backend-creation-guide.md) — guia genérico AIOps com arquivos de exemplo.
+**Candidato a promoção:** [../aiops-apps/backend-creation-guide.md](../aiops-apps/backend-creation-guide.md) — guia genérico Olivelas com arquivos de exemplo.
 
 ## Stack
 
 | Item | Escolha | Classificação |
 | --- | --- | --- |
 | Linguagem | Python 3.12+ | Confirmed |
-| Framework | FastAPI + uvicorn | Confirmed — Família B AIOps |
+| Framework | FastAPI + uvicorn | Confirmed — Família B Olivelas |
 | Gerenciador de pacotes | uv | Confirmed |
 | Banco | PostgreSQL (AWS RDS) via SQLAlchemy async + asyncpg | Confirmed |
 | Localização | pasta `backend/` no monorepo | Confirmed |
@@ -40,7 +40,7 @@ Referência: [backend-stack AIOps](https://github.com/loft-br/aiops-documentatio
 
 ## Health endpoints
 
-Alinhados às convenções de probe k8s AIOps:
+Alinhados às convenções de probe k8s Olivelas:
 
 | Path | Propósito |
 | --- | --- |

@@ -1,9 +1,9 @@
 ---
 title: "System Context"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 
@@ -17,14 +17,14 @@ version: "1.0"
 
 ## Purpose
 
-This document places AIOps App Model in its ecosystem: who uses it, which external systems it calls, and what stays inside the application boundary.
+This document places Olivelas App Model in its ecosystem: who uses it, which external systems it calls, and what stays inside the application boundary.
 
 ## System
 
 | Field | Value |
 | --- | --- |
-| Name | AIOps App Model |
-| Purpose | Internal Loft portal for AI project discovery, impact visibility, and case administration |
+| Name | Olivelas App Model |
+| Purpose | Internal Olivelas portal for AI project discovery, impact visibility, and case administration |
 | Owner | Unknown — fill in Phase 2 (`operations/service-profile.md`) |
 | Boundary summary | TanStack Start web app: React UI + server functions/API routes; browser-local catalog; outbound calls to Atlassian and Gemini |
 
@@ -32,8 +32,8 @@ This document places AIOps App Model in its ecosystem: who uses it, which extern
 
 | User | Need | Interaction |
 | --- | --- | --- |
-| Loft collaborator | Find AI projects, integrations, and impact stories | Browser — public portal routes |
-| AIOps / content maintainer | Import cases from Jira, sync Confluence status reports | Browser — admin routes |
+| Olivelas collaborator | Find AI projects, integrations, and impact stories | Browser — public portal routes |
+| Olivelas / content maintainer | Import cases from Jira, sync Confluence status reports | Browser — admin routes |
 | Developer | Run and extend the portal | Local dev server, Git |
 
 ## Consumers
@@ -84,18 +84,18 @@ This document places AIOps App Model in its ecosystem: who uses it, which extern
 
 | From | To | Relation | Notes |
 | --- | --- | --- | --- |
-| AIOps App Model | Jira | calls | Search, scope collection, media proxy |
-| AIOps App Model | Confluence | calls | Writes limited to status folder |
-| AIOps App Model | Gemini | calls | Post-processing Jira scope |
-| AIOps App Model | localStorage | reads/writes | Per-browser content catalog |
-| Admin user | AIOps App Model | uses | No auth gate observed |
+| Olivelas App Model | Jira | calls | Search, scope collection, media proxy |
+| Olivelas App Model | Confluence | calls | Writes limited to status folder |
+| Olivelas App Model | Gemini | calls | Post-processing Jira scope |
+| Olivelas App Model | localStorage | reads/writes | Per-browser content catalog |
+| Admin user | Olivelas App Model | uses | No auth gate observed |
 
 ## Context Diagram
 
 ```mermaid
 flowchart LR
-  Collaborator[Loft collaborator] --> Portal[AIOps App Model\nTanStack Start]
-  Maintainer[AIOps maintainer] --> Portal
+  Collaborator[Olivelas collaborator] --> Portal[Olivelas App Model\nTanStack Start]
+  Maintainer[Olivelas maintainer] --> Portal
   Portal --> LS[(Browser localStorage)]
   Portal --> Jira[Atlassian Jira]
   Portal --> Conf[Atlassian Confluence]

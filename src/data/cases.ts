@@ -87,7 +87,7 @@ export const cases: CaseItem[] = [
     descricao:
       "Agente que lê o primeiro contato do cliente, identifica a intenção e direciona para a fila correta com resumo pronto.",
     area: "Operações",
-    ferramentas: ["APIs de IA", "n8n", "Loft Copilot"],
+    ferramentas: ["APIs de IA", "n8n", "Olivelas Copilot"],
     impacto: "Alto",
     status: "Em produção",
     time: "Operações — Atendimento",
@@ -154,7 +154,7 @@ export const cases: CaseItem[] = [
     descricao:
       "Geração assistida de textos de anúncio de imóveis a partir de dados estruturados, com revisão humana obrigatória.",
     area: "Marketing",
-    ferramentas: ["ChatGPT", "Loft Studio"],
+    ferramentas: ["ChatGPT", "Olivelas Studio"],
     impacto: "Médio",
     status: "Em produção",
     time: "Marketing — Conteúdo",
@@ -258,7 +258,7 @@ export const cases: CaseItem[] = [
     descricao:
       "Busca por significado na documentação interna, com respostas citando o documento de origem.",
     area: "Engenharia",
-    ferramentas: ["APIs de IA", "Loft Copilot"],
+    ferramentas: ["APIs de IA", "Olivelas Copilot"],
     impacto: "Alto",
     status: "Piloto",
     time: "Engenharia — Plataforma",
@@ -311,7 +311,7 @@ export const cases: CaseItem[] = [
     descricao:
       "Comentários automáticos em pull requests apontando riscos, testes ausentes e desvios de padrão.",
     area: "Engenharia",
-    ferramentas: ["APIs de IA", "Loft Copilot"],
+    ferramentas: ["APIs de IA", "Olivelas Copilot"],
     impacto: "Médio",
     status: "Em produção",
     time: "Engenharia — Developer Experience",
@@ -359,7 +359,7 @@ export const cases: CaseItem[] = [
     descricao:
       "Modelo que estima volume de interesse por região e alimenta o planejamento semanal do time comercial.",
     area: "Comercial",
-    ferramentas: ["APIs de IA", "Loft Insights"],
+    ferramentas: ["APIs de IA", "Olivelas Insights"],
     impacto: "Alto",
     status: "Piloto",
     time: "Comercial — Inteligência de Mercado",
@@ -405,7 +405,7 @@ export const cases: CaseItem[] = [
     descricao:
       "Ordenação da fila de contatos por probabilidade de avanço, com justificativa legível para o consultor.",
     area: "Comercial",
-    ferramentas: ["Loft Insights", "n8n"],
+    ferramentas: ["Olivelas Insights", "n8n"],
     impacto: "Alto",
     status: "Em produção",
     time: "Comercial — Growth",
@@ -494,7 +494,7 @@ export const cases: CaseItem[] = [
     descricao:
       "Leitura de contratos para extrair prazos, valores e cláusulas críticas em uma tabela comparável.",
     area: "Operações",
-    ferramentas: ["APIs de IA", "Loft Studio"],
+    ferramentas: ["APIs de IA", "Olivelas Studio"],
     impacto: "Médio",
     status: "Em desenvolvimento",
     time: "Operações — Jurídico Operacional",
@@ -539,7 +539,7 @@ export const cases: CaseItem[] = [
     descricao:
       "Agrupamento de temas de busca e sugestão de pautas priorizadas para o calendário editorial.",
     area: "Marketing",
-    ferramentas: ["ChatGPT", "Loft Insights", "n8n"],
+    ferramentas: ["ChatGPT", "Olivelas Insights", "n8n"],
     impacto: "Médio",
     status: "Piloto",
     time: "Marketing — Growth de Conteúdo",

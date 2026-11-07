@@ -1,8 +1,8 @@
-# AIOps App Model
+# Olivelas App Model (Olivelas EpicBuilder)
 
-**Standard application template** for Loft AIOps teams. Clone or copy this repository when starting a new AIOps app that follows the shared stack (TanStack Start frontend + FastAPI backend + RDS PostgreSQL) and Loft publish conventions (GitHub Actions → ECR → k8s-apps / ArgoCD → Kong).
+**Standard application template** for Olivelas teams. Clone or copy this repository when starting a new Olivelas app that follows the shared stack (TanStack Start frontend + FastAPI backend + RDS PostgreSQL) and Olivelas publish conventions (GitHub Actions → ECR → k8s-apps / ArgoCD → Kong).
 
-> Seeded from the AIOPS Central codebase (GitHub `main`, no runtime credentials). Rename components, hosts, and Vault paths before the first production deploy.
+> Seeded from the Olivelas Central codebase (GitHub `main`, no runtime credentials). Rename components, hosts, and Vault paths before the first production deploy.
 
 ## Stack
 
@@ -20,7 +20,7 @@ As-is docs: [`docs/README.md`](docs/README.md) · overview: [`docs/en/project-ov
 
 | Concept | Template value | Adopter action |
 | --- | --- | --- |
-| GitHub repo | `loft-br/aiops-app-model` | New repo name |
+| GitHub repo | `pycriador/olivelas-epicbuilder` | New repo name |
 | K8s namespace | `aiops-app-model` | Choose app namespace |
 | Front component | `aiops-app-model-front` | Rename in workflows + Helm values |
 | API component | `aiops-app-model-api` | Rename in workflows + Helm values |
@@ -38,7 +38,7 @@ Deploy workflows default to **`workflow_dispatch` only** so pushing the template
 - **Confluence sync** — case status pages
 - **Configurable TLS** — internal CA / Netskope support for local dev
 - **IAM** — local auth (Argon2id + JWT + refresh cookies), RBAC, admin UI at `/admin/iam/*`
-- **Loft infra samples** — Dockerfiles, Helm values, Kong route/service drafts, DNS Terragrunt drafts, Vault push helper
+- **Olivelas infra samples** — Dockerfiles, Helm values, Kong route/service drafts, DNS Terragrunt drafts, Vault push helper
 
 ## Prerequisites
 
@@ -51,8 +51,8 @@ Deploy workflows default to **`workflow_dispatch` only** so pushing the template
 ### 1. Clone and configure env
 
 ```sh
-git clone https://github.com/loft-br/aiops-app-model.git
-cd aiops-app-model
+git clone https://github.com/pycriador/olivelas-epicbuilder.git
+cd olivelas-epicbuilder
 
 cp .env.example .env
 # Fill VITE_API_URL, DB_* (RDS admin), JIRA_*, GEMINI_*
@@ -112,10 +112,10 @@ Vite defaults to **http://localhost:8080**. Backend CORS includes that origin.
 
 Details: [`docs/en/backend/schema-and-api.md`](docs/en/backend/schema-and-api.md)
 
-## Publish on Loft infra
+## Publish on Olivelas infra
 
 1. Fill `deploy/published-hosts.env` with the app's corp / Cross hosts.
-2. Mirror `deploy/k8s/` into `loft-br/k8s-apps` under the chosen namespace.
+2. Mirror `deploy/k8s/` into `k8s-apps` under the chosen namespace.
 3. Create Vault KV paths and push secrets via `scripts/vault/push_secrets.py` (dry-run first).
 4. Wire Kong + DNS from the drafts under `deploy/kong/` and `deploy/dns/`.
 5. Enable `push:` triggers in `.github/workflows/` when ready to auto-deploy.
@@ -125,4 +125,4 @@ Checklist: [aiops-documentation — novo serviço](https://github.com/loft-br/ai
 
 ## License / ownership
 
-Internal Loft AIOps template. Product content in `src/data/` is sample seed data — replace for each new app.
+Internal Olivelas template. Product content in `src/data/` is sample seed data — replace for each new app.

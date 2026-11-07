@@ -1,13 +1,13 @@
 ---
-title: "Histórico do Projeto — AIOps App Model"
+title: "Histórico do Projeto — Olivelas App Model"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 
-# AIOps App Model — Descrição completa do projeto e histórico de decisões
+# Olivelas App Model — Descrição completa do projeto e histórico de decisões
 
 > Language: pt-BR
 >
@@ -20,7 +20,7 @@ version: "1.0"
 
 ## 1. Visão geral
 
-AIOps App Model (nome anterior: "AI Portal — Loft") é o portal interno de IA da Loft.
+Olivelas App Model (nome anterior: "AI Portal — Olivelas") é o portal interno de IA da Olivelas.
 Ele reúne, num único lugar:
 
 - projetos de IA em andamento e concluídos (cases),
@@ -164,7 +164,7 @@ Esta seção é a base para expor as ações como botões na interface.
   o Confluence.
 
 ### 5.4 Sincronizar com o Confluence
-- **Escopo restrito** à pasta raiz `Status Projetos AIOps`
+- **Escopo restrito** à pasta raiz `Status Projetos Olivelas`
   (`CONFLUENCE_STATUS_FOLDER_ID`, id `6105464844`) e a tudo dentro dela.
 - **Regra:** procura, dentro da pasta raiz, a subpasta com o **e-mail do responsável
   do épico**. Se não existir, cria. Dentro dela cria/atualiza a página com o **nome do
@@ -211,7 +211,7 @@ Esta seção é a base para expor as ações como botões na interface.
   "Ver case" em tonalidade cinza do sistema.
 
 ### 5.10 Home
-- Banner sem busca e sem badge "Loft - IA"; logo maior; descrição:
+- Banner sem busca e sem badge "Olivelas - IA"; logo maior; descrição:
   "Acompanhe tudo o que estamos construindo, responsáveis e que etapa está cada projeto".
 - Cards de atalho centralizados na linha final do banner; card "Explorar cases"
   renomeado para **"Todos os projetos"**; card de Integração trocado de posição com
@@ -228,7 +228,7 @@ Esta seção é a base para expor as ações como botões na interface.
 | `JIRA_BASE_URL` | Base da instância Atlassian |
 | `JIRA_EMAIL` | Usuário da API Atlassian |
 | `JIRA_API_TOKEN` | Token da API Atlassian |
-| `CONFLUENCE_STATUS_FOLDER_ID` | Pasta raiz "Status Projetos AIOps" (`6105464844`) |
+| `CONFLUENCE_STATUS_FOLDER_ID` | Pasta raiz "Status Projetos Olivelas" (`6105464844`) |
 | `GEMINI_API_KEY` | Chave da API Gemini |
 | `GEMINI_MODEL` | Sempre `gemini-3.1-flash-lite` |
 | `VITE_API_URL` | Presente em `.env.example`; uso neste deploy é **Unknown** |
@@ -261,14 +261,14 @@ Esta seção é a base para expor as ações como botões na interface.
 
 | De | Para |
 | --- | --- |
-| AI Portal — Loft | AIOps App Model |
+| AI Portal — Loft / AIOps App Model | Olivelas App Model |
 | O que já temos | Projetos |
 | Cases de Sucesso | Projetos em andamento |
 | Explorar cases | Todos os projetos |
 | Adicionar projeto / Adicionar Case | Adicionar Projeto |
 | Cases mais acessados | Projetos por responsáveis |
 
-> Renomear o repositório no GitHub/Lovable (`aiops/central`, sem numeração) é uma ação
+> Renomear o repositório no GitHub/Lovable (`olivelas/central`, sem numeração) é uma ação
 > manual do usuário no painel da plataforma — não é feita pelo código.
 
 ---

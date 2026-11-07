@@ -26,7 +26,7 @@ export function shouldUseWhiteLoftMark(backgroundColor: string): boolean {
 export function LoftMark({
   backgroundColor,
   className,
-  alt = "Loft",
+  alt = "Olivelas",
 }: {
   backgroundColor: string;
   className?: string;

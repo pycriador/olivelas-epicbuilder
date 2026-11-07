@@ -1,8 +1,8 @@
 ---
 title: "AI Context"
 status: "DRAFT"
-owner: "aiops-app-model"
-updated: "2026-08-19"
+owner: "olivelas"
+updated: "2026-11-07"
 ---
 
 # AI Context
@@ -13,11 +13,11 @@ updated: "2026-08-19"
 >
 > Documentation Standard v1.0 (adopter)
 
-**Primary AI entry point** for the AIOps App Model repository. Load linked documents progressively — do not assume undocumented behavior.
+**Primary AI entry point** for the Olivelas App Model repository. Load linked documents progressively — do not assume undocumented behavior.
 
 ## What this system is
 
-AIOps App Model is Loft's internal AI portal: discover AI projects (cases), explore integrations, view impact metrics, and administer content via Jira/Confluence-assisted workflows. Evidence: `src/components/layout/AppSidebar.tsx`, `.lovable/plan/ai-portal-loft-2026-08-08.md`.
+Olivelas App Model is Olivelas's internal AI portal: discover AI projects (cases), explore integrations, view impact metrics, and administer content via Jira/Confluence-assisted workflows. Evidence: `src/components/layout/AppSidebar.tsx`, `.lovable/plan/ai-portal-loft-2026-08-08.md`.
 
 ## Stack (Confirmed)
 
@@ -49,7 +49,7 @@ npm run format   # Prettier
 | Internal structure | [architecture/overview.md](architecture/overview.md) |
 | URL → page map | [application/routes.md](application/routes.md) |
 | Local setup | [operations/local-development.md](operations/local-development.md) |
-| Loft infra publish | [operations/loft-infra-publish.md](operations/loft-infra-publish.md) |
+| Olivelas infra publish | [operations/loft-infra-publish.md](operations/loft-infra-publish.md) |
 
 ## Key source locations
 

@@ -9,7 +9,7 @@ export const LOFT_PALETTE = [
 ] as const;
 
 export const LOFT_COLOR_OPTIONS = [
-  { label: "Verde Loft", value: "#115644" },
+  { label: "Verde Olivelas", value: "#115644" },
   { label: "Laranja", value: "#ff774a" },
   { label: "Laranja escuro", value: "#d94616" },
   { label: "Verde claro", value: "#cee79e" },

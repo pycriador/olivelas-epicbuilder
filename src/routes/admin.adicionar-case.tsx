@@ -57,7 +57,7 @@ export const Route = createFileRoute("/admin/adicionar-case")({
       : {},
   head: () => ({
     meta: [
-      { title: "Adicionar Projeto — Administração | Loft" },
+      { title: "Adicionar Projeto — Administração | Olivelas" },
       {
         name: "description",
         content: "Cadastre um novo case de IA no mesmo padrão da página Projetos.",
@@ -425,8 +425,8 @@ function AdicionarCasePage() {
             if (sync.ok) {
               toast.success(sync.message, {
                 description: sync.folderCreated
-                  ? `Pasta ${item.responsavel?.email} criada em Status Projetos AIOps.`
-                  : `Em Status Projetos AIOps › ${item.responsavel?.email}.`,
+                  ? `Pasta ${item.responsavel?.email} criada em Status Projetos Olivelas.`
+                  : `Em Status Projetos Olivelas › ${item.responsavel?.email}.`,
               });
             } else {
               toast.warning(sync.message);

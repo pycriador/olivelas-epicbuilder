@@ -1,11 +1,11 @@
 ---
-title: "AIOps apps — backend guide (draft for aiops-documentation)"
+title: "Olivelas apps — backend guide (draft for aiops-documentation)"
 status: "DRAFT"
-owner: "aiops-app-model"
-updated: "2026-08-19"
+owner: "olivelas"
+updated: "2026-11-07"
 ---
 
-# AIOps apps — backend creation guide (draft)
+# Olivelas apps — backend creation guide (draft)
 
 > Language: EN | [Português (pt-BR)](../../pt-BR/aiops-apps/README.md)
 >
@@ -22,7 +22,7 @@ This folder mirrors the target path in `aiops-documentation`: `docs/*/aiops-apps
 
 ## Adopter-specific backend docs
 
-Detailed runbooks for AIOps App Model (RDS scripts, schema) remain under [../backend/README.md](../backend/README.md) until promoted as `aiops-apps/aiops-app-model/` subpack.
+Detailed runbooks for Olivelas App Model (RDS scripts, schema) remain under [../backend/README.md](../backend/README.md) until promoted as `aiops-apps/aiops-app-model/` subpack.
 
 ## Promotion PR checklist
 

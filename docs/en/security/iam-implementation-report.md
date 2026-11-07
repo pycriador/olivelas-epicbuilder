@@ -2,7 +2,7 @@
 
 **Data:** 2026-08-20  
 **Branch alvo:** `v0.1`  
-**Status:** Implementado (local JWT/RBAC). SSO Loft = Unknown / futuro.
+**Status:** Implementado (local JWT/RBAC). SSO Olivelas = Unknown / futuro.
 
 ## Critérios de aceitação
 
@@ -27,7 +27,7 @@
 4. Configurar `JWT_SECRET` (≥32 chars) e `IAM_ADMIN_PASSWORD` em `backend/.env`
 5. Front: login em `/login` → portal em `/portal` → IAM em `/admin/iam`
 
-Credenciais padrão de bootstrap (apenas dev): `admin` / `ChangeMe123!` (`admin@loft.local`) — **trocar no primeiro acesso**.
+Credenciais padrão de bootstrap (apenas dev): `admin` / `ChangeMe123!` (`admin@olivelas.local`) — **trocar no primeiro acesso**.
 
 ## Principais artefatos
 
@@ -38,6 +38,6 @@ Credenciais padrão de bootstrap (apenas dev): `admin` / `ChangeMe123!` (`admin@
 
 ## Fora deste ciclo / próximo passo
 
-- Integração SSO/OIDC Loft (substituir AuthN local mantendo RBAC)
+- Integração SSO/OIDC Olivelas (substituir AuthN local mantendo RBAC)
 - Rate limiting no ingress (não no app)
 - E-mail real para forgot-password / convites (hoje token exposto com `EXPOSE_DEV_TOKENS`)

@@ -1,9 +1,9 @@
 ---
 title: "Contexto do sistema"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 
@@ -17,14 +17,14 @@ version: "1.0"
 
 ## Propósito
 
-Este documento situa o AIOps App Model no ecossistema: quem usa, quais sistemas externos são chamados e o que permanece dentro do boundary da aplicação.
+Este documento situa o Olivelas App Model no ecossistema: quem usa, quais sistemas externos são chamados e o que permanece dentro do boundary da aplicação.
 
 ## Sistema
 
 | Campo | Valor |
 | --- | --- |
-| Nome | AIOps App Model |
-| Propósito | Portal interno Loft para descoberta de projetos de IA, visibilidade de impacto e administração de cases |
+| Nome | Olivelas App Model |
+| Propósito | Portal interno Olivelas para descoberta de projetos de IA, visibilidade de impacto e administração de cases |
 | Owner | Unknown — preencher na Fase 2 (`operations/service-profile.md`) |
 | Resumo do boundary | App web TanStack Start: UI React + server functions/rotas API; catálogo local no browser; chamadas outbound para Atlassian e Gemini |
 
@@ -32,8 +32,8 @@ Este documento situa o AIOps App Model no ecossistema: quem usa, quais sistemas 
 
 | Usuário | Necessidade | Interação |
 | --- | --- | --- |
-| Colaborador Loft | Encontrar projetos, integrações e histórias de impacto | Browser — rotas públicas |
-| Mantenedor AIOps / conteúdo | Importar cases do Jira, sync de status no Confluence | Browser — rotas admin |
+| Colaborador Olivelas | Encontrar projetos, integrações e histórias de impacto | Browser — rotas públicas |
+| Mantenedor Olivelas / conteúdo | Importar cases do Jira, sync de status no Confluence | Browser — rotas admin |
 | Desenvolvedor | Rodar e estender o portal | Dev server local, Git |
 
 ## Consumidores
@@ -84,18 +84,18 @@ Este documento situa o AIOps App Model no ecossistema: quem usa, quais sistemas 
 
 | De | Para | Relação | Notas |
 | --- | --- | --- | --- |
-| AIOps App Model | Jira | chama | Busca, coleta de escopo, proxy de mídia |
-| AIOps App Model | Confluence | chama | Escrita limitada à pasta de status |
-| AIOps App Model | Gemini | chama | Pós-processamento do escopo Jira |
-| AIOps App Model | localStorage | lê/escreve | Catálogo por browser |
-| Usuário admin | AIOps App Model | usa | Sem gate de auth observado |
+| Olivelas App Model | Jira | chama | Busca, coleta de escopo, proxy de mídia |
+| Olivelas App Model | Confluence | chama | Escrita limitada à pasta de status |
+| Olivelas App Model | Gemini | chama | Pós-processamento do escopo Jira |
+| Olivelas App Model | localStorage | lê/escreve | Catálogo por browser |
+| Usuário admin | Olivelas App Model | usa | Sem gate de auth observado |
 
 ## Diagrama de contexto
 
 ```mermaid
 flowchart LR
-  Colaborador[Colaborador Loft] --> Portal[AIOps App Model\nTanStack Start]
-  Mantenedor[Mantenedor AIOps] --> Portal
+  Colaborador[Colaborador Olivelas] --> Portal[Olivelas App Model\nTanStack Start]
+  Mantenedor[Mantenedor Olivelas] --> Portal
   Portal --> LS[(localStorage do browser)]
   Portal --> Jira[Atlassian Jira]
   Portal --> Conf[Atlassian Confluence]

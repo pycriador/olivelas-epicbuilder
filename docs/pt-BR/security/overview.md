@@ -1,8 +1,8 @@
 ---
 title: "Visão geral de segurança"
 status: "DRAFT"
-owner: "aiops-app-model"
-updated: "2026-08-20"
+owner: "olivelas"
+updated: "2026-11-07"
 ---
 
 # Visão geral de segurança
@@ -13,7 +13,7 @@ updated: "2026-08-20"
 
 ## Autenticação (Confirmed)
 
-O AIOps App Model implementa IAM de aplicação no schema `iam` (PostgreSQL) com:
+O Olivelas App Model implementa IAM de aplicação no schema `iam` (PostgreSQL) com:
 
 - Credenciais locais (hash Argon2id)
 - Access tokens JWT de curta duração (header Bearer e/ou cookie `access_token`)

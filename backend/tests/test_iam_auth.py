@@ -63,7 +63,7 @@ async def test_login_endpoint_success(app, monkeypatch):
 
     user = MagicMock()
     user.id = user_id
-    user.email = "admin@loft.local"
+    user.email = "admin@olivelas.local"
     user.username = "admin"
     user.password_hash = hash_password("ChangeMe123!")
     user.status = "active"
@@ -72,7 +72,7 @@ async def test_login_endpoint_success(app, monkeypatch):
     user.must_change_password = False
     user.groups = [group]
     user.first_name = "Admin"
-    user.last_name = "AIOPS"
+    user.last_name = "Olivelas"
     user.photo_url = None
     user.primary_group_id = group_id
     user.locale = "pt-BR"
@@ -115,7 +115,7 @@ async def test_login_endpoint_success(app, monkeypatch):
     async with AsyncClient(transport=transport, base_url="http://test") as client:
         response = await client.post(
             "/api/v1/auth/login",
-            json={"login": "admin@loft.local", "password": "ChangeMe123!", "remember_me": False},
+            json={"login": "admin@olivelas.local", "password": "ChangeMe123!", "remember_me": False},
         )
 
     assert response.status_code == 200, response.text

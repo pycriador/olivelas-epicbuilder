@@ -1,13 +1,13 @@
 ---
 title: "Visão geral do projeto"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 
-# AIOps App Model
+# Olivelas App Model
 
 > Language: [English (EN)](../en/project-overview.md) | Português (pt-BR)
 >
@@ -17,11 +17,11 @@ version: "1.0"
 
 ## Propósito
 
-O AIOps App Model é o portal interno da Loft para descobrir, aprender e construir com IA. Consolida cases de projetos de IA, integrações, métricas de impacto e fluxos administrativos conectados ao Jira e Confluence. Evidência: plano de produto `.lovable/plan/ai-portal-loft-2026-08-08.md`, branding em `src/components/layout/AppSidebar.tsx`.
+O Olivelas App Model é o portal interno da Olivelas para descobrir, aprender e construir com IA. Consolida cases de projetos de IA, integrações, métricas de impacto e fluxos administrativos conectados ao Jira e Confluence. Evidência: plano de produto `.lovable/plan/ai-portal-loft-2026-08-08.md`, branding em `src/components/layout/AppSidebar.tsx`.
 
 ## Problema
 
-Times da Loft precisam de um lugar único para encontrar iniciativas de IA existentes, entender ferramentas e integrações em uso e dar vida a novas ideias — sem caçar páginas dispersas no Confluence e épicos no Jira.
+Times da Olivelas precisam de um lugar único para encontrar iniciativas de IA existentes, entender ferramentas e integrações em uso e dar vida a novas ideias — sem caçar páginas dispersas no Confluence e épicos no Jira.
 
 ## Escopo
 
@@ -45,15 +45,15 @@ Times da Loft precisam de um lugar único para encontrar iniciativas de IA exist
 | --- | --- | --- |
 | Autenticação / autorização de usuário final | Sem guards de auth observados nas rotas ou layout | Confirmed (não implementado) |
 | Persistência remota em banco para conteúdo do portal | Conteúdo apenas em `localStorage` do navegador | Confirmed |
-| Exposição pública na internet como produto B2C | Portal interno Loft | Inferred |
+| Exposição pública na internet como produto B2C | Portal interno Olivelas | Inferred |
 | Produto completo de AI Academy / Templates (plano original) | `/biblioteca` redireciona para Home; dados de academy podem existir no seed mas não estão na navegação principal | Confirmed / Inferred |
 
 ## Usuários / consumidores
 
 | Usuário / consumidor | Necessidade | Classificação |
 | --- | --- | --- |
-| Colaboradores Loft | Descobrir projetos e integrações de IA | Inferred |
-| AIOps / owners de projeto | Publicar e atualizar cases, sync Confluence | Inferred |
+| Colaboradores Olivelas | Descobrir projetos e integrações de IA | Inferred |
+| Olivelas / owners de projeto | Publicar e atualizar cases, sync Confluence | Inferred |
 | Desenvolvedores do portal | Entender rotas, integrações e setup local | Confirmed |
 
 ## Arquitetura
@@ -94,7 +94,7 @@ Aplicação única TanStack Start: UI React com SSR, server functions para Atlas
 
 - Credenciais lidas de variáveis de ambiente (`.env.example`); nunca commitadas.
 - Middleware CSRF protege server functions (`src/start.ts`).
-- IAM de aplicação implementado (JWT + RBAC no schema `iam`) — ver [security/overview.md](security/overview.md). SSO corporativo Loft permanece **Unknown** / trabalho futuro.
+- IAM de aplicação implementado (JWT + RBAC no schema `iam`) — ver [security/overview.md](security/overview.md). SSO corporativo Olivelas permanece **Unknown** / trabalho futuro.
 - Detalhes: Fase 2 — `security/overview.md`
 
 ## Observabilidade

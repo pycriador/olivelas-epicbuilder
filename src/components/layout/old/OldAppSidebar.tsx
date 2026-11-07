@@ -140,17 +140,17 @@ export function OldAppSidebar() {
         <Link to="/portal" className="flex min-w-0 items-center gap-2.5">
           <img
             src={loftLogo}
-            alt="Loft"
+            alt="Olivelas"
             className="h-8 w-auto shrink-0 object-contain"
             loading="eager"
           />
           {!collapsed && (
             <span className="min-w-0">
               <span className="block truncate font-display text-sm font-semibold leading-tight text-sidebar-foreground">
-                AIOps App Model
+                Olivelas App Model
               </span>
               <span className="block truncate font-mono text-[10px] uppercase tracking-[0.14em] text-sidebar-foreground/60">
-                Loft
+                Olivelas
               </span>
             </span>
           )}

@@ -18,7 +18,7 @@ import {
 
 export const Route = createFileRoute("/admin/iam/groups")({
   head: () => ({
-    meta: [{ title: "Grupos — IAM | AIOps App Model" }],
+    meta: [{ title: "Grupos — IAM | Olivelas App Model" }],
   }),
   component: IamGroupsPage,
 });

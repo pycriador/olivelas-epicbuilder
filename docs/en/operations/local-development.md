@@ -1,9 +1,9 @@
 ---
 title: "Local Development"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 
@@ -30,13 +30,13 @@ git checkout v0.1
 | Node.js | Compatible with Vite 8 / React 19 (LTS recommended) |
 | npm | Bundled with Node |
 | Python | 3.12+ (backend only) — see [backend local setup](../backend/local-setup.md) |
-| Git | Clone `https://github.com/loft-br/aiops-app-model` |
+| Git | Clone `https://github.com/pycriador/olivelas-epicbuilder` |
 
 ## Quick start (frontend)
 
 ```sh
-git clone git@github.com:loft-br/aiops-app-model.git
-cd aiops-app-model
+git clone https://github.com/pycriador/olivelas-epicbuilder.git
+cd olivelas-epicbuilder
 npm i
 cp .env.example .env
 # Edit .env: VITE_API_URL, Jira/Gemini if needed

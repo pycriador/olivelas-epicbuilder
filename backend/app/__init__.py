@@ -1,1 +1,1 @@
-"""AIOps App Model FastAPI application."""
+"""Olivelas App Model FastAPI application."""

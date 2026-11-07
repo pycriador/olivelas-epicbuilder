@@ -9,7 +9,7 @@ import { listAuditLogs, type AuditLog } from "@/lib/auth-api";
 
 export const Route = createFileRoute("/admin/iam/audit")({
   head: () => ({
-    meta: [{ title: "Auditoria — IAM | AIOps App Model" }],
+    meta: [{ title: "Auditoria — IAM | Olivelas App Model" }],
   }),
   component: IamAuditPage,
 });

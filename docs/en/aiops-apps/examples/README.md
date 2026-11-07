@@ -1,4 +1,4 @@
-# Example files — AIOps backend creation guide
+# Example files — Olivelas backend creation guide
 
 These templates illustrate **one working approach** (Family B — FastAPI). They are not mandatory filenames or layouts.
 
@@ -10,6 +10,6 @@ These templates illustrate **one working approach** (Family B — FastAPI). They
 | `root.env.example` | `.env.example` (monorepo root) |
 | `portal-api.ts.example` | `src/lib/portal-api.ts` (frontend) |
 
-**Reference implementation:** [loft-br/aiops-app-model](https://github.com/loft-br/aiops-app-model) — `backend/` folder.
+**Reference implementation:** [pycriador/olivelas-epicbuilder](https://github.com/pycriador/olivelas-epicbuilder) — `backend/` folder.
 
 Copy examples, rename (remove `.example`), and adapt names (`my_app_db`, routes, schemas) to your product.

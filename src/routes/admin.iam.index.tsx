@@ -9,7 +9,7 @@ import { fetchIamDashboard, type AuditLog, type DashboardStats } from "@/lib/aut
 
 export const Route = createFileRoute("/admin/iam/")({
   head: () => ({
-    meta: [{ title: "IAM — Dashboard | AIOps App Model" }],
+    meta: [{ title: "IAM — Dashboard | Olivelas App Model" }],
   }),
   component: IamDashboardPage,
 });

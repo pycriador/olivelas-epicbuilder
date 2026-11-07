@@ -1,8 +1,8 @@
-# Exemplos — publicação na infra Loft (workflows + Docker)
+# Exemplos — publicação na infra Olivelas (workflows + Docker)
 
 > Language: pt-BR | [English (EN)](../../../en/operations/examples/README.md)
 >
-> Templates com o **mínimo** para publicar um app AIOps no EKS da Loft.
+> Templates com o **mínimo** para publicar um app Olivelas no EKS.
 > Nem todo repositório tem front e API — copie só o que se aplica.
 
 Os arquivos de exemplo ficam em [docs/en/operations/examples/](../../../en/operations/examples/) (fonte única; evite divergência).

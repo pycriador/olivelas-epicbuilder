@@ -1,8 +1,8 @@
 ---
 title: "Contexto para IA"
 status: "DRAFT"
-owner: "aiops-app-model"
-updated: "2026-08-19"
+owner: "olivelas"
+updated: "2026-11-07"
 ---
 
 # Contexto para IA
@@ -13,11 +13,11 @@ updated: "2026-08-19"
 >
 > Documentation Standard v1.0 (adopter)
 
-**Ponto de entrada principal para agentes de IA** no repositório AIOps App Model. Carregue os documentos linkados de forma progressiva — não assuma comportamento não documentado.
+**Ponto de entrada principal para agentes de IA** no repositório Olivelas App Model. Carregue os documentos linkados de forma progressiva — não assuma comportamento não documentado.
 
 ## O que é este sistema
 
-O AIOps App Model é o portal interno de IA da Loft: descoberta de projetos (cases), integrações, métricas de impacto e fluxos administrativos com Jira e Confluence. Evidência: `src/components/layout/AppSidebar.tsx`, `.lovable/plan/ai-portal-loft-2026-08-08.md`.
+O Olivelas App Model é o portal interno de IA da Olivelas: descoberta de projetos (cases), integrações, métricas de impacto e fluxos administrativos com Jira e Confluence. Evidência: `src/components/layout/AppSidebar.tsx`, `.lovable/plan/ai-portal-loft-2026-08-08.md`.
 
 ## Stack (Confirmed)
 
@@ -49,7 +49,7 @@ npm run format   # Prettier
 | Estrutura interna | [architecture/overview.md](architecture/overview.md) |
 | URL → página | [application/routes.md](application/routes.md) |
 | Setup local | [operations/local-development.md](operations/local-development.md) |
-| Publicação na infra Loft | [operations/loft-infra-publish.md](operations/loft-infra-publish.md) |
+| Publicação na infra Olivelas | [operations/loft-infra-publish.md](operations/loft-infra-publish.md) |
 
 ## Locais-chave no código
 

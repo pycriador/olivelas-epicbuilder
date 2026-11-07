@@ -9,7 +9,7 @@ import type { CaseItem } from "@/data/types";
 
 export type { ConfluenceDeleteResult, ConfluenceSyncResult };
 
-/** Monta o payload da página de status e envia ao Confluence (pasta Status Projetos AIOps). */
+/** Monta o payload da página de status e envia ao Confluence (pasta Status Projetos Olivelas). */
 export async function syncCaseToConfluence(
   item: CaseItem,
   meta: CaseMeta,

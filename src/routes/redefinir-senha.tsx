@@ -10,7 +10,7 @@ export const Route = createFileRoute("/redefinir-senha")({
       ? { token: search["token"] as string }
       : {},
   head: () => ({
-    meta: [{ title: "Redefinir senha — AIOps App Model" }],
+    meta: [{ title: "Redefinir senha — Olivelas App Model" }],
   }),
   component: ResetPasswordPage,
 });
@@ -42,7 +42,7 @@ function ResetPasswordPage() {
     <div className="flex min-h-screen items-center justify-center bg-[color-mix(in_oklab,var(--muted)_60%,var(--background))] px-4 py-12">
       <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 shadow-card">
         <span className="mx-auto grid h-10 w-10 place-items-center rounded-lg bg-primary text-sm font-black text-primary-foreground">
-          L
+          O
         </span>
         <h1 className="mt-4 text-center text-xl font-semibold">Redefinir senha</h1>
         <p className="mt-1 text-center text-sm text-muted-foreground">

@@ -1,13 +1,13 @@
 ---
 title: "Project Overview"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 
-# AIOps App Model
+# Olivelas App Model
 
 > Language: EN | [Português (pt-BR)](../pt-BR/project-overview.md)
 >
@@ -17,11 +17,11 @@ version: "1.0"
 
 ## Purpose
 
-AIOps App Model is Loft's internal portal for discovering, learning about, and building with AI. It consolidates AI project cases, integrations, impact metrics, and administrative workflows that connect to Jira and Confluence. Evidence: product plan `.lovable/plan/ai-portal-loft-2026-08-08.md`, branding in `src/components/layout/AppSidebar.tsx`.
+Olivelas App Model is Olivelas's internal portal for discovering, learning about, and building with AI. It consolidates AI project cases, integrations, impact metrics, and administrative workflows that connect to Jira and Confluence. Evidence: product plan `.lovable/plan/ai-portal-loft-2026-08-08.md`, branding in `src/components/layout/AppSidebar.tsx`.
 
 ## Problem
 
-Loft teams need a single place to find what AI initiatives already exist, understand tools and integrations in use, and onboard new ideas — without hunting across scattered Confluence pages and Jira epics.
+Olivelas teams need a single place to find what AI initiatives already exist, understand tools and integrations in use, and onboard new ideas — without hunting across scattered Confluence pages and Jira epics.
 
 ## Scope
 
@@ -45,15 +45,15 @@ Loft teams need a single place to find what AI initiatives already exist, unders
 | --- | --- | --- |
 | End-user authentication / authorization | No auth guards observed in routes or root layout | Confirmed (not implemented) |
 | Remote database persistence for portal content | Content stored in browser `localStorage` only | Confirmed |
-| Public internet exposure as a customer-facing product | Internal Loft portal | Inferred |
+| Public internet exposure as a customer-facing product | Internal Olivelas portal | Inferred |
 | Full AI Academy / Templates product (original plan) | Routes like `/biblioteca` redirect to Home; academy data may exist in seed files but is not primary navigation today | Confirmed / Inferred |
 
 ## Users / Consumers
 
 | User / consumer | Need | Classification |
 | --- | --- | --- |
-| Loft collaborators | Discover AI projects and integrations | Inferred |
-| AIOps / project owners | Publish and update project cases, sync Confluence | Inferred |
+| Olivelas collaborators | Discover AI projects and integrations | Inferred |
+| Olivelas / project owners | Publish and update project cases, sync Confluence | Inferred |
 | Developers maintaining the portal | Understand routes, integrations, and local setup | Confirmed |
 
 ## Architecture

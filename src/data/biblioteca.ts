@@ -40,7 +40,7 @@ export const templates: Template[] = [
     nome: "Agente de triagem de mensagens",
     descricao: "Classifica intenção, define urgência e roteia para a fila correta com resumo.",
     tipo: "Agente",
-    ferramentas: ["APIs de IA", "Loft Guard"],
+    ferramentas: ["APIs de IA", "Olivelas Guard"],
     dificuldade: "Avançado",
     tempo: "1 a 2 dias",
     passos: [
@@ -57,7 +57,7 @@ export const templates: Template[] = [
     nome: "Agente de perguntas frequentes",
     descricao: "Responde dúvidas recorrentes usando apenas a documentação indexada.",
     tipo: "Agente",
-    ferramentas: ["APIs de IA", "Loft Copilot"],
+    ferramentas: ["APIs de IA", "Olivelas Copilot"],
     dificuldade: "Intermediário",
     tempo: "1 dia",
     passos: [
@@ -107,7 +107,7 @@ export const templates: Template[] = [
     nome: "Fila de exceções para revisão humana",
     descricao: "Padrão para separar o que a automação resolve do que precisa de uma pessoa.",
     tipo: "Workflow",
-    ferramentas: ["n8n", "Loft Guard"],
+    ferramentas: ["n8n", "Olivelas Guard"],
     dificuldade: "Iniciante",
     tempo: "1 hora",
     passos: [
@@ -123,7 +123,7 @@ export const templates: Template[] = [
     nome: "Análise de série temporal com explicação",
     descricao: "Compara períodos, destaca variações e descreve o que mudou em linguagem natural.",
     tipo: "Análise",
-    ferramentas: ["Loft Insights", "APIs de IA"],
+    ferramentas: ["Olivelas Insights", "APIs de IA"],
     dificuldade: "Intermediário",
     tempo: "3 horas",
     passos: [
@@ -139,7 +139,7 @@ export const templates: Template[] = [
     nome: "Score de priorização de fila",
     descricao: "Ordena uma fila por probabilidade de sucesso e explica a posição de cada item.",
     tipo: "Análise",
-    ferramentas: ["Loft Insights", "n8n"],
+    ferramentas: ["Olivelas Insights", "n8n"],
     dificuldade: "Avançado",
     tempo: "2 dias",
     passos: [
@@ -171,7 +171,7 @@ export const templates: Template[] = [
     nome: "Conteúdo no tom da marca",
     descricao: "Gera texto seguindo um guia de estilo escrito como lista de regras.",
     tipo: "Workflow",
-    ferramentas: ["ChatGPT", "Loft Studio"],
+    ferramentas: ["ChatGPT", "Olivelas Studio"],
     dificuldade: "Iniciante",
     tempo: "1 hora",
     passos: [
@@ -202,7 +202,7 @@ export const templates: Template[] = [
     nome: "Revisão de código assistida",
     descricao: "Comenta um diff apontando riscos, testes ausentes e desvios de padrão.",
     tipo: "Automação",
-    ferramentas: ["APIs de IA", "Loft Copilot"],
+    ferramentas: ["APIs de IA", "Olivelas Copilot"],
     dificuldade: "Avançado",
     tempo: "1 dia",
     passos: [

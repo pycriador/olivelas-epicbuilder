@@ -1,13 +1,13 @@
 ---
-title: "Loft infra publish"
+title: "Olivelas infra publish"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-20"
-updated: "2026-09-03"
+updated: "2026-11-07"
 version: "0.11"
 ---
 
-# Loft infra publish — AIOps App Model
+# Olivelas infra publish — Olivelas App Model
 
 > Language: EN | [Português (pt-BR)](../../pt-BR/operations/loft-infra-publish.md)
 >
@@ -15,7 +15,7 @@ version: "0.11"
 >
 > Documentation Standard v1.0 (adopter)
 >
-> Living runbook for publishing this app on Loft infrastructure. Update after every completed step in the publish chat.
+> Living runbook for publishing this app on Olivelas infrastructure. Update after every completed step in the publish chat.
 
 **Authority:** Informational for this adopter repo. Canonical checklist: [aiops-documentation — checklist-novo-servico](https://github.com/loft-br/aiops-documentation/blob/main/docs/en/loft-infra/checklist-novo-servico.md).
 

@@ -1,8 +1,8 @@
 ---
 title: "Security overview"
 status: "DRAFT"
-owner: "aiops-app-model"
-updated: "2026-08-20"
+owner: "olivelas"
+updated: "2026-11-07"
 ---
 
 # Security overview
@@ -13,7 +13,7 @@ updated: "2026-08-20"
 
 ## Authentication (Confirmed)
 
-AIOps App Model implements application IAM on schema `iam` (PostgreSQL) with:
+Olivelas App Model implements application IAM on schema `iam` (PostgreSQL) with:
 
 - Local credentials (Argon2id password hashing)
 - Short-lived JWT access tokens (Bearer header and/or `access_token` cookie)

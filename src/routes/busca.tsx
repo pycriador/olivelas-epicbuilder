@@ -11,14 +11,14 @@ export const Route = createFileRoute("/busca")({
   }),
   head: () => ({
     meta: [
-      { title: "Busca no AIOps App Model — Loft" },
+      { title: "Busca no Olivelas App Model — Olivelas" },
       {
         name: "description",
         content:
-          "Busque cases, aulas, ferramentas, templates e prompts de IA em um único lugar dentro do AIOps App Model da Loft.",
+          "Busque cases, aulas, ferramentas, templates e prompts de IA em um único lugar dentro do Olivelas App Model da Olivelas.",
       },
-      { property: "og:title", content: "Busca — AIOps App Model" },
-      { property: "og:description", content: "Encontre tudo sobre IA na Loft em uma busca." },
+      { property: "og:title", content: "Busca — Olivelas App Model" },
+      { property: "og:description", content: "Encontre tudo sobre IA na Olivelas em uma busca." },
     ],
   }),
   component: BuscaPage,

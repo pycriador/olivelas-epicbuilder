@@ -135,7 +135,7 @@ async def ensure_seed(
         user = User(
             id=str(uuid4()),
             first_name="Admin",
-            last_name="AIOPS",
+            last_name="Olivelas",
             username=admin_username,
             email=admin_email.lower(),
             password_hash=hash_password(admin_password),

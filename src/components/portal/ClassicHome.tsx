@@ -110,14 +110,14 @@ export function ClassicHome() {
           <div className="flex items-center justify-center gap-3 sm:gap-4">
             <img
               src={loftLogo}
-              alt="Loft"
+              alt="Olivelas"
               width={240}
               height={207}
               className="h-[4.5rem] w-auto drop-shadow-[0_14px_34px_rgba(0,0,0,0.28)] sm:h-24"
             />
             <div className="text-left">
               <h1 className="font-display text-3xl font-bold leading-[1.05] text-white sm:text-4xl">
-                AIOps App Model
+                Olivelas App Model
               </h1>
             </div>
           </div>
@@ -166,7 +166,7 @@ export function ClassicHome() {
 
           <Secao
             titulo="Projetos por responsáveis"
-            descricao="Quem está tocando cada frente de IA na Loft."
+            descricao="Quem está tocando cada frente de IA na Olivelas."
             acao={{ label: "Ver todos os projetos", to: "/cases" }}
           >
             {!hydrated ? (

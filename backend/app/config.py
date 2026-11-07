@@ -30,7 +30,7 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    app_name: str = "AIOps App Model API"
+    app_name: str = "Olivelas App Model API"
     # Include 8080 — Lovable/Vite dev server default in this repo
     cors_origins: str = (
         "http://localhost:5173,"
@@ -74,7 +74,7 @@ class Settings(BaseSettings):
     login_max_attempts: int = Field(default=5, validation_alias="LOGIN_MAX_ATTEMPTS")
     login_lockout_minutes: int = Field(default=15, validation_alias="LOGIN_LOCKOUT_MINUTES")
     expose_dev_tokens: bool = Field(default=True, validation_alias="EXPOSE_DEV_TOKENS")
-    iam_admin_email: str = Field(default="admin@loft.local", validation_alias="IAM_ADMIN_EMAIL")
+    iam_admin_email: str = Field(default="admin@olivelas.local", validation_alias="IAM_ADMIN_EMAIL")
     iam_admin_username: str = Field(default="admin", validation_alias="IAM_ADMIN_USERNAME")
     iam_admin_password: str = Field(default="ChangeMe123!", validation_alias="IAM_ADMIN_PASSWORD")
     require_auth: bool = Field(default=True, validation_alias="REQUIRE_AUTH")

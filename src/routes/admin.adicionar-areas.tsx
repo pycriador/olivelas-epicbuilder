@@ -24,7 +24,7 @@ import {
 export const Route = createFileRoute("/admin/adicionar-areas")({
   head: () => ({
     meta: [
-      { title: "Adicionar Áreas — Administração | Loft" },
+      { title: "Adicionar Áreas — Administração | Olivelas" },
       {
         name: "description",
         content: "Cadastre e gerencie áreas de negócio usadas nos cases e no AI Map.",

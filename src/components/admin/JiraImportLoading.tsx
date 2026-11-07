@@ -5,7 +5,7 @@ import jiraLogo from "@/assets/logos/jira.svg";
 
 /** Stages keyed by elapsed seconds — mirrors real import phases better than fake % caps. */
 const PUBLISH_STAGES = [
-  { untilSec: 2, label: "Salvando o projeto no AIOps App Model" },
+  { untilSec: 2, label: "Salvando o projeto no Olivelas App Model" },
   { untilSec: 6, label: "Procurando a pasta do responsável no Confluence" },
   { untilSec: 14, label: "Criando a página de status do projeto no Confluence" },
   { untilSec: 30, label: "Enviando imagens e conteúdo para o Confluence" },

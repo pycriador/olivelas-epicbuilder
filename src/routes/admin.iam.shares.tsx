@@ -10,7 +10,7 @@ import { createShare, deleteShare, listShares, type Share } from "@/lib/auth-api
 
 export const Route = createFileRoute("/admin/iam/shares")({
   head: () => ({
-    meta: [{ title: "Compartilhamentos — IAM | AIOps App Model" }],
+    meta: [{ title: "Compartilhamentos — IAM | Olivelas App Model" }],
   }),
   component: IamSharesPage,
 });

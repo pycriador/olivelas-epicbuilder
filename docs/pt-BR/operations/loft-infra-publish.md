@@ -1,13 +1,13 @@
 ---
-title: "Publicação na infra Loft"
+title: "Publicação na infra Olivelas"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-20"
-updated: "2026-09-03"
+updated: "2026-11-07"
 version: "0.11"
 ---
 
-# Publicação na infra Loft — AIOps App Model
+# Publicação na infra Olivelas — Olivelas App Model
 
 > Language: pt-BR | [English (EN)](../../en/operations/loft-infra-publish.md)
 >
@@ -15,7 +15,7 @@ version: "0.11"
 >
 > Documentation Standard v1.0 (adopter)
 >
-> Runbook vivo da publicação deste app na infra Loft. Atualizar após cada passo concluído no chat de publish.
+> Runbook vivo da publicação deste app na infra Olivelas. Atualizar após cada passo concluído no chat de publish.
 
 **Autoridade:** Informacional neste repositório adopter. Checklist canônico: [aiops-documentation — checklist-novo-servico](https://github.com/loft-br/aiops-documentation/blob/main/docs/pt-BR/loft-infra/checklist-novo-servico.md).
 

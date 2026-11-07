@@ -21,13 +21,13 @@ export const Route = createFileRoute("/assistente")({
   }),
   head: () => ({
     meta: [
-      { title: "Assistente de IA interno — AIOps App Model" },
+      { title: "Assistente de IA interno — Olivelas App Model" },
       {
         name: "description",
         content:
-          "Pergunte sobre cases, ferramentas, aulas e templates de IA da Loft e receba respostas com links para o conteúdo interno.",
+          "Pergunte sobre cases, ferramentas, aulas e templates de IA da Olivelas e receba respostas com links para o conteúdo interno.",
       },
-      { property: "og:title", content: "Assistente de IA — Loft" },
+      { property: "og:title", content: "Assistente de IA — Olivelas" },
       {
         property: "og:description",
         content: "Um copiloto que responde com base no conteúdo do portal.",
@@ -162,7 +162,7 @@ function AssistentePage() {
                 <div className="grid gap-6 py-8">
                   <div className="text-center">
                     <h2 className="text-balance font-display text-2xl font-semibold sm:text-3xl">
-                      O que você quer descobrir sobre IA na Loft?
+                      O que você quer descobrir sobre IA na Olivelas?
                     </h2>
                     <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
                       Comece com uma dessas perguntas ou escreva a sua.
@@ -274,7 +274,7 @@ function AssistentePage() {
                 <Input
                   value={texto}
                   onChange={(e) => setTexto(e.target.value)}
-                  placeholder="Pergunte sobre IA na Loft..."
+                  placeholder="Pergunte sobre IA na Olivelas..."
                   variant="borderless"
                   className="h-10 px-4"
                 />

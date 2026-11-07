@@ -114,7 +114,7 @@ async def _update_page(page_id: str, title: str, body: str) -> None:
             "status": "current",
             "title": title,
             "body": {"representation": "storage", "value": body},
-            "version": {"number": version + 1, "message": "Atualizado pelo AIOps App Model"},
+            "version": {"number": version + 1, "message": "Atualizado pelo Olivelas App Model"},
         },
     )
 
@@ -272,7 +272,7 @@ def _build_body(item: dict[str, Any], midias: list[dict[str, str]]) -> str:
         )
 
     parts = [
-        "<p><em>Página gerada automaticamente pelo AIOps App Model — status report do projeto.</em></p>",
+        "<p><em>Página gerada automaticamente pelo Olivelas App Model — status report do projeto.</em></p>",
         "<h2>Visão geral</h2>",
         f"<p>{_esc(str(item.get('descricao', '')))}</p>",
         f"<table><tbody>{meta}</tbody></table>",
@@ -344,7 +344,7 @@ async def sync_case_to_confluence(item: dict[str, Any]) -> dict[str, Any]:
         "created": existing_id is None,
         "folderCreated": folder["created"],
         "pageId": page_id,
-        "url": f"{base}/wiki/spaces/AIOps/pages/{page_id}",
+        "url": f"{base}/wiki/spaces/Olivelas/pages/{page_id}",
         "message": "Página do Confluence atualizada."
         if existing_id
         else "Página criada no Confluence.",

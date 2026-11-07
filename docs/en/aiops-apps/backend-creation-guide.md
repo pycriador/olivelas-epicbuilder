@@ -1,11 +1,11 @@
 ---
 id: REF-AIOPS-APPS-008
-title: AIOps backend creation guide
+title: Olivelas backend creation guide
 type: Reference
 status: DRAFT
-owner: aiops
+owner: olivelas
 created: 2026-08-19
-updated: 2026-08-19
+updated: 2026-11-07
 authority: Verified
 classification: Confirmed
 tags:
@@ -21,7 +21,7 @@ related:
   - loft-infra/checklist-novo-servico.md
 ---
 
-# AIOps backend creation guide
+# Olivelas backend creation guide
 
 > Language: EN | [Português (pt-BR)](../../pt-BR/aiops-apps/backend-creation-guide.md)
 >
@@ -31,11 +31,11 @@ related:
 >
 > Authority: Verified
 
-**Purpose:** a practical guide for teams bootstrapping an AIOps backend — not a fixed standard. Use it as a checklist and starting point; adapt names, routes, and schema to your product.
+**Purpose:** a practical guide for teams bootstrapping an Olivelas backend — not a fixed standard. Use it as a checklist and starting point; adapt names, routes, and schema to your product.
 
-**Reference implementation:** [loft-br/aiops-app-model](https://github.com/loft-br/aiops-app-model) (`backend/` folder, August 2026).
+**Reference implementation:** [pycriador/olivelas-epicbuilder](https://github.com/pycriador/olivelas-epicbuilder) (`backend/` folder, August 2026).
 
-**Related Loft docs (authoritative for stack choice):**
+**Related Olivelas docs (authoritative for stack choice):**
 
 - [AIOps apps overview](https://github.com/loft-br/aiops-documentation/blob/main/docs/en/aiops-apps/overview.md)
 - [Backend stack families](https://github.com/loft-br/aiops-documentation/blob/main/docs/en/aiops-apps/backend-stack.md)
@@ -57,13 +57,13 @@ related:
 
 ---
 
-## Example stack (AIOps App Model)
+## Example stack (Olivelas App Model)
 
 This is **one validated example**, not the only allowed stack.
 
 | Layer | Example choice | Notes |
 | --- | --- | --- |
-| Language | Python 3.12+ | Loft AIOps Family B |
+| Language | Python 3.12+ | Olivelas Family B |
 | Framework | FastAPI + uvicorn | Async-first |
 | Package manager | [uv](https://docs.astral.sh/uv/) | Also export `requirements.txt` for pip users |
 | ORM | SQLAlchemy 2 async + asyncpg | Runtime driver |

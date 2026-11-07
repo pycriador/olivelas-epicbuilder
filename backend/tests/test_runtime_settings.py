@@ -33,11 +33,11 @@ def test_apply_overrides_to_settings(monkeypatch):
     base = get_env_settings()
     assert base.jira_api_token == "from-env"
 
-    set_overrides({"JIRA_API_TOKEN": "from-db", "APP_NAME": "AIOPS DB"})
+    set_overrides({"JIRA_API_TOKEN": "from-db", "APP_NAME": "Olivelas DB"})
     effective = apply_overrides_to(base)
     assert isinstance(effective, Settings)
     assert effective.jira_api_token == "from-db"
-    assert effective.app_name == "AIOPS DB"
+    assert effective.app_name == "Olivelas DB"
     assert effective.jira_api_token != base.jira_api_token
 
     clear_overrides()

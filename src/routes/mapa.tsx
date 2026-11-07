@@ -23,13 +23,13 @@ export const Route = createFileRoute("/mapa")({
 
   head: () => ({
     meta: [
-      { title: "Mapa de IA na Loft — áreas e soluções" },
+      { title: "Mapa de IA na Olivelas — áreas e soluções" },
       {
         name: "description",
         content:
-          "Visualize onde a IA já atua na Loft: soluções por área, times envolvidos e horas economizadas em cada frente.",
+          "Visualize onde a IA já atua na Olivelas: soluções por área, times envolvidos e horas economizadas em cada frente.",
       },
-      { property: "og:title", content: "Mapa de IA na Loft" },
+      { property: "og:title", content: "Mapa de IA na Olivelas" },
       {
         property: "og:description",
         content: "Um panorama por área de negócio das soluções de IA em uso.",
@@ -264,7 +264,7 @@ function MapaPage() {
       maxLargura="max-w-[1400px]"
       crumbs={[{ label: "Home", to: "/portal" }, { label: "Mapa de IA" }]}
       eyebrow="Panorama"
-      titulo="Mapa de IA na Loft"
+      titulo="Mapa de IA na Olivelas"
       descricao={
         <>
           Clique em uma área para abrir as soluções. Clique de novo na área para fechar.

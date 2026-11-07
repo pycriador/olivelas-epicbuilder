@@ -1,9 +1,9 @@
 ---
 title: "Visão geral da arquitetura"
 status: "DRAFT"
-owner: "aiops-app-model"
+owner: "olivelas"
 created: "2026-08-19"
-updated: "2026-08-19"
+updated: "2026-11-07"
 version: "1.0"
 ---
 
@@ -17,7 +17,7 @@ version: "1.0"
 
 ## Propósito
 
-Visão de alto nível de como o AIOps App Model é estruturado: camadas de UI, boundary de integração server-side e onde os dados residem.
+Visão de alto nível de como o Olivelas App Model é estruturado: camadas de UI, boundary de integração server-side e onde os dados residem.
 
 ## Contexto
 
@@ -140,7 +140,7 @@ flowchart TB
 | --- | --- | --- | --- | --- |
 | CON-001 | Histórico Git conectado ao Lovable não deve ser reescrito com force | `AGENTS.md` | Risco de sync/deploy | Active |
 | CON-002 | Confluence cria apenas sob pasta configurada | `confluence.server.ts` | Limita blast radius | Active |
-| CON-003 | Copy de UI em português brasileiro | Padrão Loft | Split idioma doc/código | Active |
+| CON-003 | Copy de UI em português brasileiro | Padrão Olivelas | Split idioma doc/código | Active |
 
 ## Trade-offs
 
